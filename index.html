@@ -19,6 +19,7 @@ body {
   font-family: Arial, sans-serif;
   background-image: url("assets/stuff/breakfree.png");
   background-repeat: repeat;
+  position: relative; /* Referenz für VIP PNGs */
 }
 
 /* ================= INTRO ================= */
@@ -90,51 +91,11 @@ h1 {
 }
 
 /* ================= VIP THEME ================= */
-<body class="vip-theme">
-
-  <!-- VIP PNGs -->
-  <img src="assets/stuff/gold_p.png" class="vip-png" alt="p">
-  <img src="assets/stuff/gold_e.png" class="vip-png" alt="e">
-  <img src="assets/stuff/gold_o.png" class="vip-png" alt="o">
-  <img src="assets/stuff/gold_h.png" class="vip-png" alt="h">
-
-
-<script>
-/* ================= RANDOM POSITION DER PNGS ================= */
-window.addEventListener('DOMContentLoaded', () => {
-  const vipPNGs = document.querySelectorAll('.vip-png');
-  const bodyHeight = document.body.scrollHeight;
-  const bodyWidth = document.body.clientWidth;
-
-  vipPNGs.forEach(png => {
-    const randomTop = Math.floor(Math.random() * (bodyHeight - 120)); // 120 = max Höhe PNG
-    const randomLeft = Math.floor(Math.random() * (bodyWidth - 120)); // 120 = max Breite PNG
-    png.style.top = randomTop + 'px';
-    png.style.left = randomLeft + 'px';
-  });
-});
-</script>
-
-<style>
 body.vip-theme {
-  position: relative; /* Referenz für absolute PNGs */
-}
-
-.vip-png {
-  position: absolute;    /* scrollt mit dem Content */
-  width: 100px;          /* feste Größe */
-  height: auto;
-  pointer-events: none;  /* Content bleibt klickbar */
-  z-index: 0;
-}
-</style>
-
-  
-  body.vip-theme {
   font-family: 'Cinzel Decorative', serif;
- 
 }
 
+/* VIP Intro */
 body.vip-theme .text-container {
   background: #d4af37;
   color: black;
@@ -156,6 +117,15 @@ body.vip-theme .exhibition-item img {
   border-image: url('assets/stuff/goldenpattern.png') 30 round;
   border-radius: 10px;
   box-shadow: 0 12px 25px rgba(0,0,0,0.4);
+}
+
+/* VIP PNGs */
+.vip-png {
+  position: absolute;       /* scrollt mit Content */
+  width: 100px;             /* feste Größe */
+  height: auto;
+  pointer-events: none;     /* Klicks gehen durch */
+  z-index: 0;
 }
 
 /* ================= NEWSLETTER ================= */
@@ -217,6 +187,12 @@ body.chill-mode {
 </head>
 
 <body>
+
+<!-- VIP PNGs -->
+<img src="assets/stuff/gold_h.png" class="vip-png" alt="h">
+<img src="assets/stuff/gold_o.png" class="vip-png" alt="o">
+<img src="assets/stuff/gold_p.png" class="vip-png" alt="p">
+<img src="assets/stuff/gold_e.png" class="vip-png" alt="e">
 
 <!-- Buttons -->
 <div class="language-toggle">
@@ -333,6 +309,20 @@ const themeBtn = document.getElementById('themeBtn');
 themeBtn.addEventListener('click', () => {
   document.body.classList.toggle('vip-theme');
   themeBtn.textContent = document.body.classList.contains('vip-theme') ? 'RAGGAE' : 'VIP';
+
+  // Wenn VIP, PNGs zufällig positionieren
+  if(document.body.classList.contains('vip-theme')) {
+    const vipPNGs = document.querySelectorAll('.vip-png');
+    const bodyWidth = document.body.clientWidth;
+    const bodyHeight = document.body.scrollHeight;
+
+    vipPNGs.forEach(png => {
+      const randomTop = Math.floor(Math.random() * (bodyHeight - 100));
+      const randomLeft = Math.floor(Math.random() * (bodyWidth - 100));
+      png.style.top = randomTop + 'px';
+      png.style.left = randomLeft + 'px';
+    });
+  }
 });
 </script>
 
