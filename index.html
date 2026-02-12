@@ -19,6 +19,8 @@ body {
   font-family: Arial, sans-serif;
   background-image: url("assets/stuff/breakfree.png");
   background-repeat: repeat;
+  position: relative;
+  overflow-x: hidden;
 }
 
 /* ================= INTRO ================= */
@@ -94,6 +96,7 @@ body.vip-theme {
   font-family: 'Cinzel Decorative', serif;
 }
 
+/* VIP Intro */
 body.vip-theme .text-container {
   background: #d4af37;
   color: black;
@@ -115,18 +118,6 @@ body.vip-theme .exhibition-item img {
   border-image: url('assets/stuff/goldenpattern.png') 30 round;
   border-radius: 10px;
   box-shadow: 0 12px 25px rgba(0,0,0,0.4);
-}
-
-/* ================= VIP PNG LAYER ================= */
-#vip-layer {
-  display: none; /* nur bei VIP sichtbar */
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1; /* hinter allen Elementen */
-  pointer-events: none;
 }
 
 /* ================= NEWSLETTER ================= */
@@ -184,12 +175,28 @@ body.chill-mode {
   .exhibition-item p { display: block; width: fit-content; max-width: 100%; font-size: 16px; padding: 8px 12px; text-align: left; transform: none; }
 }
 
+/* ================= VIP PNG Layer ================= */
+#vip-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
+  display: none;
+}
+#vip-layer img {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+}
 </style>
 </head>
 
 <body>
 
-<!-- VIP Layer -->
+<!-- VIP PNG Layer -->
 <div id="vip-layer"></div>
 
 <!-- Buttons -->
@@ -219,42 +226,36 @@ body.chill-mode {
       <p>THE CAR SHOW I</p>
     </a>
   </li>
-
   <li class="exhibition-item">
     <a href="/nothingshow.html">
       <img src="assets/nothingshow/still3.png" alt="">
       <p>THE NOTHING SHOW</p>
     </a>
   </li>
-
   <li class="exhibition-item">
     <a href="/shoeshow2.html">
       <img src="assets/Shoeshow/emy2.jpg" alt="">
       <p>THE SHOE SHOW</p>
     </a>
   </li>
-
   <li class="exhibition-item">
     <a href="/xmasshow.html">
       <img src="assets/xmasshow/1.jpg" alt="">
       <p>HOPE XMAS SHOW</p>
     </a>
   </li>
-
   <li class="exhibition-item">
     <a href="palmtreeshow.html">
       <img src="assets/palmtree_main/spaceview_4.jpg" alt="">
       <p>PALMTREESHOW</p>
     </a>
   </li>
-
   <li class="exhibition-item">
     <a href="soulseller.html">
       <img src="soulseller/queer_27.jpg" alt="">
       <p>SOULSELLER — UNHAPPY PAINTER / HAPPY PAINTER WANTS TO EXIST</p>
     </a>
   </li>
-
   <li class="exhibition-item">
     <a href="gardenofeldon.html">
       <img src="assets/gardenofeldon/garden_titelbild.JPG" alt="">
@@ -302,6 +303,20 @@ langBtn.addEventListener('click', () => {
   });
 });
 
+// ===== Theme Switch =====
+const themeBtn = document.getElementById('themeBtn');
+themeBtn.addEventListener('click', () => {
+  document.body.classList.toggle('vip-theme');
+  themeBtn.textContent = document.body.classList.contains('vip-theme') ? 'RAGGAE' : 'VIP';
+
+  // VIP PNGs anzeigen
+  if(document.body.classList.contains('vip-theme')) {
+    distributeVIPPNGs();
+  } else {
+    document.getElementById('vip-layer').style.display = 'none';
+  }
+});
+
 // ===== VIP PNG Distribution =====
 function distributeVIPPNGs() {
   const layer = document.getElementById('vip-layer');
@@ -313,38 +328,22 @@ function distributeVIPPNGs() {
     'assets/stuff/gold_o.png',
     'assets/stuff/gold_p.png',
     'assets/stuff/gold_e.png',
-    
+   
   ];
 
   const bodyWidth = document.body.scrollWidth;
   const bodyHeight = document.body.scrollHeight;
   const pngSize = 300;
-  const count = 12;
+  const count = 22;
 
   for (let i = 0; i < count; i++) {
     const img = document.createElement('img');
     img.src = pngs[i % pngs.length];
-    img.style.position = 'absolute';
-    img.style.width = `${pngSize}px`;
-    img.style.height = `${pngSize}px`;
     img.style.left = `${Math.random() * (bodyWidth - pngSize)}px`;
     img.style.top = `${Math.random() * (bodyHeight - pngSize)}px`;
     layer.appendChild(img);
   }
 }
-
-// ===== Theme Switch =====
-const themeBtn = document.getElementById('themeBtn');
-themeBtn.addEventListener('click', () => {
-  document.body.classList.toggle('vip-theme');
-  themeBtn.textContent = document.body.classList.contains('vip-theme') ? 'RAGGAE' : 'VIP';
-
-  if (document.body.classList.contains('vip-theme')) {
-    distributeVIPPNGs();
-  } else {
-    document.getElementById('vip-layer').style.display = 'none';
-  }
-});
 </script>
 
 </body>
