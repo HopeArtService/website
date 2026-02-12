@@ -19,6 +19,7 @@ body {
   font-family: Arial, sans-serif;
   background-image: url("assets/stuff/breakfree.png");
   background-repeat: repeat;
+  position: relative; /* für VIP-PNG-Layer */
 }
 
 /* ================= INTRO ================= */
@@ -92,21 +93,20 @@ h1 {
 /* ================= VIP THEME ================= */
 body.vip-theme {
   font-family: 'Cinzel Decorative', serif;
-  position: relative;
 }
 
-/* VIP PNG Layer */
-body.vip-theme #vip-layer {
+/* VIP Layer hinter allem */
+#vip-layer {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
+  z-index: -1;
   pointer-events: none;
-  z-index: 0;
+  display: none; /* versteckt standardmäßig */
 }
 
-/* VIP Text & Images */
 body.vip-theme .text-container {
   background: #d4af37;
   color: black;
@@ -190,7 +190,7 @@ body.chill-mode {
 
 <body>
 
-<!-- VIP PNG Layer -->
+<!-- VIP Layer -->
 <div id="vip-layer"></div>
 
 <!-- Buttons -->
@@ -303,26 +303,27 @@ langBtn.addEventListener('click', () => {
   });
 });
 
-// ===== VIP PNG Distribution =====
+// ===== VIP PNG Distribution mitscrollend =====
 function distributeVIPPNGs() {
   const layer = document.getElementById('vip-layer');
   layer.innerHTML = '';
+  layer.style.display = 'block'; // nur bei VIP sichtbar
 
   const pngs = [
-    'assets/stuff/star1.png',
-    'assets/stuff/star2.png',
-    'assets/stuff/star3.png',
-    'assets/stuff/star4.png',
-    'assets/stuff/star5.png'
+    'assets/stuff/gold_h.png',
+    'assets/stuff/gold_o.png',
+    'assets/stuff/gold_p.png',
+    'assets/stuff/gold_e.png',
+
   ];
 
-  const bodyWidth = document.body.clientWidth;
+  const bodyWidth = document.body.scrollWidth;
   const bodyHeight = document.body.scrollHeight;
-  const pngWidth = 200;
-  const spacingX = pngWidth;
-  const spacingY = 250; // vertikale Wiederholung
+  const pngSize = 200; // feste Größe
+  const spacingX = pngSize;
+  const spacingY = pngSize;
 
-  const cols = Math.floor(bodyWidth / spacingX);
+  const cols = Math.ceil(bodyWidth / spacingX);
   const rows = Math.ceil(bodyHeight / spacingY);
 
   for (let row = 0; row < rows; row++) {
@@ -332,7 +333,8 @@ function distributeVIPPNGs() {
       img.style.position = 'absolute';
       img.style.left = `${col * spacingX}px`;
       img.style.top = `${row * spacingY}px`;
-      img.style.width = `${pngWidth}px`;
+      img.style.width = `${pngSize}px`;
+      img.style.height = `${pngSize}px`;
       layer.appendChild(img);
     }
   }
@@ -344,9 +346,18 @@ themeBtn.addEventListener('click', () => {
   document.body.classList.toggle('vip-theme');
   themeBtn.textContent = document.body.classList.contains('vip-theme') ? 'RAGGAE' : 'VIP';
 
-  if(document.body.classList.contains('vip-theme')) {
+  const layer = document.getElementById('vip-layer');
+  if (document.body.classList.contains('vip-theme')) {
     distributeVIPPNGs();
+  } else {
+    layer.innerHTML = '';
+    layer.style.display = 'none'; // VIP PNGs verstecken
   }
+});
+
+// Optional: Neu verteilen beim Resize
+window.addEventListener('resize', () => {
+  if (document.body.classList.contains('vip-theme')) distributeVIPPNGs();
 });
 </script>
 
