@@ -9,6 +9,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&display=swap" rel="stylesheet">
 
 <style>
+
 /* ================= BASE ================= */
 * { box-sizing: border-box; }
 
@@ -18,8 +19,6 @@ body {
   font-family: Arial, sans-serif;
   background-image: url("assets/stuff/breakfree.png");
   background-repeat: repeat;
-  position: relative;
-  overflow-x: hidden;
 }
 
 /* ================= INTRO ================= */
@@ -31,8 +30,6 @@ body {
   color: white;
   border-radius: 10px;
   box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-  position: relative;
-  z-index: 2;
 }
 
 h1 {
@@ -46,8 +43,6 @@ h1 {
   list-style: none;
   padding: 0;
   margin: 120px 20px;
-  position: relative;
-  z-index: 2;
 }
 
 .exhibition-item {
@@ -95,11 +90,51 @@ h1 {
 }
 
 /* ================= VIP THEME ================= */
+<body class="vip-theme">
+
+  <!-- VIP PNGs -->
+  <img src="assets/stuff/gold_p.png" class="vip-png" alt="p">
+  <img src="assets/stuff/gold_e.png" class="vip-png" alt="e">
+  <img src="assets/stuff/gold_o.png" class="vip-png" alt="o">
+  <img src="assets/stuff/gold_h.png" class="vip-png" alt="h">
+
+
+<script>
+/* ================= RANDOM POSITION DER PNGS ================= */
+window.addEventListener('DOMContentLoaded', () => {
+  const vipPNGs = document.querySelectorAll('.vip-png');
+  const bodyHeight = document.body.scrollHeight;
+  const bodyWidth = document.body.clientWidth;
+
+  vipPNGs.forEach(png => {
+    const randomTop = Math.floor(Math.random() * (bodyHeight - 120)); // 120 = max Höhe PNG
+    const randomLeft = Math.floor(Math.random() * (bodyWidth - 120)); // 120 = max Breite PNG
+    png.style.top = randomTop + 'px';
+    png.style.left = randomLeft + 'px';
+  });
+});
+</script>
+
+<style>
 body.vip-theme {
-  font-family: 'Cinzel Decorative', serif;
+  position: relative; /* Referenz für absolute PNGs */
 }
 
-/* VIP Intro */
+.vip-png {
+  position: absolute;    /* scrollt mit dem Content */
+  width: 100px;          /* feste Größe */
+  height: auto;
+  pointer-events: none;  /* Content bleibt klickbar */
+  z-index: 0;
+}
+</style>
+
+  
+  body.vip-theme {
+  font-family: 'Cinzel Decorative', serif;
+ 
+}
+
 body.vip-theme .text-container {
   background: #d4af37;
   color: black;
@@ -108,7 +143,6 @@ body.vip-theme .text-container {
   box-shadow: 0 15px 35px rgba(0,0,0,0.4);
 }
 
-/* VIP Exhibition Text */
 body.vip-theme .exhibition-item p {
   background: #d4af37;
   color: black;
@@ -117,23 +151,11 @@ body.vip-theme .exhibition-item p {
   box-shadow: 0 8px 20px rgba(0,0,0,0.4);
 }
 
-/* VIP Images */
 body.vip-theme .exhibition-item img {
   border: 14px solid transparent;
   border-image: url('assets/stuff/goldenpattern.png') 30 round;
   border-radius: 10px;
   box-shadow: 0 12px 25px rgba(0,0,0,0.4);
-}
-
-/* PNG Layer Container */
-#vip-png-layer {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 1;
 }
 
 /* ================= NEWSLETTER ================= */
@@ -142,15 +164,13 @@ body.vip-theme .exhibition-item img {
   padding: 20px;
   background: white;
   max-width: 600px;
-  position: relative;
-  z-index: 2;
 }
 
 /* ================= BUTTONS ================= */
 .language-toggle, .theme-toggle {
   position: fixed;
   right: 15px;
-  z-index: 1002;
+  z-index: 1000;
 }
 
 .language-toggle { top: 15px; }
@@ -192,6 +212,7 @@ body.chill-mode {
   .exhibition-item img { margin-bottom: 12px; }
   .exhibition-item p { display: block; width: fit-content; max-width: 100%; font-size: 16px; padding: 8px 12px; text-align: left; transform: none; }
 }
+
 </style>
 </head>
 
@@ -206,15 +227,12 @@ body.chill-mode {
   <button id="themeBtn">VIP</button>
 </div>
 
-<!-- VIP PNG Layer -->
-<div id="vip-png-layer"></div>
-
 <!-- Intro -->
 <div class="text-container">
   <h1>H0PE ART SERVICE</h1>
   <p id="mainText"
-     data-en="H0pe is a curatorial project initiated by Marcus Wagner in Newcastle Upon Tyne in 2024."
-     data-de="H0pe ist ein kuratorisches Projekt das von Marcus Wagner inititiert wurde.">
+     data-en="H0pe is a curatorial project initiated by Marcus Wagner in Newcastle Upon Tyne in 2024, with the wish to create his own curatorial structure and therefore freedom to present works in an autonomous way. H0pe organizes itself with regular open calls inviting everybody to submit. The program focusses on a fun experimental approach to exhibition making and likes to concentrate on the effect of an exhibition more than the single work. Themes are choosen to generate a wide range of submissions and transform a simple topic into a vivid show, guiding back to the viewer and telling something about contemporary art production itself. Everybody is invited to contribute"
+     data-de="H0pe ist ein kuratorisches Projekt das von Marcus Wagner inititiert wurde und seither regelmäßig Gruppenausstellungen mittels Open Calls organisiert, Das Programm arbeitet experimentell und spielerisch und legt seinen Wert stärker auf die Gesamtwirkung der Ausstellung als auf das einzelne Werk. Gewählte Themen befassen sich oft mit Symbolik von Objekten und Worten. Die Wechselwirkung aus Thema und Werk soll auf den Betrachter zurück verweisen und wenn man so will etwas über gegenwärtige künstlerische Produktionsweisen aussagen.">
      About H0pe...
   </p>
 </div>
@@ -227,19 +245,66 @@ body.chill-mode {
       <p>THE CAR SHOW I</p>
     </a>
   </li>
+
   <li class="exhibition-item">
     <a href="/nothingshow.html">
       <img src="assets/nothingshow/still3.png" alt="">
       <p>THE NOTHING SHOW</p>
     </a>
   </li>
+
   <li class="exhibition-item">
     <a href="/shoeshow2.html">
       <img src="assets/Shoeshow/emy2.jpg" alt="">
       <p>THE SHOE SHOW</p>
     </a>
   </li>
+
+  <li class="exhibition-item">
+    <a href="/xmasshow.html">
+      <img src="assets/xmasshow/1.jpg" alt="">
+      <p>HOPE XMAS SHOW</p>
+    </a>
+  </li>
+
+  <li class="exhibition-item">
+    <a href="palmtreeshow.html">
+      <img src="assets/palmtree_main/spaceview_4.jpg" alt="">
+      <p>PALMTREESHOW</p>
+    </a>
+  </li>
+
+  <li class="exhibition-item">
+    <a href="soulseller.html">
+      <img src="soulseller/queer_27.jpg" alt="">
+      <p>SOULSELLER — UNHAPPY PAINTER / HAPPY PAINTER WANTS TO EXIST</p>
+    </a>
+  </li>
+
+  <li class="exhibition-item">
+    <a href="gardenofeldon.html">
+      <img src="assets/gardenofeldon/garden_titelbild.JPG" alt="">
+      <p>GARDEN OF ELDON</p>
+    </a>
+  </li>
 </ul>
+
+<!-- Newsletter -->
+<div class="newsletter">
+  <p id="newsletterText"
+     data-en="Get in touch! Write us an email to join our newsletter and stay updated on upcoming exhibitions and projects."
+     data-de="Schreib uns! Sende eine E-Mail, um in unseren Newsletter aufgenommen zu werden und über kommende Ausstellungen und Projekte informiert zu bleiben.">
+     Get in touch...
+  </p>
+  <a href="mailto:hopeartservice@gmx.net">hopeartservice@gmx.net</a>
+</div>
+
+<!-- Instagram -->
+<div style="margin:40px 20px;">
+  <a href="https://www.instagram.com/h__0__p__e__0.0/?hl=de" target="_blank">
+    <img src="assets/stuff/Instagram_icon.png" alt="Instagram Link" style="width:60px; height:auto;">
+  </a>
+</div>
 
 <!-- Chill Mode -->
 <div class="chill-mode-toggle" onclick="toggleChillMode()">.</div>
@@ -253,9 +318,11 @@ function toggleChillMode() {
 // ===== Language Switch =====
 const langBtn = document.getElementById('langBtn');
 let currentLang = 'en';
+
 langBtn.addEventListener('click', () => {
   currentLang = currentLang === 'en' ? 'de' : 'en';
   langBtn.textContent = currentLang === 'en' ? 'DE' : 'EN';
+
   document.querySelectorAll('[data-en]').forEach(el => {
     el.textContent = el.getAttribute(`data-${currentLang}`);
   });
@@ -266,38 +333,7 @@ const themeBtn = document.getElementById('themeBtn');
 themeBtn.addEventListener('click', () => {
   document.body.classList.toggle('vip-theme');
   themeBtn.textContent = document.body.classList.contains('vip-theme') ? 'RAGGAE' : 'VIP';
-
-  if(document.body.classList.contains('vip-theme')){
-    createVipPNGs();
-  } else {
-    document.getElementById('vip-png-layer').innerHTML = '';
-  }
 });
-
-// ===== VIP PNG Layer =====
-const vipPNGs = [
-  'assets/stuff/gold_e.png',
-  'assets/stuff/gold_h.png',
-  'assets/stuff/gold_o.png',
-  'assets/stuff/gold_p.png',
-];
-
-function createVipPNGs() {
-  const layer = document.getElementById('vip-png-layer');
-  layer.innerHTML = '';
-  for(let i=0; i<20; i++){ // 20 zufällige PNGs
-    const img = document.createElement('img');
-    img.src = vipPNGs[Math.floor(Math.random()*vipPNGs.length)];
-    img.style.position = 'absolute';
-    img.style.width = 50 + Math.random()*100 + 'px';
-    img.style.top = Math.random()*100 + 'vh';
-    img.style.left = Math.random()*100 + 'vw';
-    img.style.opacity = 0.3 + Math.random()*0.4;
-    img.style.transform = `rotate(${Math.random()*360}deg)`;
-    img.style.pointerEvents = 'none';
-    layer.appendChild(img);
-  }
-}
 </script>
 
 </body>
