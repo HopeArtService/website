@@ -25,6 +25,18 @@ body {
 font-family: 'Arial', sans-serif;
 
 } 
+   
+.text-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.text-container p {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
 
 .exhibition-list {
 list-style: none;
@@ -76,13 +88,17 @@ document.body.classList.toggle('chill-mode');
 </script>
 <body>
 
-<h1>H0PE ART SERVICE</h1>  
-<p>
-H0pe is a curatorial project primarily run by Marcus Wagner. He founded the project in Newcastle Upon Tyne in 2024 with the wish to create his own curatorial structure and therefor freedom to present works. 
-The project can be described as an operation at the intersection of artistic practice and curatorial experimentation with the wish to blurr those categories 
-and invite others to be part of the "own". There is a tendency to strong symbolic themes and experimental display. The interest lies mainly within the magical moment(firework) of giving a work a new energy through a specific 
-context(topic)and situation of display.
-</p>
+
+<div class="text-container">
+  <h1>H0PE ART SERVICE</h1>
+  <p>
+    H0pe is a curatorial project primarily run by Marcus Wagner. He founded the project in Newcastle Upon Tyne in 2024 with the wish to create his own curatorial structure and therefore freedom to present works. 
+    The project can be described as an operation at the intersection of artistic practice and curatorial experimentation with the wish to blur those categories 
+    and invite others to be part of the "own". There is a tendency to strong symbolic themes and experimental display. The interest lies mainly within the magical moment (firework) of giving a work a new energy through a specific 
+    context (topic) and situation of display.
+  </p>
+</div>
+
   
 <ul class="exhibition-list">
 
@@ -155,14 +171,15 @@ context(topic)and situation of display.
 </a>
 </li> 
 
-  
-<!-- Add new exhibitions here manually -->
-</ul>
-<div class="chill-mode-toggle" onclick="toggleChillMode()">.</div>
-</body> 
 <pre> 
 Write us a Mail if you want to be on our Newsletter
 </pre>
 <a href="mailto:hopeartservice@gmx.net">hopeartservice@gmx.net</a>     
+<!-- Add new exhibitions here manually -->
+</ul>
+<div class="chill-mode-toggle" onclick="toggleChillMode()">.</div>
+   
+</body> 
+  
 </head>  
 </html>
