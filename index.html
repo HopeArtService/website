@@ -19,8 +19,7 @@ body {
   font-family: Arial, sans-serif;
   background-image: url("assets/stuff/breakfree.png");
   background-repeat: repeat;
-  position: relative;
-  overflow-x: hidden;
+  position: relative; /* für VIP PNG Layer */
 }
 
 /* ================= INTRO ================= */
@@ -32,6 +31,8 @@ body {
   color: white;
   border-radius: 10px;
   box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+  position: relative;
+  z-index: 1;
 }
 
 h1 {
@@ -50,6 +51,7 @@ h1 {
 .exhibition-item {
   display: flex;
   margin-bottom: 140px;
+  position: relative; /* VIP PNGs bleiben dahinter */
 }
 
 .exhibition-item a {
@@ -96,6 +98,24 @@ body.vip-theme {
   font-family: 'Cinzel Decorative', serif;
 }
 
+/* VIP PNG Layer Container */
+#vipPngContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+body.vip-theme .vip-png {
+  position: absolute;
+  width: 300px;
+  z-index: 0;
+  pointer-events: none;
+}
+
 /* VIP Intro */
 body.vip-theme .text-container {
   background: #d4af37;
@@ -105,7 +125,9 @@ body.vip-theme .text-container {
   box-shadow: 0 15px 35px rgba(0,0,0,0.4);
 }
 
+/* VIP Exhibition Text */
 body.vip-theme .exhibition-item p {
+  font-family: 'Cinzel Decorative', serif; /* gleiche Schrift wie obere Box */
   background: #d4af37;
   color: black;
   border: 10px solid transparent;
@@ -113,6 +135,7 @@ body.vip-theme .exhibition-item p {
   box-shadow: 0 8px 20px rgba(0,0,0,0.4);
 }
 
+/* VIP Images */
 body.vip-theme .exhibition-item img {
   border: 14px solid transparent;
   border-image: url('assets/stuff/goldenpattern.png') 30 round;
@@ -126,6 +149,8 @@ body.vip-theme .exhibition-item img {
   padding: 20px;
   background: white;
   max-width: 600px;
+  position: relative;
+  z-index: 1;
 }
 
 /* ================= BUTTONS ================= */
@@ -175,29 +200,10 @@ body.chill-mode {
   .exhibition-item p { display: block; width: fit-content; max-width: 100%; font-size: 16px; padding: 8px 12px; text-align: left; transform: none; }
 }
 
-/* ================= VIP PNG Layer ================= */
-#vip-layer {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: -1;
-  display: none;
-}
-#vip-layer img {
-  position: absolute;
-  width: 300px;
-  height: 300px;
-}
 </style>
 </head>
 
 <body>
-
-<!-- VIP PNG Layer -->
-<div id="vip-layer"></div>
 
 <!-- Buttons -->
 <div class="language-toggle">
@@ -217,6 +223,9 @@ body.chill-mode {
      About H0pe...
   </p>
 </div>
+
+<!-- VIP PNG Layer Container -->
+<div id="vipPngContainer"></div>
 
 <!-- Exhibition List -->
 <ul class="exhibition-list">
@@ -309,39 +318,39 @@ themeBtn.addEventListener('click', () => {
   document.body.classList.toggle('vip-theme');
   themeBtn.textContent = document.body.classList.contains('vip-theme') ? 'RAGGAE' : 'VIP';
 
-  // VIP PNGs anzeigen
-  if(document.body.classList.contains('vip-theme')) {
-    distributeVIPPNGs();
+  if (document.body.classList.contains('vip-theme')) {
+    generateVipPngs();
+    window.addEventListener('resize', generateVipPngs);
   } else {
-    document.getElementById('vip-layer').style.display = 'none';
+    document.getElementById('vipPngContainer').innerHTML = '';
+    window.removeEventListener('resize', generateVipPngs);
   }
 });
 
-// ===== VIP PNG Distribution =====
-function distributeVIPPNGs() {
-  const layer = document.getElementById('vip-layer');
-  layer.innerHTML = '';
-  layer.style.display = 'block';
-
-  const pngs = [
+// ===== VIP PNGs =====
+function generateVipPngs() {
+  const container = document.getElementById('vipPngContainer');
+  container.innerHTML = '';
+  const pngPaths = [
     'assets/stuff/gold_h.png',
     'assets/stuff/gold_o.png',
     'assets/stuff/gold_p.png',
     'assets/stuff/gold_e.png',
-   
+
   ];
+  const total = 22;
 
   const bodyWidth = document.body.scrollWidth;
   const bodyHeight = document.body.scrollHeight;
-  const pngSize = 300;
-  const count = 22;
 
-  for (let i = 0; i < count; i++) {
+  for (let i = 0; i < total; i++) {
     const img = document.createElement('img');
-    img.src = pngs[i % pngs.length];
-    img.style.left = `${Math.random() * (bodyWidth - pngSize)}px`;
-    img.style.top = `${Math.random() * (bodyHeight - pngSize)}px`;
-    layer.appendChild(img);
+    img.src = pngPaths[i % pngPaths.length];
+    img.className = 'vip-png';
+    img.style.width = '300px';
+    img.style.top = Math.random() * bodyHeight + 'px';
+    img.style.left = Math.random() * bodyWidth + 'px';
+    container.appendChild(img);
   }
 }
 </script>
