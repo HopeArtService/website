@@ -19,7 +19,7 @@ body {
   font-family: Arial, sans-serif;
   background-image: url("assets/stuff/breakfree.png");
   background-repeat: repeat;
-  position: relative; /* für VIP PNG Layer */
+  position: relative; /* for VIP PNG Layer */
 }
 
 /* ================= INTRO ================= */
@@ -40,6 +40,7 @@ h1 {
   margin-top: 0;
   letter-spacing: 2px;
   font-weight: normal;
+  font-family: "Times New Roman", serif;
 }
 
 /* ================= EXHIBITIONS ================= */
@@ -52,7 +53,7 @@ h1 {
 .exhibition-item {
   display: flex;
   margin-bottom: 140px;
-  position: relative; /* VIP PNGs bleiben dahinter */
+  position: relative; /* VIP PNGs stay behind */
 }
 
 .exhibition-item a {
@@ -128,7 +129,7 @@ body.vip-theme .text-container {
 
 /* VIP Exhibition Text */
 body.vip-theme .exhibition-item p {
-  font-family: 'Cinzel Decorative', serif; /* gleiche Schrift wie obere Box */
+  font-family: 'Cinzel Decorative', serif; /* same as top box */
   background: #d4af37;
   color: black;
   border: 10px solid transparent;
@@ -328,29 +329,43 @@ themeBtn.addEventListener('click', () => {
   }
 });
 
-// ===== VIP PNGs =====
+// ===== VIP PNGs Non-Overlapping =====
 function generateVipPngs() {
   const container = document.getElementById('vipPngContainer');
   container.innerHTML = '';
   const pngPaths = [
     'assets/stuff/gold_h.png',
-    'assets/stuff/gold_o.png',
-    'assets/stuff/gold_p.png',
-    'assets/stuff/gold_e.png',
-
+     'assets/stuff/gold_o.png',
+     'assets/stuff/gold_p.png',
+     'assets/stuff/gold_e.png',
+   
+   
+    
   ];
   const total = 22;
+  const size = 300;
 
   const bodyWidth = document.body.scrollWidth;
   const bodyHeight = document.body.scrollHeight;
 
+  let positions = [];
+
   for (let i = 0; i < total; i++) {
+    let x, y, attempts = 0;
+    do {
+      x = Math.random() * (bodyWidth - size);
+      y = Math.random() * (bodyHeight - size);
+      attempts++;
+    } while (positions.some(pos => Math.abs(pos.x - x) < size && Math.abs(pos.y - y) < size) && attempts < 100);
+
+    positions.push({x, y});
+
     const img = document.createElement('img');
     img.src = pngPaths[i % pngPaths.length];
     img.className = 'vip-png';
-    img.style.width = '300px';
-    img.style.top = Math.random() * bodyHeight + 'px';
-    img.style.left = Math.random() * bodyWidth + 'px';
+    img.style.width = size + 'px';
+    img.style.left = x + 'px';
+    img.style.top = y + 'px';
     container.appendChild(img);
   }
 }
