@@ -1,199 +1,168 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+   
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>H0PE ART SERVICE</title>
+<title>Welcome</title>
 
 <style>
-/* ===== Base Reset ===== */
-* {
-  box-sizing: border-box;
-}
-
-html, body {
-  margin: 0;
-  padding: 0;
-  font-family: Arial, Helvetica, sans-serif;
-  overflow-x: hidden;
-  background: white;
-  color: black;
-}
-
-/* ===== Text Section ===== */
-.text-container {
-  max-width: 800px;
-  margin: 40px auto;
-  padding: 20px;
-}
-
-h1 {
-  font-size: 28px;
-  font-weight: bold;
-  margin-bottom: 20px;
-}
-
-.text-container p {
-  line-height: 1.6;
-  font-size: 16px;
-}
-
-/* ===== Exhibition List ===== */
-.exhibition-list {
-  list-style: none;
-  padding: 0;
-  margin: 40px auto;
-  max-width: 900px;
-}
-
-.exhibition-item {
-  margin-bottom: 40px;
-}
-
-.exhibition-item img {
-  width: 100%;
-  max-width: 600px;
-  height: auto;
-  display: block;
-}
-
-.exhibition-item a {
-  text-decoration: none;
-  color: black;
-  font-weight: bold;
-}
-
-.exhibition-item p {
-  margin-top: 10px;
-}
-
-/* ===== Newsletter Section ===== */
-.newsletter {
-  margin: 60px auto;
-  max-width: 800px;
-  padding: 20px;
-}
-
-.newsletter a {
-  color: black;
-  text-decoration: underline;
-}
-
-/* ===== Chill Mode ===== */
-.chill-mode-toggle {
-  position: fixed;
-  bottom: 10px;
-  right: 10px;
-  cursor: pointer;
-  font-weight: bold;
-}
-
-.chill-mode {
-  background: url('green.gif') no-repeat center center fixed;
-  background-size: cover;
-  color: white;
-}
-
-/* ===== Responsive Adjustments ===== */
-@media (max-width: 650px) {
-  .text-container {
-    padding: 15px;
+head {
+  font-color: red;
   }
-
-  h1 {
-    font-size: 22px;
-  }
-
-  .exhibition-item {
-    margin-bottom: 30px;
-  }
-}
 </style>
+  
+<style>  
+html, body {
+width: 100%;
+height: 100%;
+margin: 0;
+padding: 10px;
+overflow-x: hidden;  
+}
+body {
+font-family: 'Arial', sans-serif;
 
+} 
+
+.exhibition-list {
+list-style: none;
+padding: 0;
+}
+.exhibition-item {
+margin-bottom: 15px;
+}
+.exhibition-item img {
+width: 600px;
+height: auto; /* Keeps aspect ratio */
+display: block;
+}
+.exhibition-item a {
+text-decoration: none;
+color: black;
+font-weight: bold;
+}
+/* Responsive images for smaller screens */
+@media (max-width: 650px) {
+body {
+padding: 2px; /* Less padding on smaller screens */
+}
+.exhibition-item img {
+width: 95%; /* Scale down to fit smaller screens */
+}
+}
+.chill-mode-toggle {
+position: fixed;
+bottom: 10px;
+right: 10px;
+color: white;
+font-weight: bold;
+cursor: pointer;
+padding: 5px 10px;
+border-radius: 5px;
+}
+.chill-mode {
+background: url('green.gif') no-repeat center center fixed;
+background-size: cover;
+}
+    
+</style>
+</head>
 <script>
 function toggleChillMode() {
-  document.body.classList.toggle('chill-mode');
+document.body.classList.toggle('chill-mode');
 }
 </script>
-
-</head>
-
 <body>
 
-<!-- ===== Intro Section ===== -->
-<div class="text-container">
-  <h1>H0PE ART SERVICE</h1>
-  <p>
-    H0pe is a curatorial project primarily run by Marcus Wagner. 
-    He founded the project in Newcastle Upon Tyne in 2024 with the wish to create his own curatorial structure and therefore freedom to present works. 
-    The project can be described as an operation at the intersection of artistic practice and curatorial experimentation with the wish to blur those categories 
-    and invite others to be part of the "own". There is a tendency to strong symbolic themes and experimental display. 
-    The interest lies mainly within the magical moment (firework) of giving a work a new energy through a specific context (topic) and situation of display.
-  </p>
-</div>
-
-<!-- ===== Exhibitions ===== -->
+<h1>H0PE ART SERVICE</h1>  
+<p>
+H0pe is a curatorial project primarily run by Marcus Wagner. He founded the project in Newcastle Upon Tyne in 2024 with the wish to create his own curatorial structure and therefor freedom to present works. 
+The project can be described as an operation at the intersection of artistic practice and curatorial experimentation with the wish to blurr those categories 
+and invite others to be part of the "own". There is a tendency to strong symbolic themes and experimental display. The interest lies mainly within the magical moment(firework) of giving a work a new energy through a specific 
+context(topic)and situation of display.
+</p>
+  
 <ul class="exhibition-list">
 
 <li class="exhibition-item">
-  <a href="/carshow1.html">
-    <img src="assets/car_compressed/marie_nah.jpg" alt="Jonas and Marie Car">
-    <p>THE CAR SHOW </p>
-  </a>
+<a href="https://city-galerie-wien.com">
+  <img style="float: right;" style="width:50%;height:50%;" alt="xD" src=assets/stuff/HOPE_NEWS_carshow2.png />
+
 </li>
+  
+<li class="exhibition-item">
+<a href="/carshow1.html">
+<img src=assets/car_compressed/marie_nah.jpg alt="Jonas and Marie Car" />
+<p>THE CAR SHOW I</p>
+</a>
+</li>
+
+ <!--carshow-->     
 
 <li class="exhibition-item">
-  <a href="/nothingshow.html">
-    <img src="assets/nothingshow/still3.png" alt="The Nothing Show">
-    <p>THE NOTHING SHOW</p>
-  </a>
+<a href="/nothingshow.html">
+<img src=assets/nothingshow/still3.png alt="boat" />
+<p>THE NOTHING SHOW</p>
+</a>
 </li>
+
+  
+<li class="exhibition-item">
+<a href="/shoeshow 2.html">
+<img src=assets/Shoeshow/emy2.jpg alt="emy2" />
+<p>SHOE SHOW</p>
+</a>
+</li>
+
+  
+<!--SHOE SHOE -->
+  
+  <li class="exhibition-item">
+<a href="/xmasshow.html">
+<img src=assets/xmasshow/1.jpg alt="oscar z masterpiece" />
+<p>HOPE XMAS SHOW</p>
+</a>
+</li>
+
+ <!--XMAS-->
 
 <li class="exhibition-item">
-  <a href="/shoeshow2.html">
-    <img src="assets/Shoeshow/emy2.jpg" alt="Shoe Show">
-    <p>SHOE SHOW</p>
-  </a>
-</li>
+<a href="palmtreeshow.html">
+<img src=assets/palmtree_main/spaceview_4.jpg alt="palmtreeshow" />
+<p>PALMTREESHOW</p>
+</a>
+</li> 
+ 
+     
+<!--PALMTREE-->
 
 <li class="exhibition-item">
-  <a href="/xmasshow.html">
-    <img src="assets/xmasshow/1.jpg" alt="HOPE Xmas Show">
-    <p>HOPE XMAS SHOW</p>
-  </a>
-</li>
+<a href="soulseller.html">
+<img src=soulseller/queer_27.jpg alt="SOULSELLER TEASER" />
+<p>SOULSELLER UNHAPPY PAINTER - HAPPY PAINTER WANTS TO EXIST</p>
+</a>
+</li> 
+     
+
+ <!--SOULSELLER-->     
 
 <li class="exhibition-item">
-  <a href="palmtreeshow.html">
-    <img src="assets/palmtree_main/spaceview_4.jpg" alt="Palm Tree Show">
-    <p>PALMTREESHOW</p>
-  </a>
-</li>
+<a href="gardenofeldon .html">
+<img src=assets/gardenofeldon/garden_titelbild.JPG alt="Garden of Eldon" />
+<p>GARDEN OF ELDON</p>
+</a>
+</li> 
 
-<li class="exhibition-item">
-  <a href="soulseller.html">
-    <img src="soulseller/queer_27.jpg" alt="Soulseller">
-    <p>SOULSELLER — UNHAPPY PAINTER / HAPPY PAINTER WANTS TO EXIST</p>
-  </a>
-</li>
-
-<li class="exhibition-item">
-  <a href="gardenofeldon.html">
-    <img src="assets/gardenofeldon/garden_titelbild.JPG" alt="Garden of Eldon">
-    <p>GARDEN OF ELDON</p>
-  </a>
-</li>
-
+  
+<!-- Add new exhibitions here manually -->
 </ul>
-
-<!-- ===== Newsletter ===== -->
-<div class="newsletter">
-  <p>Write us a mail if you want to be on our newsletter:</p>
-  <a href="mailto:hopeartservice@gmx.net">hopeartservice@gmx.net</a>
-</div>
-
-<!-- ===== Chill Toggle ===== -->
 <div class="chill-mode-toggle" onclick="toggleChillMode()">.</div>
-
-</body>
+</body> 
+<pre> 
+Write us a Mail if you want to be on our Newsletter
+</pre>
+<a href="mailto:hopeartservice@gmx.net">hopeartservice@gmx.net</a>     
+</head>  
 </html>
