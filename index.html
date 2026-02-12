@@ -19,7 +19,7 @@ body {
   font-family: Arial, sans-serif;
   background-image: url("assets/stuff/breakfree.png");
   background-repeat: repeat;
-  position: relative; /* für VIP-PNG-Layer */
+  position: relative; /* für VIP-PNG Layer */
 }
 
 /* ================= INTRO ================= */
@@ -44,6 +44,8 @@ h1 {
   list-style: none;
   padding: 0;
   margin: 120px 20px;
+  position: relative; /* VIP-PNGs sollen dahinter sein */
+  z-index: 1;
 }
 
 .exhibition-item {
@@ -95,18 +97,7 @@ body.vip-theme {
   font-family: 'Cinzel Decorative', serif;
 }
 
-/* VIP Layer hinter allem */
-#vip-layer {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-  pointer-events: none;
-  display: none; /* versteckt standardmäßig */
-}
-
+/* VIP Text & Images */
 body.vip-theme .text-container {
   background: #d4af37;
   color: black;
@@ -128,6 +119,18 @@ body.vip-theme .exhibition-item img {
   border-image: url('assets/stuff/goldenpattern.png') 30 round;
   border-radius: 10px;
   box-shadow: 0 12px 25px rgba(0,0,0,0.4);
+}
+
+/* ================= VIP PNG Layer ================= */
+#vip-layer {
+  display: none; /* nur bei VIP aktiv */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0; /* hinter allen Inhalten */
+  pointer-events: none;
 }
 
 /* ================= NEWSLETTER ================= */
@@ -190,7 +193,7 @@ body.chill-mode {
 
 <body>
 
-<!-- VIP Layer -->
+<!-- VIP PNG Layer -->
 <div id="vip-layer"></div>
 
 <!-- Buttons -->
@@ -303,25 +306,39 @@ langBtn.addEventListener('click', () => {
   });
 });
 
-// ===== VIP PNG Distribution mitscrollend =====
+// ===== Theme Switch =====
+const themeBtn = document.getElementById('themeBtn');
+themeBtn.addEventListener('click', () => {
+  document.body.classList.toggle('vip-theme');
+  themeBtn.textContent = document.body.classList.contains('vip-theme') ? 'RAGGAE' : 'VIP';
+
+  if (document.body.classList.contains('vip-theme')) {
+    distributeVIPPNGs();
+  } else {
+    document.getElementById('vip-layer').style.display = 'none';
+  }
+});
+
+// ===== VIP PNG Distribution mitscrollend mit leichtem Random-Offset =====
 function distributeVIPPNGs() {
   const layer = document.getElementById('vip-layer');
   layer.innerHTML = '';
-  layer.style.display = 'block'; // nur bei VIP sichtbar
+  layer.style.display = 'block';
 
   const pngs = [
     'assets/stuff/gold_h.png',
     'assets/stuff/gold_o.png',
     'assets/stuff/gold_p.png',
     'assets/stuff/gold_e.png',
-
+ 
   ];
 
   const bodyWidth = document.body.scrollWidth;
   const bodyHeight = document.body.scrollHeight;
-  const pngSize = 200; // feste Größe
+  const pngSize = 200;
   const spacingX = pngSize;
   const spacingY = pngSize;
+  const maxOffset = 50;
 
   const cols = Math.ceil(bodyWidth / spacingX);
   const rows = Math.ceil(bodyHeight / spacingY);
@@ -331,8 +348,12 @@ function distributeVIPPNGs() {
       const img = document.createElement('img');
       img.src = pngs[(col + row) % pngs.length];
       img.style.position = 'absolute';
-      img.style.left = `${col * spacingX}px`;
-      img.style.top = `${row * spacingY}px`;
+      
+      const offsetX = Math.floor(Math.random() * maxOffset * 2 - maxOffset);
+      const offsetY = Math.floor(Math.random() * maxOffset * 2 - maxOffset);
+
+      img.style.left = `${col * spacingX + offsetX}px`;
+      img.style.top = `${row * spacingY + offsetY}px`;
       img.style.width = `${pngSize}px`;
       img.style.height = `${pngSize}px`;
       layer.appendChild(img);
@@ -340,25 +361,6 @@ function distributeVIPPNGs() {
   }
 }
 
-// ===== Theme Switch =====
-const themeBtn = document.getElementById('themeBtn');
-themeBtn.addEventListener('click', () => {
-  document.body.classList.toggle('vip-theme');
-  themeBtn.textContent = document.body.classList.contains('vip-theme') ? 'RAGGAE' : 'VIP';
-
-  const layer = document.getElementById('vip-layer');
-  if (document.body.classList.contains('vip-theme')) {
-    distributeVIPPNGs();
-  } else {
-    layer.innerHTML = '';
-    layer.style.display = 'none'; // VIP PNGs verstecken
-  }
-});
-
-// Optional: Neu verteilen beim Resize
-window.addEventListener('resize', () => {
-  if (document.body.classList.contains('vip-theme')) distributeVIPPNGs();
-});
 </script>
 
 </body>
