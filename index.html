@@ -61,20 +61,52 @@ h1 {
   margin: 100px 0;
 }
 
-.exhibition-item {
-  display: flex;
-  margin-bottom: 120px;
+.exhibition-item p {
+  margin-top: 15px;
+  font-family: "Times New Roman", Times, serif;
+  letter-spacing: 1px;
+  padding: 10px;
+  display: inline-block;
+  border-radius: 5px;
+  transition: all 0.3s ease; /* sanfte Animation bei Hover */
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* leichter Schatten */
+  cursor: default;
 }
 
-.exhibition-item:nth-child(odd) {
-  justify-content: flex-start;
-  padding-left: 20px;
+/* Reggae-Farben abwechselnd */
+.exhibition-item:nth-child(3n+1) p {
+  background-color: #1f5f2e; /* tiefes Grün */
+  color: white;
 }
 
-.exhibition-item:nth-child(even) {
-  justify-content: flex-end;
-  padding-right: 20px;
+.exhibition-item:nth-child(3n+2) p {
+  background-color: #d4af37; /* warmes Gelb */
+  color: black;
 }
+
+.exhibition-item:nth-child(3n+3) p {
+  background-color: #8b1e1e; /* dunkles Rot */
+  color: white;
+}
+
+/* Hover-Effekt */
+.exhibition-item p:hover {
+  transform: scale(1.05);        /* leicht vergrößern */
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3); /* größerer Schatten */
+}
+
+/* ===== Mobile Anpassung ===== */
+@media (max-width: 900px) {
+  .exhibition-item p {
+    padding: 8px;
+    font-size: 16px;
+    transform: none; /* kein Skalieren auf kleinen Bildschirmen */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  }
+}
+}
+
+
 
 .exhibition-item a {
   text-decoration: none;
@@ -88,12 +120,6 @@ h1 {
   display: block;
 }
 
-.exhibition-item p {
-  margin-top: 15px;
-  font-family: "Times New Roman", Times, serif;
-  letter-spacing: 1px;
-  background-color: white;
-}
 
 /* ===== Newsletter ===== */
 
