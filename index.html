@@ -9,7 +9,6 @@
 <style>
 
 /* ===== Base ===== */
-
 html, body {
   width: 100%;
   margin: 0;
@@ -21,11 +20,10 @@ html, body {
 }
 
 /* ===== Intro ===== */
-
 .text-container {
   max-width: 520px;
   margin: 80px 0 80px 20px;
-  padding: 30px;              /* Abstand innen */
+  padding: 30px;
   background-color: white;
 }
 
@@ -36,77 +34,27 @@ h1 {
   margin-bottom: 40px;
 }
 
-
-/* ===== Alternating Exhibition Layout ===== */
-/* Reggae Alternation */
-
-.text-container:nth-of-type(3n+1) {
-  background-color: #1f5f2e;  /* tiefes Grün */
-  color: white;
-}
-
-.text-container:nth-of-type(3n+2) {
-  background-color: #d4af37;  /* warmes Gold/Gelb */
-  color: black;
-}
-
-.text-container:nth-of-type(3n+3) {
-  background-color: #8b1e1e;  /* dunkles Rot */
-  color: white;
-}
-
+/* ===== Exhibition List ===== */
 .exhibition-list {
   list-style: none;
   padding: 0;
   margin: 100px 0;
 }
 
-.exhibition-item p {
-  margin-top: 15px;
-  font-family: "Times New Roman", Times, serif;
-  letter-spacing: 1px;
-  padding: 10px;
-  display: inline-block;
-  border-radius: 5px;
-  transition: all 0.3s ease; /* sanfte Animation bei Hover */
-  box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* leichter Schatten */
-  cursor: default;
+.exhibition-item {
+  display: flex;
+  margin-bottom: 120px;
 }
 
-/* Reggae-Farben abwechselnd */
-.exhibition-item:nth-child(3n+1) p {
-  background-color: #1f5f2e; /* tiefes Grün */
-  color: white;
+.exhibition-item:nth-child(odd) {
+  justify-content: flex-start;
+  padding-left: 20px;
 }
 
-.exhibition-item:nth-child(3n+2) p {
-  background-color: #d4af37; /* warmes Gelb */
-  color: black;
+.exhibition-item:nth-child(even) {
+  justify-content: flex-end;
+  padding-right: 20px;
 }
-
-.exhibition-item:nth-child(3n+3) p {
-  background-color: #8b1e1e; /* dunkles Rot */
-  color: white;
-}
-
-/* Hover-Effekt */
-.exhibition-item p:hover {
-  transform: scale(1.05);        /* leicht vergrößern */
-  box-shadow: 0 8px 20px rgba(0,0,0,0.3); /* größerer Schatten */
-}
-
-/* ===== Mobile Anpassung ===== */
-@media (max-width: 900px) {
-  .exhibition-item p {
-    padding: 8px;
-    font-size: 16px;
-    transform: none; /* kein Skalieren auf kleinen Bildschirmen */
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-  }
-}
-}
-
-
 
 .exhibition-item a {
   text-decoration: none;
@@ -120,9 +68,54 @@ h1 {
   display: block;
 }
 
+/* ===== Reggae Textbox Colors ===== */
+.exhibition-item p {
+  margin-top: 15px;
+  font-family: "Times New Roman", Times, serif;
+  letter-spacing: 1px;
+  padding: 10px;
+  display: inline-block;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  cursor: default;
+}
+
+.exhibition-item:nth-child(3n+1) p {
+  background-color: #1f5f2e;
+  color: white;
+}
+
+.exhibition-item:nth-child(3n+2) p {
+  background-color: #d4af37;
+  color: black;
+}
+
+.exhibition-item:nth-child(3n+3) p {
+  background-color: #8b1e1e;
+  color: white;
+}
+
+/* Hover-Effekt */
+.exhibition-item p:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+/* ===== VIP Theme ===== */
+body.vip-theme .exhibition-item p {
+  background-color: #d4af37; /* edles Gold */
+  color: #000;
+  border: 1px solid #fff;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+}
+
+body.vip-theme .exhibition-item p:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.5);
+}
 
 /* ===== Newsletter ===== */
-
 .newsletter {
   margin: 100px 0 100px 20px;
   background: white;
@@ -130,7 +123,6 @@ h1 {
 }
 
 /* ===== Chill Mode ===== */
-
 .chill-mode-toggle {
   position: fixed;
   bottom: 10px;
@@ -145,16 +137,53 @@ h1 {
   background-size: cover;
 }
 
+/* ===== Buttons ===== */
+.language-toggle, .theme-toggle {
+  position: fixed;
+  right: 10px;
+  z-index: 1000;
+}
+
+.language-toggle {
+  top: 10px;
+}
+
+.theme-toggle {
+  top: 50px;
+}
+
+.language-toggle button, .theme-toggle button {
+  padding: 8px 12px;
+  font-size: 14px;
+  border: none;
+  border-radius: 5px;
+  background-color: #1f5f2e;
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.language-toggle button:hover {
+  background-color: #d4af37;
+}
+
+.theme-toggle button:hover {
+  background-color: #d4af37;
+}
+
 /* ===== Mobile ===== */
-
 @media (max-width: 900px) {
-
   .exhibition-item {
     justify-content: flex-start !important;
     padding-left: 15px !important;
     padding-right: 15px !important;
   }
-
+  .exhibition-item p {
+    padding: 8px;
+    font-size: 16px;
+    transform: none;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  }
 }
 
 </style>
@@ -162,24 +191,32 @@ h1 {
 
 <body>
 
+<!-- Sprache und Thema Buttons -->
+<div class="language-toggle">
+  <button id="langBtn">DE</button>
+</div>
+
+<div class="theme-toggle">
+  <button id="themeBtn">VIP</button>
+</div>
+
+<!-- Intro -->
 <div class="text-container">
   <h1>H0PE ART SERVICE</h1>
-  <p>
-    H0pe is a curatorial project primarily run by Marcus Wagner. 
-    He founded the project in Newcastle Upon Tyne in 2024 with the wish 
-    to create his own curatorial structure and therefore freedom to present works. 
-    H0pe focusses on a fun experimental approach to exhibition making 
-    and puts its focus more on the effect of the exhibition than the single work. Themes are choosen to generate a wide range of submissions and transform a archaic topic into a vivid show telling something about art production itself.
-    Everybody is invited to contribute.
+  <p id="mainText"
+     data-en="H0pe is a curatorial project primarily run by Marcus Wagner. He founded the project in Newcastle Upon Tyne in 2024 with the wish to create his own curatorial structure and therefore freedom to present works. H0pe focusses on a fun experimental approach to exhibition making and puts its focus more on the effect of the exhibition than the single work. Themes are choosen to generate a wide range of submissions and transform a archaic topic into a vivid show telling something about art production itself. Everybody is invited to contribute."
+     data-de="H0pe ist ein kuratorisches Projekt, das hauptsächlich von Marcus Wagner betrieben wird. Gegründet wurde das Projekt 2024 in Newcastle Upon Tyne mit dem Wunsch, ein eigenes kuratorisches System zu schaffen und somit die Freiheit zu haben, Werke in einem selbst geschaffenen Kontext zu zeigen. H0pe konzentriert sich auf einen experimentellen, spielerischen Ansatz bei der Ausstellungsgestaltung und legt mehr Wert auf die Wirkung der Ausstellung als auf das einzelne Werk. Themen werden gewählt, um eine breite Palette von Einreichungen zu generieren und ein banales, archaisches Thema in produktive Ausstellungen zu verwandeln, die etwas über Kunstproduktion selbst aussagt. Jede/r ist eingeladen, teilzunehmen.">
+    H0pe is a curatorial project primarily run by Marcus Wagner...
   </p>
 </div>
 
+<!-- Exhibition List -->
 <ul class="exhibition-list">
 
 <li class="exhibition-item">
 <a href="/carshow1.html">
 <img src="assets/car_compressed/marie_nah.jpg" alt="Jonas and Marie Car" />
-<p>THE CAR SHOW I</p>
+<p>THE CAR SHOW </p>
 </a>
 </li>
 
@@ -193,7 +230,7 @@ h1 {
 <li class="exhibition-item">
 <a href="/shoeshow2.html">
 <img src="assets/Shoeshow/emy2.jpg" alt="Shoe Show" />
-<p>SHOE SHOW</p>
+<p>THE SHOE SHOW</p>
 </a>
 </li>
 
@@ -207,7 +244,7 @@ h1 {
 <li class="exhibition-item">
 <a href="palmtreeshow.html">
 <img src="assets/palmtree_main/spaceview_4.jpg" alt="Palm Tree Show" />
-<p>PALMTREESHOW</p>
+<p>THE PALMTREESHOW</p>
 </a>
 </li>
 
@@ -227,17 +264,43 @@ h1 {
 
 </ul>
 
+<!-- Newsletter -->
 <div class="newsletter">
-  <p>Write us a Mail if you want to be on our Newsletter</p>
+  <p id="newsletterText" data-en="Write us a Mail if you want to be on our Newsletter" data-de="Schreib uns eine Mail, wenn du in unseren Newsletter aufgenommen werden möchtest">
+    Write us a Mail if you want to be on our Newsletter
+  </p>
   <a href="mailto:hopeartservice@gmx.net">hopeartservice@gmx.net</a>
 </div>
 
+<!-- Chill Mode -->
 <div class="chill-mode-toggle" onclick="toggleChillMode()">.</div>
 
 <script>
+// ===== Chill Mode =====
 function toggleChillMode() {
   document.body.classList.toggle('chill-mode');
 }
+
+// ===== Language Switch =====
+const langBtn = document.getElementById('langBtn');
+let currentLang = 'en';
+
+langBtn.addEventListener('click', () => {
+  currentLang = currentLang === 'en' ? 'de' : 'en';
+  langBtn.textContent = currentLang === 'en' ? 'DE' : 'EN';
+
+  document.querySelectorAll('[data-en]').forEach(el => {
+    el.textContent = el.getAttribute(`data-${currentLang}`);
+  });
+});
+
+// ===== Theme Switch =====
+const themeBtn = document.getElementById('themeBtn');
+
+themeBtn.addEventListener('click', () => {
+  document.body.classList.toggle('vip-theme');
+  themeBtn.textContent = document.body.classList.contains('vip-theme') ? 'RAGGAE' : 'VIP';
+});
 </script>
 
 </body>
