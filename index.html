@@ -20,6 +20,7 @@ html, body {
   font-family: Arial, sans-serif;
   background-image: url("assets/stuff/breakfree.png");
   background-repeat: repeat;
+  transition: all 0.5s ease; /* Smooth transitions */
 }
 
 /* ===== Intro ===== */
@@ -28,6 +29,7 @@ html, body {
   margin: 80px 0 80px 20px;
   padding: 30px;
   background-color: white;
+  transition: all 0.5s ease;
 }
 
 h1 {
@@ -47,6 +49,7 @@ h1 {
 .exhibition-item {
   display: flex;
   margin-bottom: 120px;
+  transition: all 0.5s ease;
 }
 
 .exhibition-item:nth-child(odd) {
@@ -69,7 +72,8 @@ h1 {
   width: 100%;
   height: auto;
   display: block;
-  transition: transform 0.3s, box-shadow 0.3s;
+  transition: all 0.5s ease; /* Smooth VIP transition */
+  position: relative;
 }
 
 /* ===== Reggae Textbox Colors ===== */
@@ -80,9 +84,9 @@ h1 {
   padding: 10px;
   display: inline-block;
   border-radius: 5px;
-  transition: all 0.3s ease;
   box-shadow: 0 2px 5px rgba(0,0,0,0.2);
   cursor: default;
+  transition: all 0.5s ease;
 }
 
 .exhibition-item:nth-child(3n+1) p {
@@ -113,30 +117,48 @@ body.vip-theme {
 
 /* VIP Textboxen */
 body.vip-theme .exhibition-item p {
-  background-color: #d4af37; /* edles Gold */
-  color: #000;
+  background-color: #d4af37 !important; /* edles Gold */
+  color: #000 !important;
   border: 1px solid #fff;
   box-shadow: 0 4px 15px rgba(0,0,0,0.4);
 }
 
-body.vip-theme .exhibition-item p:hover {
-  transform: scale(1.05);
-  box-shadow: 0 8px 25px rgba(0,0,0,0.5);
-}
-
-/* VIP Bilder mit Ornament-Rahmen */
+/* VIP Bilder mit rein CSS Ornament-Rahmen */
 body.vip-theme .exhibition-item img {
-  border: 12px solid; /* dicke goldene Umrandung */
-  border-image: url('https://i.imgur.com/91tpx0t.png') 30 round; /* Ornament-Muster aus externem Bild */
+  border: 8px solid #d4af37; /* Basisrahmen */
   border-radius: 12px;
   padding: 5px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.4);
-  transition: transform 0.3s, box-shadow 0.3s;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.4), 0 0 15px rgba(212,175,55,0.5) inset;
+  transition: all 0.5s ease;
 }
 
+/* Ornamentale Ecken (Pseudo-Elemente) */
+body.vip-theme .exhibition-item img::before,
+body.vip-theme .exhibition-item img::after {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: repeating-conic-gradient(#d4af37 0% 25%, transparent 0% 50%) 0 0 / 20px 20px;
+  pointer-events: none;
+}
+
+body.vip-theme .exhibition-item img::before {
+  top: -8px;
+  left: -8px;
+  border-top-left-radius: 12px;
+}
+
+body.vip-theme .exhibition-item img::after {
+  bottom: -8px;
+  right: -8px;
+  border-bottom-right-radius: 12px;
+}
+
+/* Hover Effekt VIP */
 body.vip-theme .exhibition-item img:hover {
   transform: scale(1.03);
-  box-shadow: 0 12px 30px rgba(0,0,0,0.5);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.5), 0 0 20px rgba(212,175,55,0.6) inset;
 }
 
 /* ===== Newsletter ===== */
@@ -187,10 +209,7 @@ body.vip-theme .exhibition-item img:hover {
   transition: background 0.3s;
 }
 
-.language-toggle button:hover {
-  background-color: #d4af37;
-}
-
+.language-toggle button:hover,
 .theme-toggle button:hover {
   background-color: #d4af37;
 }
@@ -210,7 +229,7 @@ body.vip-theme .exhibition-item img:hover {
   }
   body.vip-theme .exhibition-item img {
     transform: none;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3), 0 0 10px rgba(212,175,55,0.4) inset;
   }
 }
 
