@@ -1,223 +1,230 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>H0PE ART SERVICE</title>
 
-<!-- Luxus-Schrift für VIP -->
 <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&display=swap" rel="stylesheet">
 
 <style>
 
-/* ===== Base ===== */
-html, body {
-  width: 100%;
+/* ================= BASE ================= */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
   margin: 0;
-  padding: 10px;
-  overflow-x: hidden;
+  padding: 0;
   font-family: Arial, sans-serif;
   background-image: url("assets/stuff/breakfree.png");
   background-repeat: repeat;
 }
 
-/* ===== Intro ===== */
+/* ================= INTRO ================= */
+
 .text-container {
-  max-width: 520px;
-  margin: 80px 0 80px 20px;
+  max-width: 600px;
+  margin: 80px 20px;
   padding: 30px;
-  background-color: white;
+  background: linear-gradient(135deg, #067506, #f0d507, #d60909);
+  color: white;
+  border-radius: 10px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
 }
 
 h1 {
-  font-size: 34px;
-  font-weight: normal;
+  margin-top: 0;
   letter-spacing: 2px;
-  margin-bottom: 40px;
+  font-weight: normal;
 }
 
-/* ===== Exhibition List ===== */
+/* ================= EXHIBITIONS ================= */
+
 .exhibition-list {
   list-style: none;
   padding: 0;
-  margin: 100px 0;
+  margin: 120px 20px;
 }
 
 .exhibition-item {
-  display: flex;
   margin-bottom: 120px;
-  align-items: flex-start;
 }
 
 .exhibition-item a {
   text-decoration: none;
   color: black;
-  max-width: 600px;
-  display: flex;
-  flex-direction: column; /* Bild über Text */
-  align-items: flex-start;
+  display: inline-block;
+  max-width: 650px;
 }
 
 .exhibition-item img {
   width: 100%;
   height: auto;
   display: block;
-  transition: transform 0.3s, box-shadow 0.3s;
+  transition: 0.3s ease;
 }
 
-/* ===== Reggae Textbox Colors ===== */
+.exhibition-item img:hover {
+  transform: scale(1.02);
+}
+
+/* Reggae text colors rotation */
+
 .exhibition-item p {
   margin-top: 15px;
-  font-family: "Times New Roman", Times, serif;
+  padding: 10px 14px;
+  font-family: "Times New Roman", serif;
   letter-spacing: 1px;
-  padding: 10px;
+  border-radius: 6px;
   display: inline-block;
-  border-radius: 5px;
-  transition: all 0.3s ease;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-  cursor: default;
-  text-align: left;
+  transition: 0.3s ease;
 }
 
 .exhibition-item:nth-child(3n+1) p {
-  background-color:#067506;
+  background: #067506;
   color: white;
 }
 
 .exhibition-item:nth-child(3n+2) p {
-  background-color: #f0d507;
+  background: #f0d507;
   color: black;
 }
 
 .exhibition-item:nth-child(3n+3) p {
-  background-color: #d60909;
+  background: #d60909;
   color: white;
 }
 
-/* Hover-Effekt Textbox */
 .exhibition-item p:hover {
   transform: scale(1.05);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.3);
 }
 
-/* ===== VIP Theme ===== */
+/* ================= VIP THEME ================= */
+
 body.vip-theme {
   font-family: 'Cinzel Decorative', serif;
 }
 
-/* VIP Textboxen */
+/* VIP Intro */
+
+body.vip-theme .text-container {
+  background: #d4af37;
+  color: black;
+  border: 16px solid transparent;
+  border-image: url('assets/stuff/goldenpattern.png') 30 round;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+}
+
+/* VIP Exhibition Text */
+
 body.vip-theme .exhibition-item p {
-  background-color: #d4af37; /* edles Gold */
-  color: #000;
-  border: 1px solid #fff;
-  border-top: 12px solid; /* obere Umrandung für Ornament */
-  box-shadow: 0 4px 15px rgba(0,0,0,0.4);
-}
-
-body.vip-theme .exhibition-item p:hover {
-  transform: scale(1.05);
-  box-shadow: 0 8px 25px rgba(0,0,0,0.5);
-}
-
-/* VIP Bilder mit Ornament-Rahmen */
-body.vip-theme .exhibition-item img {
-  border: 12px solid; /* dicke goldene Umrandung */
-  border-image: url('assets/stuff/goldenpattern.png') 30 round; /* Ornament-Muster */
-  border-radius: 12px;
-  padding: 5px;
+  background: #d4af37;
+  color: black;
+  border: 10px solid transparent;
+  border-image: url('assets/stuff/goldenpattern.png') 30 round;
   box-shadow: 0 8px 20px rgba(0,0,0,0.4);
-  transition: transform 0.3s, box-shadow 0.3s;
 }
 
-body.vip-theme .exhibition-item img:hover {
-  transform: scale(1.03);
-  box-shadow: 0 12px 30px rgba(0,0,0,0.5);
+/* VIP Images */
+
+body.vip-theme .exhibition-item img {
+  border: 14px solid transparent;
+  border-image: url('assets/stuff/goldenpattern.png') 30 round;
+  border-radius: 10px;
+  box-shadow: 0 12px 25px rgba(0,0,0,0.4);
 }
 
-/* ===== Newsletter ===== */
+/* ================= NEWSLETTER ================= */
+
 .newsletter {
-  margin: 100px 0 100px 20px;
+  margin: 100px 20px;
+  padding: 20px;
   background: white;
-  padding: 10px;
+  max-width: 600px;
 }
 
-/* ===== Chill Mode ===== */
-.chill-mode-toggle {
+/* ================= BUTTONS ================= */
+
+.language-toggle,
+.theme-toggle {
   position: fixed;
-  bottom: 10px;
-  right: 10px;
-  color: white;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-.chill-mode {
-  background: url('green.gif') no-repeat center center fixed;
-  background-size: cover;
-}
-
-/* ===== Buttons ===== */
-.language-toggle, .theme-toggle {
-  position: fixed;
-  right: 10px;
+  right: 15px;
   z-index: 1000;
 }
 
-.language-toggle {
-  top: 10px;
-}
+.language-toggle { top: 15px; }
+.theme-toggle { top: 60px; }
 
-.theme-toggle {
-  top: 50px;
-}
-
-.language-toggle button, .theme-toggle button {
-  padding: 8px 12px;
-  font-size: 14px;
+button {
+  padding: 8px 14px;
   border: none;
-  border-radius: 5px;
-  background-color: #1f5f2e;
+  border-radius: 6px;
+  background: #1f5f2e;
   color: white;
   cursor: pointer;
-  transition: background 0.3s;
+  transition: 0.3s;
 }
 
-.language-toggle button:hover {
-  background-color: #d4af37;
+button:hover {
+  background: #d4af37;
 }
 
-.theme-toggle button:hover {
-  background-color: #d4af37;
+/* ================= CHILL MODE ================= */
+
+.chill-mode-toggle {
+  position: fixed;
+  bottom: 15px;
+  right: 15px;
+  cursor: pointer;
+  color: white;
+  font-weight: bold;
 }
 
-/* ===== Mobile ===== */
+body.chill-mode {
+  background: url('green.gif') center center fixed;
+  background-size: cover;
+}
+
+/* ================= MOBILE ================= */
+
 @media (max-width: 900px) {
-  .exhibition-item {
-    justify-content: flex-start !important;
-    padding-left: 15px !important;
-    padding-right: 15px !important;
-    flex-direction: column; /* Bild über Text */
-    align-items: flex-start;
+
+  .text-container {
+    margin: 40px 15px;
+    padding: 20px;
   }
-  
+
+  .exhibition-list {
+    margin: 60px 15px;
+  }
+
+  .exhibition-item {
+    margin-bottom: 80px;
+  }
+
   .exhibition-item a {
-    flex-direction: column;
-    align-items: flex-start;
+    display: block;
+    max-width: 100%;
+  }
+
+  .exhibition-item img {
+    margin-bottom: 12px;
   }
 
   .exhibition-item p {
-    padding: 8px;
+    display: block;
+    width: fit-content;
+    max-width: 100%;
     font-size: 16px;
-    transform: none;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    padding: 8px 12px;
     text-align: left;
+    transform: none;
   }
 
-  body.vip-theme .exhibition-item img {
-    transform: none;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-    margin-bottom: 8px;
-  }
 }
 
 </style>
@@ -225,7 +232,6 @@ body.vip-theme .exhibition-item img:hover {
 
 <body>
 
-<!-- Buttons -->
 <div class="language-toggle">
   <button id="langBtn">DE</button>
 </div>
@@ -234,91 +240,85 @@ body.vip-theme .exhibition-item img:hover {
   <button id="themeBtn">VIP</button>
 </div>
 
-<!-- Intro -->
 <div class="text-container">
   <h1>H0PE ART SERVICE</h1>
   <p id="mainText"
-     data-en="H0pe is a curatorial project primarily run by Marcus Wagner. He founded the project in Newcastle Upon Tyne in 2024 with the wish to create his own curatorial structure and therefore freedom to present works. H0pe focusses on a fun experimental approach to exhibition making and puts its focus more on the effect of the exhibition than the single work. Themes are choosen to generate a wide range of submissions and transform a archaic topic into a vivid show telling something about art production itself. Everybody is invited to contribute."
-     data-de="H0pe ist ein kuratorisches Projekt, das hauptsächlich von Marcus Wagner betrieben wird. Gegründet wurde das Projekt 2024 in Newcastle Upon Tyne mit dem Wunsch, eine eigene kuratorische Plattform und somit Freiheit in der Selektion und Form der Präsentation zu schaffen.
-H0pe unternimmt experimentell, provokativ, spielerische Ausstellungeprojekte und legt den Fokus mehr auf die Wirkung der Show als des einzelnen Werks.
-Die Themen sind oftmals banal und stark symbolisch aufgeladen um einerseits die Bandbreite der Einreichungen zu vergrößern und andererseits einen besonderen Moment aus der Reibung zwischen Thema und Werk zu generieren, was im besten Fall etwas über die zeitgenössische Kunstproduktion sagt. Jeder ist eingeladen, teilzunehmen."
->
-    H0pe is a curatorial project primarily run by Marcus Wagner...
+     data-en="H0pe is a curatorial project primarily run by Marcus Wagner..."
+     data-de="H0pe ist ein kuratorisches Projekt, das hauptsächlich von Marcus Wagner betrieben wird...">
+     H0pe is a curatorial project primarily run by Marcus Wagner...
   </p>
 </div>
 
-<!-- Exhibition List -->
 <ul class="exhibition-list">
 
 <li class="exhibition-item">
 <a href="/carshow1.html">
-<img src="assets/car_compressed/marie_nah.jpg" alt="Jonas and Marie Car" />
+<img src="assets/car_compressed/marie_nah.jpg" alt="">
 <p>THE CAR SHOW I</p>
 </a>
 </li>
 
 <li class="exhibition-item">
 <a href="/nothingshow.html">
-<img src="assets/nothingshow/still3.png" alt="The Nothing Show" />
+<img src="assets/nothingshow/still3.png" alt="">
 <p>THE NOTHING SHOW</p>
 </a>
 </li>
 
 <li class="exhibition-item">
 <a href="/shoeshow2.html">
-<img src="assets/Shoeshow/emy2.jpg" alt="Shoe Show" />
+<img src="assets/Shoeshow/emy2.jpg" alt="">
 <p>SHOE SHOW</p>
 </a>
 </li>
 
 <li class="exhibition-item">
 <a href="/xmasshow.html">
-<img src="assets/xmasshow/1.jpg" alt="Hope Xmas Show" />
+<img src="assets/xmasshow/1.jpg" alt="">
 <p>HOPE XMAS SHOW</p>
 </a>
 </li>
 
 <li class="exhibition-item">
 <a href="palmtreeshow.html">
-<img src="assets/palmtree_main/spaceview_4.jpg" alt="Palm Tree Show" />
+<img src="assets/palmtree_main/spaceview_4.jpg" alt="">
 <p>PALMTREESHOW</p>
 </a>
 </li>
 
 <li class="exhibition-item">
 <a href="soulseller.html">
-<img src="soulseller/queer_27.jpg" alt="Soulseller" />
+<img src="soulseller/queer_27.jpg" alt="">
 <p>SOULSELLER — UNHAPPY PAINTER / HAPPY PAINTER WANTS TO EXIST</p>
 </a>
 </li>
 
 <li class="exhibition-item">
 <a href="gardenofeldon.html">
-<img src="assets/gardenofeldon/garden_titelbild.JPG" alt="Garden of Eldon" />
+<img src="assets/gardenofeldon/garden_titelbild.JPG" alt="">
 <p>GARDEN OF ELDON</p>
 </a>
 </li>
 
 </ul>
 
-<!-- Newsletter -->
 <div class="newsletter">
-  <p id="newsletterText" data-en="Write us a Mail if you want to be on our Newsletter" data-de="Schreib uns eine Mail, wenn du in unseren Newsletter aufgenommen werden möchtest">
-    Write us a Mail if you want to be on our Newsletter
+  <p id="newsletterText"
+     data-en="Write us a Mail if you want to be on our Newsletter"
+     data-de="Schreib uns eine Mail, wenn du in unseren Newsletter aufgenommen werden möchtest">
+     Write us a Mail if you want to be on our Newsletter
   </p>
   <a href="mailto:hopeartservice@gmx.net">hopeartservice@gmx.net</a>
 </div>
 
-<!-- Chill Mode -->
 <div class="chill-mode-toggle" onclick="toggleChillMode()">.</div>
 
 <script>
-// ===== Chill Mode =====
+
 function toggleChillMode() {
   document.body.classList.toggle('chill-mode');
 }
 
-// ===== Language Switch =====
 const langBtn = document.getElementById('langBtn');
 let currentLang = 'en';
 
@@ -331,13 +331,14 @@ langBtn.addEventListener('click', () => {
   });
 });
 
-// ===== Theme Switch =====
 const themeBtn = document.getElementById('themeBtn');
 
 themeBtn.addEventListener('click', () => {
   document.body.classList.toggle('vip-theme');
-  themeBtn.textContent = document.body.classList.contains('vip-theme') ? 'RAGGAE' : 'VIP';
+  themeBtn.textContent =
+    document.body.classList.contains('vip-theme') ? 'RAGGAE' : 'VIP';
 });
+
 </script>
 
 </body>
