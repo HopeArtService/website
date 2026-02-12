@@ -6,6 +6,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>H0PE ART SERVICE</title>
 
+<!-- Luxus-Schrift für VIP -->
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&display=swap" rel="stylesheet">
+
 <style>
 
 /* ===== Base ===== */
@@ -66,6 +69,7 @@ h1 {
   width: 100%;
   height: auto;
   display: block;
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
 /* ===== Reggae Textbox Colors ===== */
@@ -96,13 +100,18 @@ h1 {
   color: white;
 }
 
-/* Hover-Effekt */
+/* Hover-Effekt Textbox */
 .exhibition-item p:hover {
   transform: scale(1.05);
   box-shadow: 0 8px 20px rgba(0,0,0,0.3);
 }
 
 /* ===== VIP Theme ===== */
+body.vip-theme {
+  font-family: 'Cinzel Decorative', serif;
+}
+
+/* VIP Textboxen */
 body.vip-theme .exhibition-item p {
   background-color: #d4af37; /* edles Gold */
   color: #000;
@@ -113,6 +122,21 @@ body.vip-theme .exhibition-item p {
 body.vip-theme .exhibition-item p:hover {
   transform: scale(1.05);
   box-shadow: 0 8px 25px rgba(0,0,0,0.5);
+}
+
+/* VIP Bilder mit Ornament-Rahmen */
+body.vip-theme .exhibition-item img {
+  border: 12px solid; /* dicke goldene Umrandung */
+  border-image: url('https://i.imgur.com/91tpx0t.png') 30 round; /* Ornament-Muster aus externem Bild */
+  border-radius: 12px;
+  padding: 5px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+body.vip-theme .exhibition-item img:hover {
+  transform: scale(1.03);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.5);
 }
 
 /* ===== Newsletter ===== */
@@ -184,6 +208,10 @@ body.vip-theme .exhibition-item p:hover {
     transform: none;
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
   }
+  body.vip-theme .exhibition-item img {
+    transform: none;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  }
 }
 
 </style>
@@ -191,7 +219,7 @@ body.vip-theme .exhibition-item p:hover {
 
 <body>
 
-<!-- Sprache und Thema Buttons -->
+<!-- Buttons -->
 <div class="language-toggle">
   <button id="langBtn">DE</button>
 </div>
@@ -205,7 +233,7 @@ body.vip-theme .exhibition-item p:hover {
   <h1>H0PE ART SERVICE</h1>
   <p id="mainText"
      data-en="H0pe is a curatorial project primarily run by Marcus Wagner. He founded the project in Newcastle Upon Tyne in 2024 with the wish to create his own curatorial structure and therefore freedom to present works. H0pe focusses on a fun experimental approach to exhibition making and puts its focus more on the effect of the exhibition than the single work. Themes are choosen to generate a wide range of submissions and transform a archaic topic into a vivid show telling something about art production itself. Everybody is invited to contribute."
-     data-de="H0pe ist ein kuratorisches Projekt, das hauptsächlich von Marcus Wagner betrieben wird. Gegründet wurde das Projekt 2024 in Newcastle Upon Tyne mit dem Wunsch, ein eigenes kuratorisches System zu schaffen und somit die Freiheit zu haben, Werke in einem selbst geschaffenen Kontext zu zeigen. H0pe konzentriert sich auf einen experimentellen, spielerischen Ansatz bei der Ausstellungsgestaltung und legt mehr Wert auf die Wirkung der Ausstellung als auf das einzelne Werk. Themen werden gewählt, um eine breite Palette von Einreichungen zu generieren und ein banales, archaisches Thema in produktive Ausstellungen zu verwandeln, die etwas über Kunstproduktion selbst aussagt. Jede/r ist eingeladen, teilzunehmen.">
+     data-de="H0pe ist ein kuratorisches Projekt, das hauptsächlich von Marcus Wagner geleitet wird. Er gründete das Projekt 2024 in Newcastle Upon Tyne mit dem Wunsch, seine eigene kuratorische Struktur zu schaffen und somit die Freiheit zu haben, Werke zu präsentieren. H0pe konzentriert sich auf einen experimentellen, spielerischen Ansatz bei der Ausstellungsgestaltung und legt mehr Wert auf die Wirkung der Ausstellung als auf das einzelne Werk. Themen werden gewählt, um eine breite Palette von Einreichungen zu generieren und ein archaisches Thema in eine lebendige Ausstellung zu verwandeln, die etwas über Kunstproduktion aussagt. Jeder ist eingeladen, teilzunehmen.">
     H0pe is a curatorial project primarily run by Marcus Wagner...
   </p>
 </div>
@@ -216,7 +244,7 @@ body.vip-theme .exhibition-item p:hover {
 <li class="exhibition-item">
 <a href="/carshow1.html">
 <img src="assets/car_compressed/marie_nah.jpg" alt="Jonas and Marie Car" />
-<p>THE CAR SHOW </p>
+<p>THE CAR SHOW I</p>
 </a>
 </li>
 
@@ -230,7 +258,7 @@ body.vip-theme .exhibition-item p:hover {
 <li class="exhibition-item">
 <a href="/shoeshow2.html">
 <img src="assets/Shoeshow/emy2.jpg" alt="Shoe Show" />
-<p>THE SHOE SHOW</p>
+<p>SHOE SHOW</p>
 </a>
 </li>
 
@@ -244,7 +272,7 @@ body.vip-theme .exhibition-item p:hover {
 <li class="exhibition-item">
 <a href="palmtreeshow.html">
 <img src="assets/palmtree_main/spaceview_4.jpg" alt="Palm Tree Show" />
-<p>THE PALMTREESHOW</p>
+<p>PALMTREESHOW</p>
 </a>
 </li>
 
