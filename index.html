@@ -10,6 +10,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&display=swap" rel="stylesheet">
 
 <style>
+
 /* ===== Base ===== */
 html, body {
   width: 100%;
@@ -19,34 +20,16 @@ html, body {
   font-family: Arial, sans-serif;
   background-image: url("assets/stuff/breakfree.png");
   background-repeat: repeat;
-  transition: all 0.5s ease;
 }
 
-/* ===== Intro Text-Container ===== */
+/* ===== Intro ===== */
 .text-container {
   max-width: 520px;
   margin: 80px 0 80px 20px;
   padding: 30px;
-  border-radius: 5px;
-  transition: all 0.5s ease;
-  text-align: left; /* immer linksbündig */
-  color: black;
   background-color: white;
 }
 
-/* VIP & Reggae Effekte auf Text Container */
-body.vip-theme .text-container {
-  background-color: #d4af37;
-  color: black;
-  font-family: 'Cinzel Decorative', serif;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.4);
-}
-body:not(.vip-theme) .text-container:nth-of-type(1) {
-  background-color: #1f5f2e;
-  color: white;
-}
-
-/* ===== Header ===== */
 h1 {
   font-size: 34px;
   font-weight: normal;
@@ -63,20 +46,33 @@ h1 {
 
 .exhibition-item {
   display: flex;
-  margin-bottom: 80px;
-  transition: all 0.5s ease;
-  flex-direction: column;
-  align-items: flex-start; /* immer linksbündig */
-  max-width: 90vw; /* sehr groß, aber nicht full screen */
+  margin-bottom: 120px;
+}
+
+.exhibition-item:nth-child(odd) {
+  justify-content: flex-start;
+  padding-left: 20px;
+}
+
+.exhibition-item:nth-child(even) {
+  justify-content: flex-end;
+  padding-right: 20px;
 }
 
 .exhibition-item a {
   text-decoration: none;
   color: black;
-  max-width: 100%;
+  max-width: 600px;
 }
 
-/* Textboxen unter den Bildern */
+.exhibition-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+/* ===== Reggae Textbox Colors ===== */
 .exhibition-item p {
   margin-top: 15px;
   font-family: "Times New Roman", Times, serif;
@@ -84,160 +80,217 @@ h1 {
   padding: 10px;
   display: inline-block;
   border-radius: 5px;
+  transition: all 0.3s ease;
   box-shadow: 0 2px 5px rgba(0,0,0,0.2);
   cursor: default;
-  transition: all 0.5s ease;
-  text-align: left;
 }
 
-/* Reggae Textboxen */
-.exhibition-item:nth-child(3n+1) p { background-color: #1f5f2e; color: white; }
-.exhibition-item:nth-child(3n+2) p { background-color: #d4af37; color: black; }
-.exhibition-item:nth-child(3n+3) p { background-color: #8b1e1e; color: white; }
+.exhibition-item:nth-child(3n+1) p {
+  background-color: #1f5f2e;
+  color: white;
+}
 
-/* Hover Textbox */
+.exhibition-item:nth-child(3n+2) p {
+  background-color: #d4af37;
+  color: black;
+}
+
+.exhibition-item:nth-child(3n+3) p {
+  background-color: #8b1e1e;
+  color: white;
+}
+
+/* Hover-Effekt Textbox */
 .exhibition-item p:hover {
-  transform: scale(1.03);
+  transform: scale(1.05);
   box-shadow: 0 8px 20px rgba(0,0,0,0.3);
 }
 
 /* ===== VIP Theme ===== */
-body.vip-theme { font-family: 'Cinzel Decorative', serif; }
+body.vip-theme {
+  font-family: 'Cinzel Decorative', serif;
+}
 
+/* VIP Textboxen */
 body.vip-theme .exhibition-item p {
-  background-color: #d4af37 !important;
-  color: black !important;
+  background-color: #d4af37; /* edles Gold */
+  color: #000;
   border: 1px solid #fff;
   box-shadow: 0 4px 15px rgba(0,0,0,0.4);
 }
 
-/* VIP PNG Rahmen */
-body.vip-theme .exhibition-item a span.vip-frame {
-  position: relative;
-  display: inline-block;
-  width: 100%;
+body.vip-theme .exhibition-item p:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.5);
 }
 
-body.vip-theme .exhibition-item a span.vip-frame img.main-img {
-  display: block;
-  width: 90vw;
-  max-width: 90vw;
-  height: auto;
-  border-radius: 0;
+/* VIP Bilder mit Ornament-Rahmen */
+body.vip-theme .exhibition-item img {
+  border: 12px solid; /* dicke goldene Umrandung */
+  border-image: url('https://i.imgur.com/91tpx0t.png') 30 round; /* Ornament-Muster aus externem Bild */
+  border-radius: 12px;
+  padding: 5px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
-body.vip-theme .exhibition-item a span.vip-frame img.frame-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 2;
-  object-fit: cover; /* passt sich immer der Bildgröße an */
-}
-
-/* Hover Effekt VIP */
-body.vip-theme .exhibition-item a span.vip-frame img.main-img:hover {
+body.vip-theme .exhibition-item img:hover {
   transform: scale(1.03);
-  box-shadow: 0 12px 30px rgba(0,0,0,0.5), 0 0 20px rgba(212,175,55,0.6) inset, 0 0 25px rgba(255,223,0,0.6);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.5);
 }
 
 /* ===== Newsletter ===== */
-.newsletter { margin: 100px 0 100px 20px; background: white; padding: 10px; }
-
-/* ===== Buttons ===== */
-.language-toggle, .theme-toggle { position: fixed; right: 10px; z-index: 1000; }
-.language-toggle { top: 10px; }
-.theme-toggle { top: 50px; }
-.language-toggle button, .theme-toggle button {
-  padding: 8px 12px; font-size: 14px; border: none; border-radius: 5px;
-  background-color: #1f5f2e; color: white; cursor: pointer; transition: background 0.3s;
+.newsletter {
+  margin: 100px 0 100px 20px;
+  background: white;
+  padding: 10px;
 }
-.language-toggle button:hover, .theme-toggle button:hover { background-color: #d4af37; }
 
 /* ===== Chill Mode ===== */
-.chill-mode-toggle { position: fixed; bottom: 10px; right: 10px; color: white; font-weight: bold; cursor: pointer; }
-.chill-mode { background: url('green.gif') no-repeat center center fixed; background-size: cover; }
+.chill-mode-toggle {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
 
-/* ===== Mobile Anpassung ===== */
+.chill-mode {
+  background: url('green.gif') no-repeat center center fixed;
+  background-size: cover;
+}
+
+/* ===== Buttons ===== */
+.language-toggle, .theme-toggle {
+  position: fixed;
+  right: 10px;
+  z-index: 1000;
+}
+
+.language-toggle {
+  top: 10px;
+}
+
+.theme-toggle {
+  top: 50px;
+}
+
+.language-toggle button, .theme-toggle button {
+  padding: 8px 12px;
+  font-size: 14px;
+  border: none;
+  border-radius: 5px;
+  background-color: #1f5f2e;
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.language-toggle button:hover {
+  background-color: #d4af37;
+}
+
+.theme-toggle button:hover {
+  background-color: #d4af37;
+}
+
+/* ===== Mobile ===== */
 @media (max-width: 900px) {
   .exhibition-item {
-    max-width: 95vw;
+    justify-content: flex-start !important;
     padding-left: 15px !important;
     padding-right: 15px !important;
   }
-
   .exhibition-item p {
+    padding: 8px;
     font-size: 16px;
-    max-width: 95%;
+    transform: none;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
   }
-
-  body.vip-theme .exhibition-item a span.vip-frame img.main-img,
-  body.vip-theme .exhibition-item a span.vip-frame img.frame-overlay {
-    width: 95%;
-    height: auto;
+  body.vip-theme .exhibition-item img {
+    transform: none;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
   }
 }
+
 </style>
 </head>
 
 <body>
 
 <!-- Buttons -->
-<div class="language-toggle"><button id="langBtn">DE</button></div>
-<div class="theme-toggle"><button id="themeBtn">VIP</button></div>
+<div class="language-toggle">
+  <button id="langBtn">DE</button>
+</div>
+
+<div class="theme-toggle">
+  <button id="themeBtn">VIP</button>
+</div>
 
 <!-- Intro -->
-<div class="text-container" id="introText"
+<div class="text-container">
+  <h1>H0PE ART SERVICE</h1>
+  <p id="mainText"
      data-en="H0pe is a curatorial project primarily run by Marcus Wagner. He founded the project in Newcastle Upon Tyne in 2024 with the wish to create his own curatorial structure and therefore freedom to present works. H0pe focusses on a fun experimental approach to exhibition making and puts its focus more on the effect of the exhibition than the single work. Themes are choosen to generate a wide range of submissions and transform a archaic topic into a vivid show telling something about art production itself. Everybody is invited to contribute."
      data-de="H0pe ist ein kuratorisches Projekt, das hauptsächlich von Marcus Wagner betrieben wird. Gegründet wurde das Projekt 2024 in Newcastle Upon Tyne mit dem Wunsch, eine eigene kuratorische Plattform und somit Freiheit in der Selektion und Form der Präsentation zu schaffen.
 H0pe unternimmt experimentell, provokativ, spielerische Ausstellungeprojekte und legt den Fokus mehr auf die Wirkung der Show als des einzelnen Werks.
-Die Themen sind oftmals banal und stark symbolisch aufgeladen um einerseits die Bandbreite der Einreichungen zu vergrößern und andererseits einen besonderen Moment aus der Reibung zwischen Thema und Werk zu generieren, was im besten Fall etwas über die zeitgenössische Kunstproduktion sagt. Jeder ist eingeladen, teilzunehmen.
-  Welcome to H0PE Art Service...
+Die Themen sind oftmals banal und stark symbolisch aufgeladen um einerseits die Bandbreite der Einreichungen zu vergrößern und andererseits einen besonderen Moment aus der Reibung zwischen Thema und Werk zu generieren, was im besten Fall etwas über die zeitgenössische Kunstproduktion sagt. Jeder ist eingeladen, teilzunehmen."
+>
+    H0pe is a curatorial project primarily run by Marcus Wagner...
+  </p>
 </div>
 
 <!-- Exhibition List -->
 <ul class="exhibition-list">
 
 <li class="exhibition-item">
-  <a href="/carshow1.html">
-    <span class="vip-frame">
-      <img class="main-img" src="assets/car_compressed/marie_nah.jpg" alt="Jonas and Marie Car" />
-      <img class="frame-overlay" src="assets/stuff/golden-photo-frame-png-63-53e784wvfbt0q7h9.png" alt="Gold Frame Overlay" />
-    </span>
-    <p>THE CAR SHOW </p>
-  </a>
+<a href="/carshow1.html">
+<img src="assets/car_compressed/marie_nah.jpg" alt="Jonas and Marie Car" />
+<p>THE CAR SHOW I</p>
+</a>
 </li>
 
 <li class="exhibition-item">
-  <a href="/nothingshow.html">
-    <span class="vip-frame">
-      <img class="main-img" src="assets/nothingshow/still3.png" alt="The Nothing Show" />
-      <img class="frame-overlay" src="assets/stuff/golden-photo-frame-png-63-53e784wvfbt0q7h9.png" alt="Gold Frame Overlay" />
-    </span>
-    <p>THE NOTHING SHOW</p>
-  </a>
+<a href="/nothingshow.html">
+<img src="assets/nothingshow/still3.png" alt="The Nothing Show" />
+<p>THE NOTHING SHOW</p>
+</a>
 </li>
 
 <li class="exhibition-item">
-  <a href="/shoeshow2.html">
-    <span class="vip-frame">
-      <img class="main-img" src="assets/Shoeshow/emy2.jpg" alt="Shoe Show" />
-      <img class="frame-overlay" src="assets/stuff/golden-photo-frame-png-63-53e784wvfbt0q7h9.png" alt="Gold Frame Overlay" />
-    </span>
-    <p>THE SHOE SHOW</p>
-  </a>
+<a href="/shoeshow2.html">
+<img src="assets/Shoeshow/emy2.jpg" alt="Shoe Show" />
+<p>SHOE SHOW</p>
+</a>
 </li>
 
 <li class="exhibition-item">
-  <a href="/xmasshow.html">
-    <span class="vip-frame">
-      <img class="main-img" src="assets/xmasshow/1.jpg" alt="Hope Xmas Show" />
-      <img class="frame-overlay" src="assets/stuff/golden-photo-frame-png-63-53e784wvfbt0q7h9.png" alt="Gold Frame Overlay" />
-    </span>
-    <p>HOPE XMAS SHOW</p>
-  </a>
+<a href="/xmasshow.html">
+<img src="assets/xmasshow/1.jpg" alt="Hope Xmas Show" />
+<p>HOPE XMAS SHOW</p>
+</a>
+</li>
+
+<li class="exhibition-item">
+<a href="palmtreeshow.html">
+<img src="assets/palmtree_main/spaceview_4.jpg" alt="Palm Tree Show" />
+<p>PALMTREESHOW</p>
+</a>
+</li>
+
+<li class="exhibition-item">
+<a href="soulseller.html">
+<img src="soulseller/queer_27.jpg" alt="Soulseller" />
+<p>SOULSELLER — UNHAPPY PAINTER / HAPPY PAINTER WANTS TO EXIST</p>
+</a>
+</li>
+
+<li class="exhibition-item">
+<a href="gardenofeldon.html">
+<img src="assets/gardenofeldon/garden_titelbild.JPG" alt="Garden of Eldon" />
+<p>GARDEN OF ELDON</p>
+</a>
 </li>
 
 </ul>
@@ -255,14 +308,18 @@ Die Themen sind oftmals banal und stark symbolisch aufgeladen um einerseits die 
 
 <script>
 // ===== Chill Mode =====
-function toggleChillMode() { document.body.classList.toggle('chill-mode'); }
+function toggleChillMode() {
+  document.body.classList.toggle('chill-mode');
+}
 
 // ===== Language Switch =====
 const langBtn = document.getElementById('langBtn');
 let currentLang = 'en';
+
 langBtn.addEventListener('click', () => {
   currentLang = currentLang === 'en' ? 'de' : 'en';
   langBtn.textContent = currentLang === 'en' ? 'DE' : 'EN';
+
   document.querySelectorAll('[data-en]').forEach(el => {
     el.textContent = el.getAttribute(`data-${currentLang}`);
   });
@@ -270,6 +327,7 @@ langBtn.addEventListener('click', () => {
 
 // ===== Theme Switch =====
 const themeBtn = document.getElementById('themeBtn');
+
 themeBtn.addEventListener('click', () => {
   document.body.classList.toggle('vip-theme');
   themeBtn.textContent = document.body.classList.contains('vip-theme') ? 'RAGGAE' : 'VIP';
