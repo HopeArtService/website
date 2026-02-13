@@ -5,8 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>H0PE ART SERVICE</title>
 
-<!-- Luxus-Schrift für VIP -->
+<!-- VIP Font -->
 <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&display=swap" rel="stylesheet">
+
+<!-- Raggae Style Font -->
+<link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
 
 <style>
 
@@ -19,7 +22,10 @@ body {
   font-family: Arial, sans-serif;
   background-image: url("assets/stuff/breakfree.png");
   background-repeat: repeat;
-  position: relative; /* for VIP PNG Layer */
+  background-attachment: fixed;
+  background-size: 400px;
+  position: relative;
+  transition: background 0.4s ease;
 }
 
 /* ================= INTRO ================= */
@@ -33,6 +39,21 @@ body {
   box-shadow: 0 10px 25px rgba(0,0,0,0.3);
   position: relative;
   z-index: 1;
+
+  font-family: 'Righteous', sans-serif;
+  cursor: pointer;
+
+  max-height: 140px;
+  overflow: hidden;
+  transition: max-height 0.6s ease, transform 0.3s ease;
+}
+
+.text-container:hover {
+  transform: scale(1.02);
+}
+
+.text-container.expanded {
+  max-height: 1000px;
 }
 
 h1 {
@@ -51,7 +72,7 @@ h1 {
 .exhibition-item {
   display: flex;
   margin-bottom: 140px;
-  position: relative; /* VIP PNGs stay behind */
+  position: relative;
 }
 
 .exhibition-item a {
@@ -69,7 +90,7 @@ h1 {
   width: 100%;
   height: auto;
   display: block;
-  transition: 0.3s ease;
+  transition: 0.4s ease;
 }
 
 .exhibition-item img:hover { transform: scale(1.02); }
@@ -81,7 +102,7 @@ h1 {
   letter-spacing: 1px;
   border-radius: 6px;
   display: inline-block;
-  transition: 0.3s ease;
+  transition: 0.4s ease;
 }
 
 .exhibition-item:nth-child(3n+1) p { background: #067506; color: white; }
@@ -96,10 +117,10 @@ h1 {
 /* ================= VIP THEME ================= */
 body.vip-theme {
   font-family: 'Cinzel Decorative', serif;
-  background-image: url('assets/stuff/breakfree_goldornament.png');
+  background-color: #fff5d9;
+  background-attachment: fixed;
 }
 
-/* VIP PNG Layer Container */
 #vipPngContainer {
   position: absolute;
   top: 0;
@@ -117,8 +138,8 @@ body.vip-theme .vip-png {
   pointer-events: none;
 }
 
-/* VIP Intro */
 body.vip-theme .text-container {
+  font-family: 'Cinzel Decorative', serif;
   background: #d4af37;
   color: black;
   border: 16px solid transparent;
@@ -126,9 +147,8 @@ body.vip-theme .text-container {
   box-shadow: 0 15px 35px rgba(0,0,0,0.4);
 }
 
-/* VIP Exhibition Text */
 body.vip-theme .exhibition-item p {
-  font-family: 'Cinzel Decorative', serif; /* same as top box */
+  font-family: 'Cinzel Decorative', serif;
   background: #d4af37;
   color: black;
   border: 10px solid transparent;
@@ -136,7 +156,6 @@ body.vip-theme .exhibition-item p {
   box-shadow: 0 8px 20px rgba(0,0,0,0.4);
 }
 
-/* VIP Images */
 body.vip-theme .exhibition-item img {
   border: 14px solid transparent;
   border-image: url('assets/stuff/goldenpattern.png') 30 round;
@@ -195,7 +214,7 @@ body.chill-mode {
 @media (max-width: 900px) {
   .text-container { margin: 40px 15px; padding: 20px; }
   .exhibition-list { margin: 60px 15px; }
-  .exhibition-item { display: block; margin-bottom: 80px; }
+  .exhibition-item { display: block; margin-bottom: 80px; text-align: left; }
   .exhibition-item a { display: block; max-width: 100%; }
   .exhibition-item img { margin-bottom: 12px; }
   .exhibition-item p { display: block; width: fit-content; max-width: 100%; font-size: 16px; padding: 8px 12px; text-align: left; transform: none; }
@@ -219,88 +238,76 @@ body.chill-mode {
 <div class="text-container">
   <h1>H0PE ART SERVICE</h1>
   <p id="mainText"
-     data-en="H0pe is a curatorial project initiated by Marcus Wagner in Newcastle Upon Tyne in 2024, with the wish to create his own curatorial structure and therefore freedom to present works in an autonomous way. H0pe organizes itself with regular open calls inviting everybody to submit. The program focusses on a fun experimental approach to exhibition making and likes to concentrate on the effect of an exhibition more than the single work. Themes are choosen to generate a wide range of submissions and transform a simple topic into a vivid show, guiding back to the viewer and telling something about contemporary art production itself. Everybody is invited to contribute"
-     data-de="H0pe ist ein kuratorisches Projekt das von Marcus Wagner inititiert wurde und seither regelmäßig Gruppenausstellungen mittels Open Calls organisiert, Das Programm arbeitet experimentell und spielerisch und legt seinen Wert stärker auf die Gesamtwirkung der Ausstellung als auf das einzelne Werk. Gewählte Themen befassen sich oft mit Symbolik von Objekten und Worten. Die Wechselwirkung aus Thema und Werk soll auf den Betrachter zurück verweisen und wenn man so will etwas über gegenwärtige künstlerische Produktionsweisen aussagen.">
+     data-en="H0pe is a curatorial project initiated by Marcus Wagner in Newcastle Upon Tyne in 2024, with the wish to create his own curatorial structure and therefore freedom to present works in an autonomous way..."
+     data-de="H0pe ist ein kuratorisches Projekt das von Marcus Wagner inititiert wurde und seither regelmäßig Gruppenausstellungen mittels Open Calls organisiert...">
      About H0pe...
   </p>
 </div>
 
-<!-- VIP PNG Layer Container -->
+<!-- VIP PNG Layer -->
 <div id="vipPngContainer"></div>
 
 <!-- Exhibition List -->
 <ul class="exhibition-list">
   <li class="exhibition-item">
     <a href="/carshow1.html">
-      <img src="assets/car_compressed/marie_nah.jpg" alt="">
+      <img src="assets/car_compressed/marie_nah.jpg" alt="THE CAR SHOW I">
       <p>THE CAR SHOW I</p>
     </a>
   </li>
+
   <li class="exhibition-item">
     <a href="/nothingshow.html">
-      <img src="assets/nothingshow/still3.png" alt="">
+      <img src="assets/nothingshow/still3.png" alt="THE NOTHING SHOW">
       <p>THE NOTHING SHOW</p>
     </a>
   </li>
+
   <li class="exhibition-item">
-    <a href="/shoeshow 2.html">
-      <img src="assets/Shoeshow/emy2.jpg" alt="">
+    <a href="/shoeshow-2.html">
+      <img src="assets/Shoeshow/emy2.jpg" alt="THE SHOE SHOW">
       <p>THE SHOE SHOW</p>
     </a>
   </li>
+
   <li class="exhibition-item">
     <a href="/xmasshow.html">
-      <img src="assets/xmasshow/1.jpg" alt="">
+      <img src="assets/xmasshow/1.jpg" alt="HOPE XMAS SHOW">
       <p>HOPE XMAS SHOW</p>
     </a>
   </li>
+
   <li class="exhibition-item">
     <a href="palmtreeshow.html">
-      <img src="assets/palmtree_main/spaceview_4.jpg" alt="">
-      <p>PALMTREESHOW</p>
+      <img src="assets/palmtree_main/spaceview_4.jpg" alt="PALMTREESHOW">
+      <p>THE PALMTREESHOW</p>
     </a>
   </li>
+
   <li class="exhibition-item">
     <a href="soulseller.html">
-      <img src="soulseller/queer_27.jpg" alt="">
+      <img src="soulseller/queer_27.jpg" alt="SOULSELLER">
       <p>SOULSELLER — UNHAPPY PAINTER / HAPPY PAINTER WANTS TO EXIST</p>
     </a>
   </li>
+
   <li class="exhibition-item">
-    <a href="gardenofeldon .html">
-      <img src="assets/gardenofeldon/garden_titelbild.JPG" alt="">
+    <a href="gardenofeldon.html">
+      <img src="assets/gardenofeldon/garden_titelbild.JPG" alt="GARDEN OF ELDON">
       <p>GARDEN OF ELDON</p>
     </a>
   </li>
 </ul>
 
-<!-- Newsletter -->
-<div class="newsletter">
-  <p id="newsletterText"
-     data-en="Get in touch! Write us an email to join our newsletter and stay updated on upcoming exhibitions and projects."
-     data-de="Schreib uns! Sende eine E-Mail, um in unseren Newsletter aufgenommen zu werden und über kommende Ausstellungen und Projekte informiert zu bleiben.">
-     Get in touch...
-  </p>
-  <a href="mailto:hopeartservice@gmx.net">hopeartservice@gmx.net</a>
-</div>
-
-<!-- Instagram -->
-<div style="margin:40px 20px;">
-  <a href="https://www.instagram.com/h__0__p__e__0.0/?hl=de" target="_blank">
-    <img src="assets/stuff/Instagram_icon.png" alt="Instagram Link" style="width:60px; height:auto;">
-  </a>
-</div>
-
-<!-- Chill Mode -->
-<div class="chill-mode-toggle" onclick="toggleChillMode()">.</div>
-
 <script>
-// ===== Chill Mode =====
-function toggleChillMode() {
-  document.body.classList.toggle('chill-mode');
-}
 
-// ===== Language Switch =====
+// Expand Intro
+const textContainer = document.querySelector('.text-container');
+textContainer.addEventListener('click', () => {
+  textContainer.classList.toggle('expanded');
+});
+
+// Language Switch
 const langBtn = document.getElementById('langBtn');
 let currentLang = 'en';
 
@@ -313,59 +320,6 @@ langBtn.addEventListener('click', () => {
   });
 });
 
-// ===== Theme Switch =====
-const themeBtn = document.getElementById('themeBtn');
-themeBtn.addEventListener('click', () => {
-  document.body.classList.toggle('vip-theme');
-  themeBtn.textContent = document.body.classList.contains('vip-theme') ? 'RAGGAE' : 'VIP';
-
-  if (document.body.classList.contains('vip-theme')) {
-    generateVipPngs();
-    window.addEventListener('resize', generateVipPngs);
-  } else {
-    document.getElementById('vipPngContainer').innerHTML = '';
-    window.removeEventListener('resize', generateVipPngs);
-  }
-});
-
-// ===== VIP PNGs Non-Overlapping =====
-function generateVipPngs() {
-  const container = document.getElementById('vipPngContainer');
-  container.innerHTML = '';
-  const pngPaths = [
-    'assets/stuff/gold_h.png',
-      'assets/stuff/gold_o.png',
-      'assets/stuff/gold_p.png',
-     'assets/stuff/gold_e.png',
-    
-  ];
-  const total = 22;
-  const size = 300;
-
-  const bodyWidth = document.body.scrollWidth;
-  const bodyHeight = document.body.scrollHeight;
-
-  let positions = [];
-
-  for (let i = 0; i < total; i++) {
-    let x, y, attempts = 0;
-    do {
-      x = Math.random() * (bodyWidth - size);
-      y = Math.random() * (bodyHeight - size);
-      attempts++;
-    } while (positions.some(pos => Math.abs(pos.x - x) < size && Math.abs(pos.y - y) < size) && attempts < 100);
-
-    positions.push({x, y});
-
-    const img = document.createElement('img');
-    img.src = pngPaths[i % pngPaths.length];
-    img.className = 'vip-png';
-    img.style.width = size + 'px';
-    img.style.left = x + 'px';
-    img.style.top = y + 'px';
-    container.appendChild(img);
-  }
-}
 </script>
 
 </body>
