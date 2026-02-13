@@ -21,6 +21,7 @@ body {
   background-attachment: fixed;
   position: relative;
   transition: background 0.6s ease;
+  color: black;
 }
 
 /* ================= INTRO ================= */
@@ -159,6 +160,56 @@ body.chill-mode {
   font-family: "Courier New", monospace;
   background: url('green.gif') center center fixed;
   background-size: cover;
+  color: #00ff66;
+}
+
+body.chill-mode::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: url("https://grainy-gradients.vercel.app/noise.svg");
+  opacity: 0.15;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+body.chill-mode .text-container,
+body.chill-mode .extra-box {
+  background: rgba(0, 0, 0, 0.85);
+  color: #00ff66;
+  border: 2px solid #00ff66;
+  box-shadow: 0 0 20px #00ff66;
+}
+
+body.chill-mode .exhibition-item p {
+  font-family: "Courier New", monospace;
+  background: black;
+  color: #00ff66;
+  border: 2px solid #00ff66;
+  box-shadow: 0 0 15px #00ff66;
+  text-transform: uppercase;
+}
+
+body.chill-mode .exhibition-item img {
+  filter: contrast(120%) saturate(110%);
+  border: 3px solid #00ff66;
+}
+
+body.chill-mode .newsletter {
+  background: black;
+  color: #00ff66;
+  border: 2px solid #00ff66;
+}
+
+body.chill-mode button {
+  background: black;
+  border: 2px solid #00ff66;
+  color: #00ff66;
+}
+
+body.chill-mode button:hover {
+  background: #00ff66;
+  color: black;
 }
 
 /* ================= NEWSLETTER ================= */
@@ -193,25 +244,41 @@ button {
 
 button:hover { background: #d4af37; }
 
+/* ================= MOBILE ================= */
+@media (max-width: 900px) {
+  .text-container { margin: 40px 15px 15px 15px; padding: 20px; }
+  .extra-box { margin: 0 15px 30px 15px; }
+  .exhibition-list { margin: 60px 15px; }
+  .exhibition-item { display: block; margin-bottom: 80px; }
+  .exhibition-item a { display: block; max-width: 100%; }
+  .exhibition-item img { margin-bottom: 12px; }
+}
+
 </style>
 </head>
 
 <body>
 
+<!-- LANGUAGE & THEME BUTTONS -->
 <div class="language-toggle">
   <button id="langBtn">DE</button>
 </div>
-
 <div class="theme-toggle">
   <button id="themeBtn">VIP</button>
 </div>
 
+<!-- INTRO -->
 <div class="text-container">
   <h1>H0PE ART SERVICE</h1>
-  <p>About H0pe...</p>
+  <p id="mainText"
+     data-en="H0pe is a curatorial project initiated by Marcus Wagner in Newcastle Upon Tyne in 2024, with the wish to create his own curatorial structure and therefore freedom to present works in an autonomous way. H0pe organizes itself with regular open calls inviting everybody to submit. The program focusses on a fun experimental approach to exhibition making and likes to concentrate on the effect of an exhibition more than the single work. Themes are choosen to generate a wide range of submissions and transform a simple topic into a vivid show, guiding back to the viewer and telling something about contemporary art production itself. Everybody is invited to contribute"
+     data-de="H0pe ist ein kuratorisches Projekt das von Marcus Wagner inititiert wurde und seither regelmäßig Gruppenausstellungen mittels Open Calls organisiert, Das Programm arbeitet experimentell und spielerisch und legt seinen Wert stärker auf die Gesamtwirkung der Ausstellung als auf das einzelne Werk. Gewählte Themen befassen sich oft mit Symbolik von Objekten und Worten. Die Wechselwirkung aus Thema und Werk soll auf den Betrachter zurück verweisen und wenn man so will etwas über gegenwärtige künstlerische Produktionsweisen aussagen.">
+     About H0pe...
+  </p>
   <span class="extra-toggle" onclick="toggleExtra()">More ↓</span>
 </div>
 
+<!-- EXTRA BOX -->
 <div class="extra-box" id="extraBox">
   <p>
     H0PE works through open structures, shared authorship and thematic frameworks.
@@ -219,7 +286,7 @@ button:hover { background: #d4af37; }
   </p>
 </div>
 
-<!-- Exhibition List -->
+<!-- EXHIBITION LIST -->
 <ul class="exhibition-list">
   <li class="exhibition-item">
     <a href="/carshow1.html">
@@ -265,24 +332,45 @@ button:hover { background: #d4af37; }
   </li>
 </ul>
 
+<!-- NEWSLETTER -->
 <div class="newsletter">
-  <p>Get in touch...</p>
+  <p id="newsletterText"
+     data-en="Get in touch! Write us an email to join our newsletter and stay updated on upcoming exhibitions and projects."
+     data-de="Schreib uns! Sende eine E-Mail, um in unseren Newsletter aufgenommen zu werden und über kommende Ausstellungen und Projekte informiert zu bleiben.">
+     Get in touch...
+  </p>
   <a href="mailto:hopeartservice@gmx.net">hopeartservice@gmx.net</a>
 </div>
 
 <script>
-
+// ===== COLLAPSIBLE EXTRA BOX =====
 function toggleExtra() {
   document.getElementById("extraBox").classList.toggle("open");
 }
 
-const themeBtn = document.getElementById('themeBtn');
-themeBtn.addEventListener('click', () => {
-  document.body.classList.toggle('vip-theme');
-  document.body.classList.toggle('chill-mode');
-  themeBtn.textContent = document.body.classList.contains('vip-theme') ? 'RAGGAE' : 'VIP';
+// ===== LANGUAGE SWITCH =====
+const langBtn = document.getElementById('langBtn');
+let currentLang = 'en';
+
+langBtn.addEventListener('click', () => {
+  currentLang = currentLang === 'en' ? 'de' : 'en';
+  langBtn.textContent = currentLang === 'en' ? 'DE' : 'EN';
+
+  document.querySelectorAll('[data-en]').forEach(el => {
+    el.textContent = el.getAttribute(`data-${currentLang}`);
+  });
 });
 
+// ===== THEME SWITCH =====
+const themeBtn = document.getElementById('themeBtn');
+themeBtn.addEventListener('click', () => {
+  const isVip = !document.body.classList.contains('vip-theme');
+
+  document.body.classList.toggle('vip-theme', isVip);
+  document.body.classList.toggle('chill-mode', !isVip);
+
+  themeBtn.textContent = isVip ? 'RAGGAE' : 'VIP';
+});
 </script>
 
 </body>
