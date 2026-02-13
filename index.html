@@ -18,11 +18,11 @@ body {
   padding: 0;
   font-family: Arial, sans-serif;
   background-image: url("assets/stuff/breakfree.png");
-  background-repeat: repeat-y, repeat-x;      /* vertikal und horizontal endlos wiederholen */
+  background-repeat: repeat-y;       /* vertikal endlos wiederholen */
   background-size: auto;             /* Originalgröße beibehalten */
   background-position: top center;   /* startet oben zentriert */
-  background-attachment: fixed;     /* besser für mobiles Endlos-Scroll */
-
+  background-attachment: scroll;     /* besser für mobiles Endlos-Scroll */
+  position: relative; /* for VIP PNG Layer */
 }
 
 /* ================= INTRO ================= */
@@ -103,9 +103,26 @@ body.vip-theme {
   background-repeat: repeat-y;       /* VIP Hintergrund ebenfalls endlos */
   background-size: auto;             /* Originalgröße beibehalten */
   background-position: top center;
-  background-attachment: fixed;
+  background-attachment: scroll;
 }
 
+/* VIP PNG Layer Container */
+#vipPngContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+body.vip-theme .vip-png {
+  position: absolute;
+  width: 300px;
+  z-index: 0;
+  pointer-events: none;
+}
 
 /* VIP Intro */
 body.vip-theme .text-container {
@@ -202,7 +219,7 @@ body.chill-mode {
   body, body.vip-theme, body.raggae-mode {
     background-size: contain;        /* Bild verkleinert sich nur bei mobilen Geräten */
     background-position: top center;
-    background-attachment: fixed;
+    background-attachment: scroll;
   }
 
   .text-container { margin: 40px 15px; padding: 20px; }
