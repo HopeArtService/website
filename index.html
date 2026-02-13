@@ -160,9 +160,10 @@ body.chill-mode {
   font-family: "Courier New", monospace;
   background: url('green.gif') center center fixed;
   background-size: cover;
-  color: #00ff66;
+  color: #00ff66; /* normale grüne Schrift */
 }
 
+/* Grain Overlay */
 body.chill-mode::after {
   content: "";
   position: fixed;
@@ -173,34 +174,39 @@ body.chill-mode::after {
   z-index: 9999;
 }
 
+/* Text Container + Extra Box */
 body.chill-mode .text-container,
 body.chill-mode .extra-box {
-  background: rgba(0, 0, 0, 0.85);
+  background: rgba(0,0,0,0.85);
   color: #00ff66;
   border: 2px solid #00ff66;
-  box-shadow: 0 0 20px #00ff66;
+  box-shadow: 0 0 10px #00ff66;
 }
 
+/* Exhibition Text */
 body.chill-mode .exhibition-item p {
   font-family: "Courier New", monospace;
   background: black;
   color: #00ff66;
   border: 2px solid #00ff66;
-  box-shadow: 0 0 15px #00ff66;
   text-transform: uppercase;
 }
 
+/* Exhibition Images */
 body.chill-mode .exhibition-item img {
   filter: contrast(120%) saturate(110%);
-  border: 3px solid #00ff66;
+  border: 2px solid #00ff66; /* gleiche Farbe wie Extra-Box */
+  border-radius: 4px;
 }
 
+/* Newsletter */
 body.chill-mode .newsletter {
   background: black;
   color: #00ff66;
   border: 2px solid #00ff66;
 }
 
+/* Buttons */
 body.chill-mode button {
   background: black;
   border: 2px solid #00ff66;
@@ -275,7 +281,7 @@ button:hover { background: #d4af37; }
      data-de="H0pe ist ein kuratorisches Projekt das von Marcus Wagner inititiert wurde und seither regelmäßig Gruppenausstellungen mittels Open Calls organisiert, Das Programm arbeitet experimentell und spielerisch und legt seinen Wert stärker auf die Gesamtwirkung der Ausstellung als auf das einzelne Werk. Gewählte Themen befassen sich oft mit Symbolik von Objekten und Worten. Die Wechselwirkung aus Thema und Werk soll auf den Betrachter zurück verweisen und wenn man so will etwas über gegenwärtige künstlerische Produktionsweisen aussagen.">
      About H0pe...
   </p>
-  <span class="extra-toggle" onclick="toggleExtra()">More ↓</span>
+  <span class="extra-toggle" onclick="toggleExtra()">↓</span>
 </div>
 
 <!-- EXTRA BOX -->
