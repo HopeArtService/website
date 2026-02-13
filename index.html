@@ -9,20 +9,30 @@
 <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&display=swap" rel="stylesheet">
 
 <style>
-
 /* ================= BASE ================= */
-* { box-sizing: border-box; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
 
 body {
-  margin: 0;
-  padding: 0;
   font-family: Arial, sans-serif;
-  background-image: url("assets/stuff/breakfree.png");
- background-repeat: repeat-y, repeat-x;
-  background-attachment: fixed;
-  background-size: cover;
-  background-position: center top;
   position: relative;
+  overflow-x: hidden;
+}
+
+/* ================= FIXED BACKGROUND ================= */
+.fixed-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("assets/stuff/breakfree.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  z-index: -1;
+  pointer-events: none;
+  will-change: transform;
+  transform: translateZ(0);
 }
 
 /* ================= INTRO ================= */
@@ -99,11 +109,12 @@ h1 {
 /* ================= VIP THEME ================= */
 body.vip-theme {
   font-family: 'Cinzel Decorative', serif;
-  background-image: url('assets/stuff/breakfree_goldornament.png');
-  background-repeat: repeat-y, repeat-x;
-  background-attachment: fixed;
+}
+
+body.vip-theme .fixed-bg {
+  background-image: url("assets/stuff/breakfree_goldornament.png");
   background-size: cover;
-  background-position: center top;
+  background-position: center center;
 }
 
 body.vip-theme .text-container {
@@ -179,18 +190,10 @@ button {
 button:hover { background: #d4af37; }
 
 /* ================= CHILL MODE ================= */
-.chill-mode-toggle {
-  position: fixed;
-  bottom: 15px;
-  right: 15px;
-  cursor: pointer;
-  color: white;
-  font-weight: bold;
-}
-
-body.chill-mode {
-  background: url('green.gif') center center fixed;
+body.chill-mode .fixed-bg {
+  background-image: url('green.gif');
   background-size: cover;
+  background-position: center center;
 }
 
 /* ================= MOBILE ================= */
@@ -202,17 +205,18 @@ body.chill-mode {
   .exhibition-item img { margin-bottom: 12px; }
   .exhibition-item p { display: block; width: fit-content; max-width: 100%; font-size: 16px; padding: 8px 12px; text-align: left; transform: none; }
 
-  body, body.vip-theme, body.chill-mode {
+  .fixed-bg {
     background-size: contain;
     background-position: center top;
-    background-attachment: fixed;
   }
 }
-
 </style>
 </head>
 
 <body class="raggae-mode">
+
+<!-- Fixed Background -->
+<div class="fixed-bg"></div>
 
 <!-- Buttons -->
 <div class="language-toggle">
@@ -235,14 +239,12 @@ body.chill-mode {
 
 <!-- Exhibition List -->
 <ul class="exhibition-list">
-
   <li class="exhibition-item">
     <a href="https://drive.google.com/file/d/1XR_DHhUq7bFecQOnoo6CK8La6-akw4-z/view?usp=share_link">
       <img src="assets/stuff/antonia_city.JPG" alt="pricelist carshow link">
       <p>Pricelist "THE CAR SHOW"</p>
     </a>
   </li>
-  
   <li class="exhibition-item">
     <a href="/carshow1.html">
       <img src="assets/car_compressed/marie_nah.jpg" alt="">
