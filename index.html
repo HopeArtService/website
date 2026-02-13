@@ -106,23 +106,6 @@ body.vip-theme {
   background-attachment: fixed;
 }
 
-/* VIP PNG Layer Container */
-#vipPngContainer {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 0;
-}
-
-body.vip-theme .vip-png {
-  position: absolute;
-  width: 300px;
-  z-index: 0;
-  pointer-events: none;
-}
 
 /* VIP Intro */
 body.vip-theme .text-container {
@@ -219,7 +202,7 @@ body.chill-mode {
   body, body.vip-theme, body.raggae-mode {
     background-size: contain;        /* Bild verkleinert sich nur bei mobilen Geräten */
     background-position: top center;
-    background-attachment: scroll;
+    background-attachment: fixed;
   }
 
   .text-container { margin: 40px 15px; padding: 20px; }
