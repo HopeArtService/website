@@ -221,7 +221,11 @@ body.chill-mode {
   .exhibition-item img { margin-bottom: 12px; }
   .exhibition-item p { display: block; width: fit-content; max-width: 100%; font-size: 16px; padding: 8px 12px; text-align: left; transform: none; }
 }
-
+ body {
+    background-size: contain; /* make the background fit smaller screens */
+    background-position: center top; /* adjust position */
+    background-attachment: scroll; /* remove fixed to avoid awkward scrolling */
+  }
 </style>
 </head>
 
