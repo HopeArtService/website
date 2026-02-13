@@ -5,11 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>H0PE ART SERVICE</title>
 
-<!-- VIP Font -->
 <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&display=swap" rel="stylesheet">
-
-<!-- Raggae Style Font -->
-<link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
 
 <style>
 
@@ -23,15 +19,14 @@ body {
   background-image: url("assets/stuff/breakfree.png");
   background-repeat: repeat;
   background-attachment: fixed;
-  background-size: 400px;
   position: relative;
-  transition: background 0.4s ease;
+  transition: background 0.6s ease;
 }
 
 /* ================= INTRO ================= */
 .text-container {
   max-width: 600px;
-  margin: 80px 20px;
+  margin: 80px 20px 20px 20px;
   padding: 30px;
   background: linear-gradient(135deg, #067506, #f0d507, #d60909);
   color: white;
@@ -39,27 +34,40 @@ body {
   box-shadow: 0 10px 25px rgba(0,0,0,0.3);
   position: relative;
   z-index: 1;
-
-  font-family: 'Righteous', sans-serif;
-  cursor: pointer;
-
-  max-height: 140px;
-  overflow: hidden;
-  transition: max-height 0.6s ease, transform 0.3s ease;
-}
-
-.text-container:hover {
-  transform: scale(1.02);
-}
-
-.text-container.expanded {
-  max-height: 1000px;
 }
 
 h1 {
   margin-top: 0;
   letter-spacing: 2px;
   font-weight: normal;
+}
+
+/* ================= SECOND BOX ================= */
+.extra-box {
+  max-width: 600px;
+  margin: 0 20px 40px 20px;
+  padding: 0 30px;
+  background: linear-gradient(135deg, #067506, #f0d507, #d60909);
+  color: white;
+  border-radius: 10px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.6s ease, padding 0.4s ease;
+  z-index: 1;
+  position: relative;
+}
+
+.extra-box.open {
+  padding: 30px;
+  max-height: 500px;
+}
+
+.extra-toggle {
+  cursor: pointer;
+  font-weight: bold;
+  margin-top: 15px;
+  display: inline-block;
 }
 
 /* ================= EXHIBITIONS ================= */
@@ -90,7 +98,7 @@ h1 {
   width: 100%;
   height: auto;
   display: block;
-  transition: 0.4s ease;
+  transition: 0.3s ease;
 }
 
 .exhibition-item img:hover { transform: scale(1.02); }
@@ -102,7 +110,7 @@ h1 {
   letter-spacing: 1px;
   border-radius: 6px;
   display: inline-block;
-  transition: 0.4s ease;
+  transition: 0.3s ease;
 }
 
 .exhibition-item:nth-child(3n+1) p { background: #067506; color: white; }
@@ -117,29 +125,12 @@ h1 {
 /* ================= VIP THEME ================= */
 body.vip-theme {
   font-family: 'Cinzel Decorative', serif;
-  background-color: #fff5d9;
+  background-image: url('assets/stuff/breakfree_goldornament.png');
   background-attachment: fixed;
 }
 
-#vipPngContainer {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 0;
-}
-
-body.vip-theme .vip-png {
-  position: absolute;
-  width: 300px;
-  z-index: 0;
-  pointer-events: none;
-}
-
-body.vip-theme .text-container {
-  font-family: 'Cinzel Decorative', serif;
+body.vip-theme .text-container,
+body.vip-theme .extra-box {
   background: #d4af37;
   color: black;
   border: 16px solid transparent;
@@ -161,6 +152,13 @@ body.vip-theme .exhibition-item img {
   border-image: url('assets/stuff/goldenpattern.png') 30 round;
   border-radius: 10px;
   box-shadow: 0 12px 25px rgba(0,0,0,0.4);
+}
+
+/* ================= RAGGAE ================= */
+body.chill-mode {
+  font-family: "Courier New", monospace;
+  background: url('green.gif') center center fixed;
+  background-size: cover;
 }
 
 /* ================= NEWSLETTER ================= */
@@ -195,37 +193,11 @@ button {
 
 button:hover { background: #d4af37; }
 
-/* ================= CHILL MODE ================= */
-.chill-mode-toggle {
-  position: fixed;
-  bottom: 15px;
-  right: 15px;
-  cursor: pointer;
-  color: white;
-  font-weight: bold;
-}
-
-body.chill-mode {
-  background: url('green.gif') center center fixed;
-  background-size: cover;
-}
-
-/* ================= MOBILE ================= */
-@media (max-width: 900px) {
-  .text-container { margin: 40px 15px; padding: 20px; }
-  .exhibition-list { margin: 60px 15px; }
-  .exhibition-item { display: block; margin-bottom: 80px; text-align: left; }
-  .exhibition-item a { display: block; max-width: 100%; }
-  .exhibition-item img { margin-bottom: 12px; }
-  .exhibition-item p { display: block; width: fit-content; max-width: 100%; font-size: 16px; padding: 8px 12px; text-align: left; transform: none; }
-}
-
 </style>
 </head>
 
 <body>
 
-<!-- Buttons -->
 <div class="language-toggle">
   <button id="langBtn">DE</button>
 </div>
@@ -234,90 +206,81 @@ body.chill-mode {
   <button id="themeBtn">VIP</button>
 </div>
 
-<!-- Intro -->
 <div class="text-container">
   <h1>H0PE ART SERVICE</h1>
-  <p id="mainText"
-     data-en="H0pe is a curatorial project initiated by Marcus Wagner in Newcastle Upon Tyne in 2024, with the wish to create his own curatorial structure and therefore freedom to present works in an autonomous way..."
-     data-de="H0pe ist ein kuratorisches Projekt das von Marcus Wagner inititiert wurde und seither regelmäßig Gruppenausstellungen mittels Open Calls organisiert...">
-     About H0pe...
-  </p>
+  <p>About H0pe...</p>
+  <span class="extra-toggle" onclick="toggleExtra()">More ↓</span>
 </div>
 
-<!-- VIP PNG Layer -->
-<div id="vipPngContainer"></div>
+<div class="extra-box" id="extraBox">
+  <p>
+    H0PE works through open structures, shared authorship and thematic frameworks.
+    It experiments with exhibition formats and spatial narration.
+  </p>
+</div>
 
 <!-- Exhibition List -->
 <ul class="exhibition-list">
   <li class="exhibition-item">
     <a href="/carshow1.html">
-      <img src="assets/car_compressed/marie_nah.jpg" alt="THE CAR SHOW I">
+      <img src="assets/car_compressed/marie_nah.jpg" alt="">
       <p>THE CAR SHOW I</p>
     </a>
   </li>
-
   <li class="exhibition-item">
     <a href="/nothingshow.html">
-      <img src="assets/nothingshow/still3.png" alt="THE NOTHING SHOW">
+      <img src="assets/nothingshow/still3.png" alt="">
       <p>THE NOTHING SHOW</p>
     </a>
   </li>
-
   <li class="exhibition-item">
-    <a href="/shoeshow-2.html">
-      <img src="assets/Shoeshow/emy2.jpg" alt="THE SHOE SHOW">
+    <a href="/shoeshow 2.html">
+      <img src="assets/Shoeshow/emy2.jpg" alt="">
       <p>THE SHOE SHOW</p>
     </a>
   </li>
-
   <li class="exhibition-item">
     <a href="/xmasshow.html">
-      <img src="assets/xmasshow/1.jpg" alt="HOPE XMAS SHOW">
+      <img src="assets/xmasshow/1.jpg" alt="">
       <p>HOPE XMAS SHOW</p>
     </a>
   </li>
-
   <li class="exhibition-item">
     <a href="palmtreeshow.html">
-      <img src="assets/palmtree_main/spaceview_4.jpg" alt="PALMTREESHOW">
-      <p>THE PALMTREESHOW</p>
+      <img src="assets/palmtree_main/spaceview_4.jpg" alt="">
+      <p>PALMTREESHOW</p>
     </a>
   </li>
-
   <li class="exhibition-item">
     <a href="soulseller.html">
-      <img src="soulseller/queer_27.jpg" alt="SOULSELLER">
+      <img src="soulseller/queer_27.jpg" alt="">
       <p>SOULSELLER — UNHAPPY PAINTER / HAPPY PAINTER WANTS TO EXIST</p>
     </a>
   </li>
-
   <li class="exhibition-item">
-    <a href="gardenofeldon.html">
-      <img src="assets/gardenofeldon/garden_titelbild.JPG" alt="GARDEN OF ELDON">
+    <a href="gardenofeldon .html">
+      <img src="assets/gardenofeldon/garden_titelbild.JPG" alt="">
       <p>GARDEN OF ELDON</p>
     </a>
   </li>
 </ul>
 
+<div class="newsletter">
+  <p>Get in touch...</p>
+  <a href="mailto:hopeartservice@gmx.net">hopeartservice@gmx.net</a>
+</div>
+
 <script>
 
-// Expand Intro
-const textContainer = document.querySelector('.text-container');
-textContainer.addEventListener('click', () => {
-  textContainer.classList.toggle('expanded');
-});
+function toggleExtra() {
+  document.getElementById("extraBox").classList.toggle("open");
+}
 
-// Language Switch
-const langBtn = document.getElementById('langBtn');
-let currentLang = 'en';
-
-langBtn.addEventListener('click', () => {
-  currentLang = currentLang === 'en' ? 'de' : 'en';
-  langBtn.textContent = currentLang === 'en' ? 'DE' : 'EN';
-
-  document.querySelectorAll('[data-en]').forEach(el => {
-    el.textContent = el.getAttribute(`data-${currentLang}`);
-  });
+const themeBtn = document.getElementById('themeBtn');
+themeBtn.addEventListener('click', () => {
+  document.body.classList.toggle('vip-theme');
+  document.body.classList.toggle('chill-mode');
+  themeBtn.textContent = document.body.classList.contains('vip-theme') ? 'RAGGAE' : 'VIP';
 });
 
 </script>
