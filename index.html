@@ -203,15 +203,31 @@ body.chill-mode .fixed-bg {
   .exhibition-item { display: block; margin-bottom: 80px; }
   .exhibition-item a { display: block; max-width: 100%; }
   .exhibition-item img { margin-bottom: 12px; }
-  .exhibition-item p { display: block; width: fit-content; max-width: 100%; font-size: 16px; padding: 8px 12px; text-align: left; transform: none; }
+  .exhibition-item p { 
+    display: block; 
+    width: fit-content; 
+    max-width: 100%; 
+    font-size: 16px; 
+    padding: 8px 12px; 
+    text-align: left; 
+    transform: none; 
+  }
 
-    body.raggae-mode .fixed-bg {
-    position: absolute;          /* statt fixed */
+  /* ===== FIXED RAGGAE BACKGROUND (MOBILE) ===== */
+  body.raggae-mode .fixed-bg {
+    position: fixed;              /* bleibt statisch */
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+
     background-image: url("assets/stuff/breakfree.png");
-    background-repeat: repeat-x, repeat-y;   /* Wiederholung in X und Y */
-    background-size: auto;       /* keine Skalierung */
+    background-repeat: repeat;    /* Wiederholung X + Y */
+    background-size: clamp(250px, 40vw, 500px); /* responsive Skalierung */
     background-position: top left;
-    transform: rotate(0.3deg);  
+
+    z-index: -1;
+    pointer-events: none;
   }
 }
 </style>
