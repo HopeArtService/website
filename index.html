@@ -208,9 +208,10 @@ body.chill-mode .fixed-bg {
     body.raggae-mode .fixed-bg {
     position: absolute;          /* statt fixed */
     background-image: url("assets/stuff/breakfree.png");
-    background-repeat: repeat;   /* Wiederholung in X und Y */
+    background-repeat: repeat-x, repeat-y;   /* Wiederholung in X und Y */
     background-size: auto;       /* keine Skalierung */
     background-position: top left;
+    transform: rotate(0.3deg);  
   }
 }
 </style>
