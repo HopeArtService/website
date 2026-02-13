@@ -254,8 +254,7 @@ body.chill-mode {
   </p>
 </div>
 
-<!-- VIP PNG Layer Container -->
-<div id="vipPngContainer"></div>
+
 
 <!-- Exhibition List -->
 <ul class="exhibition-list">
@@ -268,7 +267,7 @@ body.chill-mode {
   <li class="exhibition-item">
     <a href="/carshow1.html">
       <img src="assets/car_compressed/marie_nah.jpg" alt="">
-      <p>THE CAR SHOW I</p>
+      <p>THE CAR SHOW</p>
     </a>
   </li>
   <li class="exhibition-item">
@@ -292,7 +291,7 @@ body.chill-mode {
   <li class="exhibition-item">
     <a href="palmtreeshow.html">
       <img src="assets/palmtree_main/spaceview_4.jpg" alt="">
-      <p>PALMTREESHOW</p>
+      <p>THE PALMTREESHOW</p>
     </a>
   </li>
   <li class="exhibition-item">
@@ -357,51 +356,7 @@ themeBtn.addEventListener('click', () => {
   // Remove raggae mode when VIP is on
   document.body.classList.toggle('raggae-mode', !isVip);
 
-  if (isVip) {
-    generateVipPngs();
-    window.addEventListener('resize', generateVipPngs);
-  } else {
-    document.getElementById('vipPngContainer').innerHTML = '';
-    window.removeEventListener('resize', generateVipPngs);
-  }
-});
 
-// ===== VIP PNGs Non-Overlapping =====
-function generateVipPngs() {
-  const container = document.getElementById('vipPngContainer');
-  container.innerHTML = '';
-  const pngPaths = [
-    'assets/stuff/gold_h.png',
-    'assets/stuff/gold_o.png',
-    'assets/stuff/gold_p.png',
-    'assets/stuff/gold_e.png',
-  ];
-  const total = 22;
-  const size = 300;
-
-  const bodyWidth = document.body.scrollWidth;
-  const bodyHeight = document.body.scrollHeight;
-
-  let positions = [];
-
-  for (let i = 0; i < total; i++) {
-    let x, y, attempts = 0;
-    do {
-      x = Math.random() * (bodyWidth - size);
-      y = Math.random() * (bodyHeight - size);
-      attempts++;
-    } while (positions.some(pos => Math.abs(pos.x - x) < size && Math.abs(pos.y - y) < size) && attempts < 100);
-
-    positions.push({x, y});
-
-    const img = document.createElement('img');
-    img.src = pngPaths[i % pngPaths.length];
-    img.className = 'vip-png';
-    img.style.width = size + 'px';
-    img.style.left = x + 'px';
-    img.style.top = y + 'px';
-    container.appendChild(img);
-  }
 }
 </script>
 
