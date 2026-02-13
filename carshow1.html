@@ -8,6 +8,25 @@
 h1,h2 {
 font-family: 'Courier New', monospace;
 }
+
+.back-home {
+  position: fixed;       /* Bleibt beim Scrollen sichtbar */
+  top: 20px;             /* Abstand vom oberen Rand */
+  right: 20px;           /* Abstand vom rechten Rand */
+  background-color: #000; /* Schwarzer Hintergrund */
+  color: #fff;           /* Weiße Schrift */
+  padding: 10px 15px;    /* Innenabstand */
+  text-decoration: none; /* Kein Unterstrich */
+  border-radius: 5px;    /* Leicht abgerundete Ecken */
+  font-family: 'Courier New', monospace;
+  z-index: 1000;         /* Immer über allem anderen */
+  transition: background-color 0.3s;
+}
+
+.back-home:hover {
+  background-color: #444; /* Farbe beim Hover */
+}
+
 .text pre {
 width: 1000px;
 max-width: 95%;
@@ -152,7 +171,9 @@ One Day presentation of 18 photos of cars at a running gasstation in Vienna.
 
 
 </div>
-<a href="/">Back to Home</a>
+<a href="/" class="back-home">Back to Home</a>
+
+
 </body>
 </html>
 
