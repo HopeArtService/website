@@ -18,10 +18,10 @@ body {
   padding: 0;
   font-family: Arial, sans-serif;
   background-image: url("assets/stuff/breakfree.png");
-  background-repeat: repeat-y;       /* Hintergrund wiederholt sich vertikal */
-  background-size: auto 100%;        /* Höhe passt sich an, Breite skaliert automatisch */
+  background-repeat: repeat-y;       /* vertikal endlos wiederholen */
+  background-size: auto;             /* Originalgröße beibehalten */
   background-position: top center;   /* startet oben zentriert */
-  background-attachment: scroll;     /* verhindert Fixierung, besser für mobiles Endlos-Scroll */
+  background-attachment: scroll;     /* besser für mobiles Endlos-Scroll */
   position: relative; /* for VIP PNG Layer */
 }
 
@@ -101,7 +101,7 @@ body.vip-theme {
   font-family: 'Cinzel Decorative', serif;
   background-image: url('assets/stuff/breakfree_goldornament.png');
   background-repeat: repeat-y;       /* VIP Hintergrund ebenfalls endlos */
-  background-size: auto 100%;
+  background-size: auto;             /* Originalgröße beibehalten */
   background-position: top center;
   background-attachment: scroll;
 }
@@ -217,9 +217,9 @@ body.chill-mode {
 /* ================= MOBILE ================= */
 @media (max-width: 900px) {
   body, body.vip-theme, body.raggae-mode {
-    background-size: auto 100%;  /* Höhe immer 100%, Breite passt sich an */
+    background-size: contain;        /* Bild verkleinert sich nur bei mobilen Geräten */
     background-position: top center;
-    background-attachment: scroll; /* Endlos-Scroll auf Mobil */
+    background-attachment: scroll;
   }
 
   .text-container { margin: 40px 15px; padding: 20px; }
