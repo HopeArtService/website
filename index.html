@@ -5,11 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>H0PE ART SERVICE</title>
 
-<!-- Luxus-Schrift für VIP -->
 <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&display=swap" rel="stylesheet">
 
 <style>
-/* ================= BASE ================= */
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
 body {
@@ -157,6 +155,14 @@ body.raggae-mode .exhibition-item:nth-child(3n+1) img { border-color: #067506; }
 body.raggae-mode .exhibition-item:nth-child(3n+2) img { border-color: #f0d507; }
 body.raggae-mode .exhibition-item:nth-child(3n+3) img { border-color: #d60909; }
 
+/* ===== RAGGAE BACKGROUND REPEAT ===== */
+body.raggae-mode .fixed-bg {
+  background-image: url("assets/stuff/breakfree.png");
+  background-repeat: repeat;
+  background-size: auto;
+  background-position: top left;
+}
+
 /* ================= NEWSLETTER ================= */
 .newsletter {
   margin: 100px 20px;
@@ -198,6 +204,7 @@ body.chill-mode .fixed-bg {
 
 /* ================= MOBILE ================= */
 @media (max-width: 900px) {
+
   .text-container { margin: 40px 15px; padding: 20px; }
   .exhibition-list { margin: 60px 15px; }
   .exhibition-item { display: block; margin-bottom: 80px; }
@@ -205,7 +212,7 @@ body.chill-mode .fixed-bg {
   .exhibition-item img { margin-bottom: 12px; }
   .exhibition-item p { display: block; width: fit-content; max-width: 100%; font-size: 16px; padding: 8px 12px; text-align: left; transform: none; }
 
-  .fixed-bg {
+  body:not(.raggae-mode) .fixed-bg {
     background-size: contain;
     background-position: center top;
   }
@@ -215,10 +222,8 @@ body.chill-mode .fixed-bg {
 
 <body class="raggae-mode">
 
-<!-- Fixed Background -->
 <div class="fixed-bg"></div>
 
-<!-- Buttons -->
 <div class="language-toggle">
   <button id="langBtn">DE</button>
 </div>
@@ -227,60 +232,65 @@ body.chill-mode .fixed-bg {
   <button id="themeBtn">VIP</button>
 </div>
 
-<!-- Intro -->
 <div class="text-container">
   <h1>H0PE ART SERVICE</h1>
   <p id="mainText"
-     data-en="H0pe is a curatorial project initiated by Marcus Wagner in Newcastle Upon Tyne in 2024, with the wish to create his own curatorial structure and therefore freedom to present works in an autonomous way. H0pe organizes itself with regular open calls inviting everybody to submit. The program focusses on a fun experimental approach to exhibition making and likes to concentrate on the effect of an exhibition more than the single work. Themes are choosen to generate a wide range of submissions and transform a simple topic into a vivid show, guiding back to the viewer and telling something about contemporary art production itself. Everybody is invited to contribute"
-     data-de="H0pe ist ein kuratorisches Projekt das von Marcus Wagner inititiert wurde und seither regelmäßig Gruppenausstellungen mittels Open Calls organisiert, Das Programm arbeitet experimentell und spielerisch und legt seinen Wert stärker auf die Gesamtwirkung der Ausstellung als auf das einzelne Werk. Gewählte Themen befassen sich oft mit Symbolik von Objekten und Worten. Die Wechselwirkung aus Thema und Werk soll auf den Betrachter zurück verweisen und wenn man so will etwas über gegenwärtige künstlerische Produktionsweisen aussagen.">
-     H0pe is a curatorial project initiated by Marcus Wagner in Newcastle Upon Tyne in 2024, with the wish to create his own curatorial structure and therefore freedom to present works in an autonomous way. H0pe organizes itself with regular open calls inviting everybody to submit. The program focusses on a fun experimental approach to exhibition making and likes to concentrate on the effect of an exhibition more than the single work. Themes are choosen to generate a wide range of submissions and transform a simple topic into a vivid show, guiding back to the viewer and telling something about contemporary art production itself. Everybody is invited to contribute
+     data-en="H0pe is a curatorial project initiated by Marcus Wagner in Newcastle Upon Tyne in 2024..."
+     data-de="H0pe ist ein kuratorisches Projekt das von Marcus Wagner inititiert wurde...">
+     H0pe is a curatorial project initiated by Marcus Wagner in Newcastle Upon Tyne in 2024...
   </p>
 </div>
 
-<!-- Exhibition List -->
 <ul class="exhibition-list">
   <li class="exhibition-item">
     <a href="https://drive.google.com/file/d/1XR_DHhUq7bFecQOnoo6CK8La6-akw4-z/view?usp=share_link">
-      <img src="assets/stuff/antonia_city.JPG" alt="pricelist carshow link">
+      <img src="assets/stuff/antonia_city.JPG" alt="">
       <p>Pricelist "THE CAR SHOW"</p>
     </a>
   </li>
+
   <li class="exhibition-item">
     <a href="/carshow1.html">
-      <img src="carshow2_intro.jpg" alt="Car Show">
+      <img src="carshow2_intro.jpg" alt="">
       <p>THE CAR SHOW</p>
     </a>
   </li>
+
   <li class="exhibition-item">
     <a href="/nothingshow.html">
       <img src="assets/nothingshow/still3.png" alt="">
       <p>THE NOTHING SHOW</p>
     </a>
   </li>
+
   <li class="exhibition-item">
     <a href="/shoeshow 2.html">
       <img src="assets/Shoeshow/emy2.jpg" alt="">
       <p>THE SHOE SHOW</p>
     </a>
   </li>
+
   <li class="exhibition-item">
     <a href="/xmasshow.html">
       <img src="assets/xmasshow/1.jpg" alt="">
       <p>HOPE XMAS SHOW</p>
     </a>
   </li>
+
   <li class="exhibition-item">
     <a href="palmtreeshow.html">
       <img src="assets/palmtree_main/spaceview_4.jpg" alt="">
       <p>THE PALMTREESHOW</p>
     </a>
   </li>
+
   <li class="exhibition-item">
     <a href="soulseller.html">
       <img src="soulseller/queer_27.jpg" alt="">
       <p>SOULSELLER — UNHAPPY PAINTER / HAPPY PAINTER WANTS TO EXIST</p>
     </a>
   </li>
+
   <li class="exhibition-item">
     <a href="gardenofeldon .html">
       <img src="assets/gardenofeldon/garden_titelbild.JPG" alt="">
@@ -289,33 +299,26 @@ body.chill-mode .fixed-bg {
   </li>
 </ul>
 
-<!-- Newsletter -->
 <div class="newsletter">
   <p id="newsletterText"
-     data-en="Get in touch! Write us an email to join our newsletter and stay updated on upcoming exhibitions and projects."
-     data-de="Schreib uns! Sende eine E-Mail, um in unseren Newsletter aufgenommen zu werden und über kommende Ausstellungen und Projekte informiert zu bleiben.">
+     data-en="Get in touch! Write us an email..."
+     data-de="Schreib uns! Sende eine E-Mail...">
      Get in touch...
   </p>
   <a href="mailto:hopeartservice@gmx.net">hopeartservice@gmx.net</a>
 </div>
 
-<!-- Instagram -->
 <div style="margin:40px 20px;">
   <a href="https://www.instagram.com/h__0__p__e__0.0/?hl=de" target="_blank">
-    <img src="assets/stuff/Instagram_icon.png" alt="Instagram Link" style="width:60px; height:auto;">
+    <img src="assets/stuff/Instagram_icon.png" style="width:60px;">
   </a>
 </div>
 
-<!-- Chill Mode -->
-<div class="chill-mode-toggle" onclick="toggleChillMode()">.</div>
-
 <script>
-// ===== Chill Mode =====
 function toggleChillMode() {
   document.body.classList.toggle('chill-mode');
 }
 
-// ===== Language Switch =====
 const langBtn = document.getElementById('langBtn');
 let currentLang = 'en';
 
@@ -328,7 +331,6 @@ langBtn.addEventListener('click', () => {
   });
 });
 
-// ===== Theme Switch =====
 const themeBtn = document.getElementById('themeBtn');
 themeBtn.addEventListener('click', () => {
   const isVip = document.body.classList.toggle('vip-theme');
