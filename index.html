@@ -18,10 +18,9 @@ body {
   padding: 0;
   font-family: Arial, sans-serif;
   background-image: url("assets/stuff/breakfree.png");
-  background-repeat: repeat-y;       /* vertikal endlos wiederholen */
-  background-size: auto;             /* Originalgröße beibehalten */
-  background-position: top center;   /* startet oben zentriert */
-  background-attachment: scroll;     /* besser für mobiles Endlos-Scroll */
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
   position: relative; /* for VIP PNG Layer */
 }
 
@@ -100,29 +99,12 @@ h1 {
 body.vip-theme {
   font-family: 'Cinzel Decorative', serif;
   background-image: url('assets/stuff/breakfree_goldornament.png');
-  background-repeat: repeat-y;       /* VIP Hintergrund ebenfalls endlos */
-  background-size: auto;             /* Originalgröße beibehalten */
-  background-position: top center;
-  background-attachment: scroll;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
 }
 
-/* VIP PNG Layer Container */
-#vipPngContainer {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 0;
-}
 
-body.vip-theme .vip-png {
-  position: absolute;
-  width: 300px;
-  z-index: 0;
-  pointer-events: none;
-}
 
 /* VIP Intro */
 body.vip-theme .text-container {
@@ -216,12 +198,6 @@ body.chill-mode {
 
 /* ================= MOBILE ================= */
 @media (max-width: 900px) {
-  body, body.vip-theme, body.raggae-mode {
-    background-size: contain;        /* Bild verkleinert sich nur bei mobilen Geräten */
-    background-position: top center;
-    background-attachment: scroll;
-  }
-
   .text-container { margin: 40px 15px; padding: 20px; }
   .exhibition-list { margin: 60px 15px; }
   .exhibition-item { display: block; margin-bottom: 80px; }
@@ -229,7 +205,11 @@ body.chill-mode {
   .exhibition-item img { margin-bottom: 12px; }
   .exhibition-item p { display: block; width: fit-content; max-width: 100%; font-size: 16px; padding: 8px 12px; text-align: left; transform: none; }
 }
-
+ body {
+    background-size: contain; /* make the background fit smaller screens */
+    background-position: center top; /* adjust position */
+    background-attachment: scroll; /* remove fixed to avoid awkward scrolling */
+  }
 </style>
 </head>
 
@@ -250,24 +230,20 @@ body.chill-mode {
   <p id="mainText"
      data-en="H0pe is a curatorial project initiated by Marcus Wagner in Newcastle Upon Tyne in 2024, with the wish to create his own curatorial structure and therefore freedom to present works in an autonomous way. H0pe organizes itself with regular open calls inviting everybody to submit. The program focusses on a fun experimental approach to exhibition making and likes to concentrate on the effect of an exhibition more than the single work. Themes are choosen to generate a wide range of submissions and transform a simple topic into a vivid show, guiding back to the viewer and telling something about contemporary art production itself. Everybody is invited to contribute"
      data-de="H0pe ist ein kuratorisches Projekt das von Marcus Wagner inititiert wurde und seither regelmäßig Gruppenausstellungen mittels Open Calls organisiert, Das Programm arbeitet experimentell und spielerisch und legt seinen Wert stärker auf die Gesamtwirkung der Ausstellung als auf das einzelne Werk. Gewählte Themen befassen sich oft mit Symbolik von Objekten und Worten. Die Wechselwirkung aus Thema und Werk soll auf den Betrachter zurück verweisen und wenn man so will etwas über gegenwärtige künstlerische Produktionsweisen aussagen.">
+     <!-- Show full text by default -->
      H0pe is a curatorial project initiated by Marcus Wagner in Newcastle Upon Tyne in 2024, with the wish to create his own curatorial structure and therefore freedom to present works in an autonomous way. H0pe organizes itself with regular open calls inviting everybody to submit. The program focusses on a fun experimental approach to exhibition making and likes to concentrate on the effect of an exhibition more than the single work. Themes are choosen to generate a wide range of submissions and transform a simple topic into a vivid show, guiding back to the viewer and telling something about contemporary art production itself. Everybody is invited to contribute
   </p>
 </div>
 
-
+<!-- VIP PNG Layer Container -->
+<div id="vipPngContainer"></div>
 
 <!-- Exhibition List -->
 <ul class="exhibition-list">
   <li class="exhibition-item">
-    <a href="https://drive.google.com/file/d/1XR_DHhUq7bFecQOnoo6CK8La6-akw4-z/view?usp=sharing">
-      <img src=assets/stuff/antonia_city.JPG alt="pricelist">
-      <p>Pricelist The Car Show</p>
-    </a>
-  </li> 
-  <li class="exhibition-item">
     <a href="/carshow1.html">
       <img src="assets/car_compressed/marie_nah.jpg" alt="">
-      <p>THE CAR SHOW</p>
+      <p>THE CAR SHOW I</p>
     </a>
   </li>
   <li class="exhibition-item">
@@ -291,7 +267,7 @@ body.chill-mode {
   <li class="exhibition-item">
     <a href="palmtreeshow.html">
       <img src="assets/palmtree_main/spaceview_4.jpg" alt="">
-      <p>THE PALMTREESHOW</p>
+      <p>PALMTREESHOW</p>
     </a>
   </li>
   <li class="exhibition-item">
@@ -356,7 +332,51 @@ themeBtn.addEventListener('click', () => {
   // Remove raggae mode when VIP is on
   document.body.classList.toggle('raggae-mode', !isVip);
 
+  if (isVip) {
+    generateVipPngs();
+    window.addEventListener('resize', generateVipPngs);
+  } else {
+    document.getElementById('vipPngContainer').innerHTML = '';
+    window.removeEventListener('resize', generateVipPngs);
+  }
+});
 
+// ===== VIP PNGs Non-Overlapping =====
+function generateVipPngs() {
+  const container = document.getElementById('vipPngContainer');
+  container.innerHTML = '';
+  const pngPaths = [
+    'assets/stuff/gold_h.png',
+    'assets/stuff/gold_o.png',
+    'assets/stuff/gold_p.png',
+    'assets/stuff/gold_e.png',
+  ];
+  const total = 22;
+  const size = 300;
+
+  const bodyWidth = document.body.scrollWidth;
+  const bodyHeight = document.body.scrollHeight;
+
+  let positions = [];
+
+  for (let i = 0; i < total; i++) {
+    let x, y, attempts = 0;
+    do {
+      x = Math.random() * (bodyWidth - size);
+      y = Math.random() * (bodyHeight - size);
+      attempts++;
+    } while (positions.some(pos => Math.abs(pos.x - x) < size && Math.abs(pos.y - y) < size) && attempts < 100);
+
+    positions.push({x, y});
+
+    const img = document.createElement('img');
+    img.src = pngPaths[i % pngPaths.length];
+    img.className = 'vip-png';
+    img.style.width = size + 'px';
+    img.style.left = x + 'px';
+    img.style.top = y + 'px';
+    container.appendChild(img);
+  }
 }
 </script>
 
