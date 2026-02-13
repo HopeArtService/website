@@ -205,9 +205,12 @@ body.chill-mode .fixed-bg {
   .exhibition-item img { margin-bottom: 12px; }
   .exhibition-item p { display: block; width: fit-content; max-width: 100%; font-size: 16px; padding: 8px 12px; text-align: left; transform: none; }
 
-  .fixed-bg {
-    background-size: contain;
-    background-position: center top;
+    body.raggae-mode .fixed-bg {
+    position: absolute;          /* statt fixed */
+    background-image: url("assets/stuff/breakfree.png");
+    background-repeat: repeat;   /* Wiederholung in X und Y */
+    background-size: auto;       /* keine Skalierung */
+    background-position: top left;
   }
 }
 </style>
