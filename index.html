@@ -77,22 +77,24 @@ h1 {
 .exhibition-item.closer {
   margin-top: -60px;
   margin-bottom: 40px;
-  width: 100vw;      /* volle Breite */
-  max-width: 100vw;  /* sicherstellen */
+  width: 100%;      /* volle Breite, passt sich dem ul an */
+  max-width: 100%;
   padding: 0;
 }
 
 .exhibition-item.closer a {
-  max-width: 100%;    /* überschreibt das normale 650px limit */
   display: block;
+  width: 100%;       /* Link füllt die Breite */
+  max-width: 100%;
 }
 
 .exhibition-item.closer img {
-  width: 100%;        /* Bild füllt den Container */
+  width: 100%;       /* Bild füllt den Container */
   height: auto;
-  border-radius: 0;   /* optional */
-}  
-  
+  border-radius: 0;  /* optional, keine Abrundung */
+  display: block;
+
+}
 .exhibition-item a {
   text-decoration: none;
   color: black;
