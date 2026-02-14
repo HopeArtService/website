@@ -61,28 +61,25 @@ h1 {
 }
 /* ================= LOGO ================= */
 .logo-container {
-  display: flex;             /* Flexbox für Zentrierung */
-  justify-content: center;   /* horizontal zentrieren */
-  align-items: center;       /* vertikal zentrieren */
-  width: 100%;               /* volle Breite des Bildschirms */
-  margin: 40px 0;            /* Abstand oben/unten optional */
+  display: flex;
+  flex-direction: column;   /* Logo oben, Text darunter */
+  align-items: center;      /* horizontal zentrieren */
+  margin: 20px;             /* optional: Abstand zu anderen Elementen */
 }
 
 .logo-container img {
-  max-width: 100px;          /* maximale Breite */
-  width: 30%;                /* responsive Breite relativ zum Viewport */
-  height: auto;              /* proportional skalieren */
+  width: 150px;             /* responsive Größe optional */
+  max-width: 30vw;
+  height: auto;
   display: block;
-}  
+}
 
-.logo-container p {
-  margin-top: 15px;
-  padding: 10px 14px;
-  font-family: "Times New Roman", serif;
-  letter-spacing: 1px;
-  border-radius: 6px;
-  display: inline-block;
-  text-align: center;
+.logo-caption {
+  margin-top: 8px;          /* Abstand zwischen Bild und Text */
+  text-align: center;       /* Text zentrieren */
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  color: #111;
 }  
 
 /* ================= EXHIBITIONS ================= */
@@ -318,10 +315,11 @@ button:hover { background: #d4af37; }
 </li>
 
 <div class="logo-container">
-  <a href="mailto:hopeartservice@gmx.net?subject=Merch%20Info">
-  <img src="assets/stuff/hope_logo_sticker small.png" alt="H0PE Logo">
-  <p data-en=' ↑BUY MERCH↑' data-de=' ↑MERCH KAUFEN↑'> ↑BUY MERCH↑</p>
+   <a href="mailto:hopeartservice@gmx.net?subject=Merch%20Info">
+  <img src="assets/stuff/logo.png" alt="H0PE Logo">
+  <p class="logo-caption" data-en=' ↑BUY MERCH↑' data-de=' ↑MERCH KAUFEN↑'> ↑BUY MERCH↑</p>
 </div>
+  
   
 <li class="exhibition-item">
 <a href="https://drive.google.com/file/d/1XR_DHhUq7bFecQOnoo6CK8La6-akw4-z/view?usp=share_link">
