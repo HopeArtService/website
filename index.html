@@ -59,6 +59,21 @@ h1 {
   margin-bottom: 20px;
 
 }
+/* ================= LOGO ================= */
+.logo-container {
+  display: flex;             /* Flexbox für Zentrierung */
+  justify-content: center;   /* horizontal zentrieren */
+  align-items: center;       /* vertikal zentrieren */
+  width: 100%;               /* volle Breite des Bildschirms */
+  margin: 40px 0;            /* Abstand oben/unten optional */
+}
+
+.logo-container img {
+  max-width: 100px;          /* maximale Breite */
+  width: 20%;                /* responsive Breite relativ zum Viewport */
+  height: auto;              /* proportional skalieren */
+  display: block;
+}  
 
 /* ================= EXHIBITIONS ================= */
 .exhibition-list {
@@ -285,9 +300,9 @@ button:hover { background: #d4af37; }
 </a>  
 </li>
 
-<li class="central logo">  
-<img src="assets/stuff/hope_logo_sticker small.png" alt="Logo Hope Art Service">
-</li> 
+<div class="logo-container">
+  <img src="assets/stuff/hope_logo_sticker small.png" alt="H0PE Logo">
+</div>
   
 <li class="exhibition-item">
 <a href="https://drive.google.com/file/d/1XR_DHhUq7bFecQOnoo6CK8La6-akw4-z/view?usp=share_link">
