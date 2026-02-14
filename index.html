@@ -62,9 +62,12 @@ h1 {
 /* ================= LOGO ================= */
 .logo-container {
   display: flex;
-  flex-direction: column;   /* Logo oben, Text darunter */
-  align-items: center;      /* horizontal zentrieren */
-  margin: 20px;             /* optional: Abstand zu anderen Elementen */
+  flex-direction: column;    /* Logo oben, Text darunter */
+  align-items: center;       /* horizontal zentrieren */
+  justify-content: center;   /* vertikal zentrieren optional */
+  text-align: center;        /* Text darunter zentrieren */
+  margin: 0 auto;            /* Container zentrieren */
+  width: fit-content;        /* Breite passt sich Inhalt an */
 }
 
 .logo-container img {
