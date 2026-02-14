@@ -7,10 +7,10 @@
 <title>H0PE ART SERVICE</title>
 <meta name="description" content="Hope Art Service - Projects">
 
-<!-- Luxus-Schrift für VIP -->
+<!-- VIP Font -->
 <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&display=swap" rel="stylesheet">
 
-<!-- Minimal Clean Font -->
+<!-- Minimal Font -->
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
@@ -37,8 +37,6 @@ body {
   background-size: cover;
   z-index: -1;
   pointer-events: none;
-  will-change: transform;
-  transform: translateZ(0);
 }
 
 /* ================= INTRO ================= */
@@ -100,17 +98,17 @@ h1 {
   letter-spacing: 1px;
   border-radius: 6px;
   display: inline-block;
-  transition: 0.3s ease;
+}
+
+/* NO HOVER EFFECT ON TEXT */
+.exhibition-item p:hover {
+  transform: none;
+  box-shadow: none;
 }
 
 .exhibition-item:nth-child(3n+1) p { background: #067506; color: white; }
 .exhibition-item:nth-child(3n+2) p { background: #f0d507; color: black; }
 .exhibition-item:nth-child(3n+3) p { background: #d60909; color: white; }
-
-.exhibition-item p:hover {
-  transform: scale(1.05);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.3);
-}
 
 /* ================= VIP THEME ================= */
 body.vip-theme {
@@ -119,8 +117,6 @@ body.vip-theme {
 
 body.vip-theme .fixed-bg {
   background-image: url("assets/stuff/breakfree_goldornament.png");
-  background-size: cover;
-  background-position: center center;
 }
 
 body.vip-theme .text-container {
@@ -128,7 +124,6 @@ body.vip-theme .text-container {
   color: black;
   border: 16px solid transparent;
   border-image: url('assets/stuff/goldenpattern.png') 30 round;
-  box-shadow: 0 15px 35px rgba(0,0,0,0.4);
 }
 
 body.vip-theme .exhibition-item p {
@@ -137,14 +132,11 @@ body.vip-theme .exhibition-item p {
   color: black;
   border: 10px solid transparent;
   border-image: url('assets/stuff/goldenpattern.png') 30 round;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.4);
 }
 
 body.vip-theme .exhibition-item img {
   border: 14px solid transparent;
   border-image: url('assets/stuff/goldenpattern.png') 30 round;
-  border-radius: 10px;
-  box-shadow: 0 12px 25px rgba(0,0,0,0.4);
 }
 
 /* ================= RAGGAE MODE ================= */
@@ -184,12 +176,10 @@ body.minimal-theme .exhibition-item p {
   color: #111;
   font-family: 'Inter', sans-serif;
   padding: 6px 0;
-  letter-spacing: 0.5px;
 }
 
 body.minimal-theme .exhibition-item img {
   border: none;
-  border-radius: 4px;
   box-shadow: none;
 }
 
@@ -198,24 +188,12 @@ body.minimal-theme .newsletter {
   color: #111;
 }
 
-body.minimal-theme button {
-  background: #111;
-  color: white;
-  border-radius: 4px;
-}
-
-body.minimal-theme button:hover {
-  background: #333;
-}
-
 /* ================= NEWSLETTER ================= */
 .newsletter {
   margin: 100px 20px;
   padding: 20px;
   background: white;
   max-width: 600px;
-  position: relative;
-  z-index: 1;
 }
 
 /* ================= BUTTONS ================= */
@@ -235,7 +213,6 @@ button {
   background: #1f5f2e;
   color: white;
   cursor: pointer;
-  transition: 0.3s;
 }
 
 button:hover { background: #d4af37; }
@@ -255,80 +232,99 @@ button:hover { background: #d4af37; }
   <button id="themeBtn">VIP</button>
 </div>
 
+<!-- INTRO -->
 <div class="text-container">
   <h1>H0PE ART SERVICE</h1>
-  <p id="mainText">
-    H0pe is an artistic innitiative founded with the aim to make light, fun, meaningful and at the same time pointless exhibitions...
+  <p id="mainText"
+     data-en="H0pe is an artistic innitiative founded with the aim to make light, fun, meaningful and at the same time pointless exhibitions and offer a wide range of people the possibility to be part of it. Inspirations for shows can be objects, words, sentences, symbols, situations and more. The project was innitiated by Marcus Wagner in New Castle Upon Tyne, 2024, as a fun idea, quickly developing into an ongoing regular open call program offering an alternative to the already established curatorial landscapes."
+     data-de="H0pe ist ein kuratorisches Projekt das 2024 in Newcastle Upon Tyne von Marcus Wagner initiiert wurde und seither regelmäßig Gruppenausstellungen mittels Open Calls organisiert und versucht einer breiten Masse die Möglichkeit einer Teilnahme zu ermöglichen. Das Programm fokussiert sich auf leichte, spielerische Zugänge, wobei die Wechselwirkung aus Thema und Werk im Zentrum liegt. Ein spezieller Fokus liegt auf der Befassung mit Symboliken von Objekten, Sprache, Wörtern und banalen Themen.">
+     H0pe is an artistic innitiative founded with the aim to make light, fun, meaningful and at the same time pointless exhibitions and offer a wide range of people the possibility to be part of it. Inspirations for shows can be objects, words, sentences, symbols, situations and more. The project was innitiated by Marcus Wagner in New Castle Upon Tyne, 2024.
   </p>
 </div>
 
+<!-- EXHIBITIONS -->
 <ul class="exhibition-list">
+<li class="exhibition-item">
+<a href="https://drive.google.com/file/d/1XR_DHhUq7bFecQOnoo6CK8La6-akw4-z/view?usp=share_link">
+<img src="assets/stuff/antonia_city.JPG">
+<p data-en='Pricelist "THE CAR SHOW"' data-de='Preisliste "THE CAR SHOW"'>Pricelist "THE CAR SHOW"</p>
+</a>
+</li>
 
-  <li class="exhibition-item">
-    <a href="https://drive.google.com/file/d/1XR_DHhUq7bFecQOnoo6CK8La6-akw4-z/view?usp=share_link">
-      <img src="assets/stuff/antonia_city.JPG">
-      <p>Pricelist "THE CAR SHOW"</p>
-    </a>
-  </li>
+<li class="exhibition-item">
+<a href="/carshow1.html">
+<img src="carshow2_intro.jpg">
+<p>THE CAR SHOW</p>
+</a>
+</li>
 
-  <li class="exhibition-item">
-    <a href="/carshow1.html">
-      <img src="carshow2_intro.jpg">
-      <p>THE CAR SHOW</p>
-    </a>
-  </li>
+<li class="exhibition-item">
+<a href="/nothingshow.html">
+<img src="assets/nothingshow/still3.png">
+<p>THE NOTHING SHOW</p>
+</a>
+</li>
 
-  <li class="exhibition-item">
-    <a href="/nothingshow.html">
-      <img src="assets/nothingshow/still3.png">
-      <p>THE NOTHING SHOW</p>
-    </a>
-  </li>
+<li class="exhibition-item">
+<a href="/shoeshow 2.html">
+<img src="assets/Shoeshow/emy2.jpg">
+<p>THE SHOE SHOW</p>
+</a>
+</li>
 
-  <li class="exhibition-item">
-    <a href="/shoeshow 2.html">
-      <img src="assets/Shoeshow/emy2.jpg">
-      <p>THE SHOE SHOW</p>
-    </a>
-  </li>
+<li class="exhibition-item">
+<a href="/xmasshow.html">
+<img src="assets/xmasshow/1.jpg">
+<p>HOPE XMAS SHOW</p>
+</a>
+</li>
 
-  <li class="exhibition-item">
-    <a href="/xmasshow.html">
-      <img src="assets/xmasshow/1.jpg">
-      <p>HOPE XMAS SHOW</p>
-    </a>
-  </li>
+<li class="exhibition-item">
+<a href="palmtreeshow.html">
+<img src="assets/palmtree_main/spaceview_4.jpg">
+<p>THE PALMTREESHOW</p>
+</a>
+</li>
 
-  <li class="exhibition-item">
-    <a href="palmtreeshow.html">
-      <img src="assets/palmtree_main/spaceview_4.jpg">
-      <p>THE PALMTREESHOW</p>
-    </a>
-  </li>
+<li class="exhibition-item">
+<a href="soulseller.html">
+<img src="soulseller/queer_27.jpg">
+<p>SOULSELLER — UNHAPPY PAINTER / HAPPY PAINTER WANTS TO EXIST</p>
+</a>
+</li>
 
-  <li class="exhibition-item">
-    <a href="soulseller.html">
-      <img src="soulseller/queer_27.jpg">
-      <p>SOULSELLER — UNHAPPY PAINTER / HAPPY PAINTER WANTS TO EXIST</p>
-    </a>
-  </li>
-
-  <li class="exhibition-item">
-    <a href="gardenofeldon .html">
-      <img src="assets/gardenofeldon/garden_titelbild.JPG">
-      <p>GARDEN OF ELDON</p>
-    </a>
-  </li>
-
+<li class="exhibition-item">
+<a href="gardenofeldon .html">
+<img src="assets/gardenofeldon/garden_titelbild.JPG">
+<p>GARDEN OF ELDON</p>
+</a>
+</li>
 </ul>
 
 <div class="newsletter">
-  <p>Get in touch...</p>
-  <a href="mailto:hopeartservice@gmx.net">hopeartservice@gmx.net</a>
+<p id="newsletterText"
+data-en="Get in touch! Write us an email to join our newsletter and stay updated on upcoming exhibitions and projects."
+data-de="Schreib uns! Sende eine E-Mail, um in unseren Newsletter aufgenommen zu werden und über kommende Ausstellungen und Projekte informiert zu bleiben.">
+Get in touch! Write us an email to join our newsletter and stay updated on upcoming exhibitions and projects.
+</p>
+<a href="mailto:hopeartservice@gmx.net">hopeartservice@gmx.net</a>
 </div>
 
 <script>
-// ===== Theme Switch (3 Modes) =====
+// ===== LANGUAGE SWITCH =====
+const langBtn = document.getElementById('langBtn');
+let currentLang = 'en';
+
+langBtn.addEventListener('click', () => {
+  currentLang = currentLang === 'en' ? 'de' : 'en';
+  langBtn.textContent = currentLang === 'en' ? 'DE' : 'EN';
+
+  document.querySelectorAll('[data-en]').forEach(el => {
+    el.textContent = el.getAttribute(`data-${currentLang}`);
+  });
+});
+
+// ===== THEME SWITCH =====
 const themeBtn = document.getElementById('themeBtn');
 const themes = ['raggae-mode', 'vip-theme', 'minimal-theme'];
 let currentThemeIndex = 0;
