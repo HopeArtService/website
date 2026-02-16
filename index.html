@@ -199,14 +199,18 @@ body.raggae-mode .exhibition-item img {
 }
 
 body.raggae-mode .fixed-bg {
-  background-image: none;
-  background: linear-gradient(
-    to bottom,
-    #067506 0 33.33%,
-    #f0d507 33.33% 66.66%,
-    #d60909 66.66% 100%
-  );
-}  
+  background-color: #111;
+  background-image:
+    repeating-conic-gradient(
+      from 0deg,
+      #067506 0deg 45deg,
+      #f0d507 45deg 90deg,
+      #d60909 90deg 135deg,
+      #111 135deg 180deg
+    );
+  background-size: 250px 250px;
+  opacity: 0.25;
+}
 
 body.raggae-mode .exhibition-item:nth-child(3n+1) img { border-color: #067506; }
 body.raggae-mode .exhibition-item:nth-child(3n+2) img { border-color: #f0d507; }
