@@ -9,18 +9,14 @@ h1 {
 font-family: 'Courier New', monospace;
 }
 
-.bg-fixed {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+body {
   background-image: url("assets/nothingshow/Bildschirmfoto 2025-09-25 um 10.00.35.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  z-index: -1;
+  background-attachment: fixed; /* nice parallax on desktop */
 }
+  
 .back-home {
   position: fixed;       /* Bleibt beim Scrollen sichtbar */
  bottom: 20px;             /* Abstand vom unteren Rand */
