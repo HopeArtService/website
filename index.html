@@ -200,20 +200,55 @@ body.raggae-mode .exhibition-item img {
 
 body.raggae-mode .fixed-bg {
   background: #111;
-  position: fixed;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  gap: 6vw;
+  padding: 4vw;
+}
+
+/* einzelne Hexagons */
+body.raggae-mode .fixed-bg::before,
+body.raggae-mode .fixed-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+
+/* wir erzeugen Hexagons über ein Pattern mit CSS */
+body.raggae-mode .fixed-bg {
+  background-image:
+    linear-gradient(120deg, #067506 25%, transparent 25%),
+    linear-gradient(240deg, #067506 25%, transparent 25%),
+    linear-gradient(120deg, transparent 75%, #067506 75%),
+    linear-gradient(240deg, transparent 75%, #067506 75%);
+  background-size: 120px 70px;
+  background-position: 0 0, 0 0, 60px 35px, 60px 35px;
+}  
+body.raggae-mode .fixed-bg {
+  background: #111;
   overflow: hidden;
 }
 
-body.raggae-mode .fixed-bg {
-  background-color: #111; /* dunkler Grund für Tiefe */
-  background-image:
-    radial-gradient(circle at 25% 25%, #067506 40%, transparent 41%),
-    radial-gradient(circle at 75% 25%, #f0d507 40%, transparent 41%),
-    radial-gradient(circle at 25% 75%, #d60909 40%, transparent 41%),
-    radial-gradient(circle at 75% 75%, #067506 40%, transparent 41%);
-  background-size: 180px 180px;
+body.raggae-mode .hex {
+  position: absolute;
+  width: 12vw;
+  aspect-ratio: 1;
+  clip-path: polygon(
+    25% 6%, 75% 6%,
+    100% 50%,
+    75% 94%, 25% 94%,
+    0% 50%
+  );
+  opacity: 0.15;
 }
 
+/* Farben zufällig verteilen */
+body.raggae-mode .hex:nth-child(3n+1) { background: #067506; }
+body.raggae-mode .hex:nth-child(3n+2) { background: #f0d507; }
+body.raggae-mode .hex:nth-child(3n+3) { background: #d60909; }
+
+  
 body.raggae-mode .exhibition-item:nth-child(3n+1) img { border-color: #067506; }
 body.raggae-mode .exhibition-item:nth-child(3n+2) img { border-color: #f0d507; }
 body.raggae-mode .exhibition-item:nth-child(3n+3) img { border-color: #d60909; }
@@ -298,7 +333,14 @@ button:hover { background: #d4af37; }
 
 <body class="raggae-mode">
 
-<div class="fixed-bg"></div>
+<div class="fixed-bg">
+  <div class="hex" style="top:5%; left:10%;"></div>
+  <div class="hex" style="top:15%; left:40%;"></div>
+  <div class="hex" style="top:30%; left:70%;"></div>
+  <div class="hex" style="top:55%; left:20%;"></div>
+  <div class="hex" style="top:65%; left:60%;"></div>
+  <div class="hex" style="top:80%; left:35%;"></div>
+</div>  
 
 <div class="language-toggle">
   <button id="langBtn">DE</button>
