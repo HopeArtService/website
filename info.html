@@ -18,6 +18,16 @@ padding: 0;
 text-indent: 0;
 font-family: Arial, sans-serif;
 }
+.back-home {
+  position: fixed;       /* Bleibt beim Scrollen sichtbar */
+ bottom: 20px;             /* Abstand vom unteren Rand */
+  right: 20px;           /* Abstand vom rechten Rand */
+  padding: 10px 15px;    /* Innenabstand */
+  text-decoration: none; /* Kein Unterstrich */
+  border-radius: 5px;    /* Leicht abgerundete Ecken */
+  z-index: 1000;         /* Immer über allem anderen */
+  transition: background-color 0.3s;
+}  
 /* New default style for images */
 .images img {
 width: 1000px;
@@ -55,7 +65,7 @@ width: 90%; /* Scale down images */
 </div>
 
 
-<a href="/">Back to Home</a>
+<a href="/" class="back-home">Back to Home</a>
 </body>
 </html>
 
