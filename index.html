@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -56,19 +55,19 @@ h1 {
 
 }
 
-main-title {
-text-align: center;
-margin-top: 180px;  /* Abstand nach oben */
-margin-left: 20px;  /* Abstand links */
-margin-right: 20px;  /* Abstand rechts */
-padding: 0 20px;  /* Optional: Text etwas vom Rand weg */
+.main-title {
+  text-align: center;
+  margin-top: 180px;  /* Abstand nach oben */
+  margin-left: 20px;  /* Abstand links */
+  margin-right: 20px;  /* Abstand rechts */
+  padding: 0 20px;  /* Optional: Text etwas vom Rand weg */
 }
 
 .main-title h1 {
-font-size: 42px;
-letter-spacing: 6px;
-font-weight: 400;
-margin-bottom: 18px;
+  font-size: 42px;
+  letter-spacing: 6px;
+  font-weight: 400;
+  margin-bottom: 18px;
 }
 
 .subtitle {
@@ -77,6 +76,7 @@ margin-bottom: 18px;
   letter-spacing: 4px;
   text-transform: uppercase;
   opacity: 0.6;
+  text-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
 }  
 /* ================= LOGO ================= */
 .logo-container {
@@ -503,20 +503,40 @@ langBtn.addEventListener('click', () => {
 // ===== THEME SWITCH =====
 const themeBtn = document.getElementById('themeBtn');
 const themes = ['minimal-theme', 'raggae-mode', 'vip-theme'];
-let currentThemeIndex = 0;
+
+// Aktuelle Klasse auf body bestimmen
+let currentThemeIndex = themes.findIndex(theme => document.body.classList.contains(theme));
+if (currentThemeIndex === -1) currentThemeIndex = 0; // fallback
+
+// Initialen Buttontext setzen
+updateThemeButton();
 
 themeBtn.addEventListener('click', () => {
+  // Alte Theme-Klassen entfernen
   document.body.classList.remove(...themes);
-  currentThemeIndex = (currentThemeIndex + 1) % themes.length;
-  const newTheme = themes[currentThemeIndex];
-  document.body.classList.add(newTheme);
 
-  if (newTheme === 'raggae-mode') themeBtn.textContent = 'VIP';
-  if (newTheme === 'vip-theme') themeBtn.textContent = 'MINIMAL';
-  if (newTheme === 'minimal-theme') themeBtn.textContent = 'RAGGAE';
+  // Nächste Klasse wählen
+  currentThemeIndex = (currentThemeIndex + 1) % themes.length;
+  document.body.classList.add(themes[currentThemeIndex]);
+
+  // Buttontext anpassen
+  updateThemeButton();
 });
+
+function updateThemeButton() {
+  switch (themes[currentThemeIndex]) {
+    case 'minimal-theme':
+      themeBtn.textContent = 'RAGGAE';
+      break;
+    case 'raggae-mode':
+      themeBtn.textContent = 'VIP';
+      break;
+    case 'vip-theme':
+      themeBtn.textContent = 'MINIMAL';
+      break;
+  }
+}
 </script>
 
 </body>
 </html>
-
