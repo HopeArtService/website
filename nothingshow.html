@@ -9,13 +9,7 @@ h1 {
 font-family: 'Courier New', monospace;
 }
 
-body {
-  background-image: url("assets/nothingshow/Bildschirmfoto 2025-09-25 um 10.00.35.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed; /* nice parallax on desktop */
-}
+
   
 .back-home {
   position: fixed;       /* Bleibt beim Scrollen sichtbar */
@@ -28,6 +22,10 @@ body {
   transition: background-color 0.3s;
 }
 
+  
+body {
+  margin: 0;
+} 
   
 .text pre {
 width: 1000px;
@@ -45,14 +43,17 @@ width: 1000px;
 max-width: 95%;
 margin-bottom: 5px;
 }
- 
-/* Responsive styles for smaller screens */
-@media (max-width: 1050px) {
-.text pre {
-width: 90%; /* Scale down text block */
-}
-.images img {
-width: 90%; /* Scale down images */
+
+
+/* Desktop bekommt Background */
+@media (min-width: 768px) {
+  body {
+    background-image: url("assets/nothingshow/Bildschirmfoto 2025-09-25 um 10.00.35.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  }
 }
 
 
