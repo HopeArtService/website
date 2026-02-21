@@ -205,7 +205,10 @@ body.vip-theme .exhibition-item p {
      1px  1px 0 #ffffff;
 }  
 body.vip-theme .fixed-bg {
-  background-image: url("assets/stuff/breakfree_goldornament.png");
+  background-image: url("assets/stuff/goldenpattern.png");
+  filter: blur(8px);
+  transform: scale(1.05); /* prevents white edges */
+}
 }
 
 body.vip-theme .text-container {
@@ -235,21 +238,18 @@ body.raggae-mode .text-container p {
   font-family: 'Courier New', monospace;
 }
   
-body.raggae-mode .main-title h1,
-body.raggae-mode .subtitle,  {
+
+
+body.raggae-mode h1,
+body.raggae-mode .subtitle, {
   text-shadow:
     0 0 10px rgba(0,0,0,0.9),
     0 0 25px rgba(0,0,0,0.7);
   text-shadow: 0 6px 18px rgba(255, 255, 255, 0.7);
-
-}
+}    
   
-body.raggae-mode .subtitle {
-  text-shadow:
-    0 0 8px rgba(0,0,0,0.9),
-    0 0 20px rgba(0,0,0,0.7),
-    0 4px 15px rgba(0,0,0,0.8);
-}
+  
+
   
 body.raggae-mode .exhibition-item img {
   border: 3px solid;
