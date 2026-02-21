@@ -118,15 +118,30 @@ h1 {
   padding: 0;
   margin: 120px 20px;
 }
-
-.exhibition-item {
-  display: flex;
-  margin-bottom: 110px;
-  position: relative;
-  justify-content: center;
-  max-width: 900px
+.exhibition-list {
+  list-style: none;
+  padding: 0;
+  margin: 120px 0;   /* kein seitlicher Abstand mehr */
 }
 
+.exhibition-item {
+  display: block;    /* kein flex-zentrieren mehr */
+  margin-bottom: 110px;
+  width: 100%;
+  max-width: 100%;
+}
+
+.exhibition-item a {
+  width: 100%;
+  max-width: 100%;
+  display: block;
+}
+
+.exhibition-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
 
 .exhibition-item.closer {
   margin-top: -60px;
@@ -150,21 +165,7 @@ h1 {
 
 }
   
-.exhibition-item a {
-  text-decoration: none;
-  color: black;
-  max-width: 650px;
-  display: flex;
-  flex-direction: column;
-}
 
-
-.exhibition-item img {
-  width: 100%;
-  height: auto;
-  display: block;
-  transition: 0.3s ease;
-}
 
 .exhibition-item img:hover { transform: scale(1.02); }
 
@@ -194,6 +195,15 @@ body.vip-theme {
 
 }
 
+body.vip-theme h1,
+body.vip-theme .subtitle,
+body.vip-theme .exhibition-item p {
+  text-shadow:
+    -1px -1px 0 #ffffff,
+     1px -1px 0 #ffffff,
+    -1px  1px 0 #ffffff,
+     1px  1px 0 #ffffff;
+}  
 body.vip-theme .fixed-bg {
   background-image: url("assets/stuff/breakfree_goldornament.png");
 }
@@ -231,6 +241,13 @@ body.raggae-mode .main-title h1 {
     0 0 25px rgba(0,0,0,0.7);
   text-shadow: 0 6px 18px rgba(255, 255, 255, 0.7);
 
+}
+  
+body.raggae-mode .subtitle {
+  text-shadow:
+    0 0 8px rgba(0,0,0,0.9),
+    0 0 20px rgba(0,0,0,0.7),
+    0 4px 15px rgba(0,0,0,0.8);
 }
   
 body.raggae-mode .exhibition-item img {
