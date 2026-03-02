@@ -8,7 +8,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
-
 /* ================= BASE ================= */
 * {
   box-sizing: border-box;
@@ -19,13 +18,14 @@
 body {
   font-family: 'Inter', sans-serif;
   font-weight: 300;
-  background: #ffffff;
-  color: #000;
   line-height: 1.6;
+  margin: 0;
+  padding: 0 60px;  /* ← linker und rechter Abstand */
+  background-color: #ffffff;
+  color: #000;
 }
 
 /* ================= TITLE ================= */
-
 h1 {
   text-align: center;
   margin-top: 220px;
@@ -36,14 +36,9 @@ h1 {
 }
 
 /* ================= TEXT ================= */
-
-.text {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 0 60px;
-}
-
 .text pre {
+  width: 100%;
+  max-width: 1000px;
   white-space: pre-wrap;
   overflow-wrap: break-word;
   font-family: "Times New Roman", Times, serif;
@@ -52,11 +47,9 @@ h1 {
 }
 
 /* ================= IMAGES ================= */
-
 .images {
-  max-width: 900px;
-  margin: 0 auto 120px auto;
-  padding: 0 60px;
+  max-width: 1000px;
+  margin-bottom: 120px;
 }
 
 .images img {
@@ -64,8 +57,6 @@ h1 {
   display: block;
   margin-bottom: 10px;
 }
-
-/* ================= LINKS ================= */
 
 .images a {
   display: inline-block;
@@ -75,10 +66,10 @@ h1 {
   text-decoration: none;
   border-bottom: 1px solid black;
   color: black;
+  padding: 5px 10px;
 }
 
 /* ================= BACK BUTTON ================= */
-
 .back-home {
   position: fixed;
   top: 30px;
@@ -91,7 +82,6 @@ h1 {
 }
 
 /* ================= DESKTOP BACKGROUND ================= */
-
 @media (min-width: 768px) {
   body {
     background-image: url("assets/nothingshow/Bildschirmfoto 2025-09-25 um 10.00.35.jpg");
@@ -102,28 +92,8 @@ h1 {
   }
 }
 
-/* ================= RAGGAE MODE ================= */
-
-body.raggae-mode {
-  background-color: #111;
-  background-image: none;
-  color: white;
-  font-family: "Courier New", monospace;
-}
-
-body.raggae-mode .back-home {
-  color: #f0d507;
-}
-
-body.raggae-mode .images a {
-  border-color: white;
-  color: white;
-}
-
 /* ================= MOBILE ================= */
-
 @media (max-width: 768px) {
-
   h1 {
     position: fixed;
     top: 30px;
@@ -135,18 +105,8 @@ body.raggae-mode .images a {
     z-index: 1000;
   }
 
-  .text {
-    margin-top: 140px;
+  body {
     padding: 0 20px;
-  }
-
-  .images {
-    padding: 0 20px;
-  }
-
-  .back-home {
-    top: 30px;
-    right: 20px;
   }
 }
 
@@ -156,6 +116,7 @@ body.raggae-mode .images a {
 
 <h1>THE NOTHING SHOW</h1>
 
+<!-- PARTICIPANTS -->
 <div class="text">
 <pre>
 #ffff00
@@ -166,54 +127,60 @@ Annika Horn
 Baxtr
 Cristina Rüesch
 Croix Nueve
-David Hartig 
+David Hartig
 Eliška Jahelková
 Emely Mair
 Felix Schwentner
 Flo Bracey
 Flora Weber
-Florian Jaunernig 
+Florian Jaunernig
 Giulia Dutly
 Hannah Weisz
-Jaromil Wiest 
-Jesaja Trummer 
-Johanna Sandels 
+Jaromil Wiest
+Jesaja Trummer
+Johanna Sandels
 Katrīna Čemme
 Konrad Weichs
-Konstantin Leitner 
+Konstantin Leitner
 Krišjānis Beļavskis
-Lauma Muizarāja 
-Laurenz Julian Greuter 
+Lauma Muizarāja
+Laurenz Julian Greuter
 Lisa Mayer
 Luna Brandner
 Maia Liebeskind
 Marcus Wagner
 Marija Malicevic
-Masa Sallai 
+Masa Sallai
 Maximilian Schwarz
 Nico Pistec
 Paulina Buda
-Pia Maria Sispela 
-Sonja Heim 
+Pia Maria Sispela
+Sonja Heim
 Thomas Süß
-Zara Safari 
+Zara Safari
 Zoé Cathérine García
 </pre>
 </div>
 
+<!-- PROJECT DESCRIPTION -->
 <div class="text">
 <pre>
 The project "The Nothing Show" started with the idea to fake generate a topic for an open call group exhibition. 
 The exhibition became a three-part project:
 
-Part I: Live Topic Draw  
-Part II: Boat Exhibition  
-Part III: The Nothing Show FINAL  
+Part I: Live Topic Draw
+Part II: Boat Exhibition
+Part III: The Nothing Show FINAL
 
-The whole concept was strongly driven by a DADA attitude and welcomed randomness. 
+The concept was driven by a DADA attitude and welcomed randomness. 
 The fleeting exhibition first existed on a floating boat island and later returned as a physical exhibition format. 
-The curatorial decision to present works like relics of a past event put the attention back to the video — which is the main “Show”.
+The curatorial decision to present works like relics of a past event put the attention back to the video — the main “Show”.
 </pre>
+</div>
+
+<!-- NOTHINGSHOW PART 1 -->
+<div class="text">
+<pre><i>The Nothing Show Part I: Live Topic Draw with Bugsfall</i></pre>
 </div>
 
 <div class="images">
@@ -221,7 +188,7 @@ The curatorial decision to present works like relics of a past event put the att
 <img src="assets/nothingshow/hate1.png" />
 <img src="assets/nothingshow/hate2.png" />
 
-<p>Video: Bugsfall meets Hate the Rapper</p>
+<p>Video: "Bugsfall meets Hate the Rapper"</p>
 <a href="https://www.youtube.com/watch?v=x2Fc4NrssZU" target="_blank">WATCH VIDEO</a>
 
 <img src="assets/nothingshow/postermarcusface.jpg" />
@@ -231,23 +198,89 @@ The curatorial decision to present works like relics of a past event put the att
 <img src="assets/nothingshow/nothingshow_poster2.jpg" />
 </div>
 
+<!-- NOTHINGSHOW PART 2 -->
+<div class="text">
+<pre><i>The Nothing Show Part II: Boat Exhibition</i>
+14.9.2025; Boat Island, Danube River, Vienna
+Camerawork: Sophia Egger-Karlegger; Edit: Marcus Wagner; Special Guest: @Bugsfall;
+</pre>
+</div>
+
 <div class="images">
 <img src="assets/nothingshow/poster_boat_lens.webp" />
 <img src="assets/nothingshow/table.png" />
 <img src="assets/nothingshow/intro.png" />
 <img src="assets/nothingshow/still2.png" />
 <img src="assets/nothingshow/still3.png" />
+<img src="assets/nothingshow/baxtr1.jpg" />
+<img src="assets/nothingshow/katrina.jpg" />
+<img src="assets/nothingshow/katrina_2.jpg" />
+<img src="assets/nothingshow/jauernig.jpg" />
+<img src="assets/nothingshow/luna.jpg" />
+<img src="assets/nothingshow/maia.jpg" />
+<img src="assets/nothingshow/thomas.png" />
+<img src="assets/nothingshow/zoe.jpg" />
+<img src="assets/nothingshow/finkenstaedt.jpg" />
+<img src="assets/nothingshow/wand_masa2.jpg" />
+<img src="assets/nothingshow/wand_pia.jpg" />
+<img src="assets/nothingshow/wand_lisa.jpg" />
+<img src="assets/nothingshow/angel.jpg" />
+<img src="assets/nothingshow/wand_marcus.jpg" />
+</div>
+
+<!-- NOTHINGSHOW FINAL -->
+<div class="text">
+<pre><i>The Nothing Show FINAL</i>
+19.12.2025; Postsparkasse Vienna
+Special Thanks to Masa Sallai
+</pre>
 </div>
 
 <div class="images">
 <img src="assets/nothingshow/1.webp" />
 <img src="assets/nothingshow/2.webp" />
 <img src="assets/nothingshow/3.webp" />
+<img src="assets/nothingshow/5_1.webp" />
 <img src="assets/nothingshow/5.webp" />
 <img src="assets/nothingshow/6.webp" />
 <img src="assets/nothingshow/7.webp" />
 <img src="assets/nothingshow/8.webp" />
 <img src="assets/nothingshow/9.webp" />
+<img src="assets/nothingshow/9_1.webp" />
+<img src="assets/nothingshow/9_2.webp" />
+<img src="assets/nothingshow/9_3.webp" />
+<img src="assets/nothingshow/10.webp" />
+<img src="assets/nothingshow/11.webp" />
+<img src="assets/nothingshow/12.webp" />
+<img src="assets/nothingshow/13.webp" />
+<img src="assets/nothingshow/14.webp" />
+<img src="assets/nothingshow/14_1.webp" />
+<img src="assets/nothingshow/14_2.webp" />
+<img src="assets/nothingshow/15.webp" />
+<img src="assets/nothingshow/16.webp" />
+<img src="assets/nothingshow/16_1.webp" />
+<img src="assets/nothingshow/17.webp" />
+<img src="assets/nothingshow/18.webp" />
+<img src="assets/nothingshow/19.webp" />
+<img src="assets/nothingshow/20.webp" />
+<img src="assets/nothingshow/20_1.webp" />
+<img src="assets/nothingshow/21.webp" />
+<img src="assets/nothingshow/22.webp" />
+<img src="assets/nothingshow/23.webp" />
+<img src="assets/nothingshow/24.webp" />
+<img src="assets/nothingshow/25.webp" />
+<img src="assets/nothingshow/26.webp" />
+<img src="assets/nothingshow/27.webp" />
+<img src="assets/nothingshow/27_1.webp" />
+<img src="assets/nothingshow/28.webp" />
+<img src="assets/nothingshow/29.webp" />
+<img src="assets/nothingshow/31.webp" />
+<img src="assets/nothingshow/32.webp" />
+<img src="assets/nothingshow/33.webp" />
+<img src="assets/nothingshow/34.webp" />
+<img src="assets/nothingshow/35.webp" />
+<img src="assets/nothingshow/36.webp" />
+<img src="assets/nothingshow/37.webp" />
 </div>
 
 <a href="/" class="back-home">BACK TO HOME</a>
