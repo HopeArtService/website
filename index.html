@@ -31,8 +31,8 @@ body {
 
 .main-title {
   text-align: center;
-  margin-top: 220px;
-  margin-bottom: 140px;
+  margin-top: 200px;
+  margin-bottom: 120px;
 }
 
 .main-title h1 {
@@ -53,19 +53,12 @@ body {
 .exhibition-list {
   list-style: none;
   max-width: 900px;
-  margin: 0 auto 180px auto;
+  margin: 0 auto 160px auto;
   padding: 0 60px;
 }
 
 .exhibition-item {
-  margin-bottom: 120px; /* enger zusammengerückt */
-}
-
-.exhibition-number {
-  font-size: 11px;
-  letter-spacing: 4px;
-  margin-bottom: 12px;
-  opacity: 0.5;
+  margin-bottom: 70px; /* noch näher zusammen */
 }
 
 .exhibition-item img {
@@ -74,7 +67,7 @@ body {
 }
 
 .exhibition-item p {
-  margin-top: 20px;
+  margin-top: 14px;
   font-size: 13px;
   letter-spacing: 3px;
   text-transform: uppercase;
@@ -86,7 +79,7 @@ body {
 .info-button {
   position: fixed;
   right: 30px;
-  top: 90px;
+  top: 95px;
   z-index: 1000;
 }
 
@@ -102,7 +95,7 @@ body {
 
 .logo-container {
   text-align: center;
-  margin-bottom: 160px;
+  margin-bottom: 140px;
 }
 
 .logo-container img {
@@ -118,7 +111,7 @@ body {
 .newsletter {
   text-align: center;
   max-width: 480px;
-  margin: 180px auto;
+  margin: 160px auto;
   font-size: 13px;
 }
 
@@ -159,12 +152,26 @@ body.raggae-mode {
   font-family: "Courier New", monospace;
 }
 
+/* Raggae Buttons Farben */
+body.raggae-mode .language-toggle button {
+  color: #067506;
+}
+
+body.raggae-mode .theme-toggle button {
+  color: #f0d507;
+}
+
+body.raggae-mode .info-button button {
+  color: #d60909;
+}
+
+/* Raggae Newsletter Link */
 body.raggae-mode .newsletter a {
   border-color: white;
   color: white;
 }
 
-/* BUNTE RÄNDER */
+/* BUNTE BILDRÄNDER */
 body.raggae-mode .exhibition-item:nth-child(3n+1) img {
   border: 6px solid #067506;
 }
@@ -204,7 +211,6 @@ body.raggae-mode .exhibition-item:nth-child(3n+3) img {
 <ul class="exhibition-list">
 
 <li class="exhibition-item">
-<div class="exhibition-number">01</div>
 <a href="/carshow1.html">
 <img src="carshow2_intro.jpg">
 <p>THE CAR SHOW</p>
@@ -212,7 +218,6 @@ body.raggae-mode .exhibition-item:nth-child(3n+3) img {
 </li>
 
 <li class="exhibition-item">
-<div class="exhibition-number">02</div>
 <a href="/nothingshow.html">
 <img src="assets/nothingshow/still3.png">
 <p>THE NOTHING SHOW</p>
@@ -220,7 +225,6 @@ body.raggae-mode .exhibition-item:nth-child(3n+3) img {
 </li>
 
 <li class="exhibition-item">
-<div class="exhibition-number">03</div>
 <a href="hmarriage.html">
 <img src="assets/hmarriage/performance1.jpg">
 <p>H-MARRIAGE</p>
@@ -228,7 +232,6 @@ body.raggae-mode .exhibition-item:nth-child(3n+3) img {
 </li>
 
 <li class="exhibition-item">
-<div class="exhibition-number">04</div>
 <a href="/shoeshow 2.html">
 <img src="assets/Shoeshow/emy2.jpg">
 <p>THE SHOE SHOW</p>
@@ -236,7 +239,6 @@ body.raggae-mode .exhibition-item:nth-child(3n+3) img {
 </li>
 
 <li class="exhibition-item">
-<div class="exhibition-number">05</div>
 <a href="/xmasshow.html">
 <img src="assets/xmasshow/1.jpg">
 <p>HOPE XMAS SHOW</p>
@@ -244,7 +246,6 @@ body.raggae-mode .exhibition-item:nth-child(3n+3) img {
 </li>
 
 <li class="exhibition-item">
-<div class="exhibition-number">06</div>
 <a href="palmtreeshow.html">
 <img src="assets/palmtree_main/spaceview_4.jpg">
 <p>THE PALMTREESHOW</p>
@@ -252,7 +253,6 @@ body.raggae-mode .exhibition-item:nth-child(3n+3) img {
 </li>
 
 <li class="exhibition-item">
-<div class="exhibition-number">07</div>
 <a href="soulseller.html">
 <img src="soulseller/queer_27.jpg">
 <p>SOULSELLER — UNHAPPY PAINTER / HAPPY PAINTER WANTS TO EXIST</p>
@@ -260,7 +260,6 @@ body.raggae-mode .exhibition-item:nth-child(3n+3) img {
 </li>
 
 <li class="exhibition-item">
-<div class="exhibition-number">08</div>
 <a href="gardenofeldon.html">
 <img src="assets/gardenofeldon/garden_titelbild.JPG">
 <p>GARDEN OF ELDON</p>
@@ -268,7 +267,6 @@ body.raggae-mode .exhibition-item:nth-child(3n+3) img {
 </li>
 
 <li class="exhibition-item">
-<div class="exhibition-number">09</div>
 <a href="https://drive.google.com/file/d/1XR_DHhUq7bFecQOnoo6CK8La6-akw4-z/view?usp=share_link">
 <img src="assets/stuff/antonia_city.JPG">
 <p>PRICELIST "THE CAR SHOW"</p>
