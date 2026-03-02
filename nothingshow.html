@@ -4,48 +4,94 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>The Nothing Show</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
 <style>
-h1 {
-font-family: 'Inter', sans-serif;
-}
 
-
-  
-.back-home {
-  position: fixed;       /* Bleibt beim Scrollen sichtbar */
- bottom: 20px;             /* Abstand vom unteren Rand */
-  right: 20px;           /* Abstand vom rechten Rand */
-  padding: 10px 15px;    /* Innenabstand */
-  text-decoration: none; /* Kein Unterstrich */
-  border-radius: 5px;    /* Leicht abgerundete Ecken */
-  z-index: 1000;         /* Immer über allem anderen */
-  transition: background-color 0.3s;
-}
-
-  
-body {
+/* ================= BASE ================= */
+* {
+  box-sizing: border-box;
   margin: 0;
-} 
-  
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  font-weight: 300;
+  background: #ffffff;
+  color: #000;
+  line-height: 1.6;
+}
+
+/* ================= TITLE ================= */
+
+h1 {
+  text-align: center;
+  margin-top: 220px;
+  margin-bottom: 120px;
+  font-size: 28px;
+  letter-spacing: 10px;
+  font-weight: 400;
+}
+
+/* ================= TEXT ================= */
+
+.text {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 60px;
+}
+
 .text pre {
-width: 1000px;
-max-width: 95%;
-white-space: pre-wrap;
-overflow-wrap: break-word;
-margin: 0;
-padding: 0;
-text-indent: 0;
-font-family: "Times New Roman", Times, serif;
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 14px;
+  margin-bottom: 60px;
 }
-/* New default style for images */
+
+/* ================= IMAGES ================= */
+
+.images {
+  max-width: 900px;
+  margin: 0 auto 120px auto;
+  padding: 0 60px;
+}
+
 .images img {
-width: 1000px;
-max-width: 95%;
-margin-bottom: 5px;
+  width: 100%;
+  display: block;
+  margin-bottom: 10px;
 }
 
+/* ================= LINKS ================= */
 
-/* Desktop bekommt Background */
+.images a {
+  display: inline-block;
+  margin: 20px 0 40px 0;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-decoration: none;
+  border-bottom: 1px solid black;
+  color: black;
+}
+
+/* ================= BACK BUTTON ================= */
+
+.back-home {
+  position: fixed;
+  top: 30px;
+  right: 30px;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-decoration: none;
+  color: black;
+  z-index: 1000;
+}
+
+/* ================= DESKTOP BACKGROUND ================= */
+
 @media (min-width: 768px) {
   body {
     background-image: url("assets/nothingshow/Bildschirmfoto 2025-09-25 um 10.00.35.jpg");
@@ -56,15 +102,62 @@ margin-bottom: 5px;
   }
 }
 
+/* ================= RAGGAE MODE ================= */
 
+body.raggae-mode {
+  background-color: #111;
+  background-image: none;
+  color: white;
+  font-family: "Courier New", monospace;
 }
-  
+
+body.raggae-mode .back-home {
+  color: #f0d507;
+}
+
+body.raggae-mode .images a {
+  border-color: white;
+  color: white;
+}
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 768px) {
+
+  h1 {
+    position: fixed;
+    top: 30px;
+    left: 20px;
+    margin: 0;
+    text-align: left;
+    font-size: 18px;
+    letter-spacing: 4px;
+    z-index: 1000;
+  }
+
+  .text {
+    margin-top: 140px;
+    padding: 0 20px;
+  }
+
+  .images {
+    padding: 0 20px;
+  }
+
+  .back-home {
+    top: 30px;
+    right: 20px;
+  }
+}
+
 </style>
 </head>
 <body>
-<h1>The Nothing Show</h1>
+
+<h1>THE NOTHING SHOW</h1>
+
 <div class="text">
-<pre> 
+<pre>
 #ffff00
 Alice Burg
 Andreas Kopp
@@ -105,147 +198,59 @@ Sonja Heim
 Thomas Süß
 Zara Safari 
 Zoé Cathérine García
-</pre>  
-</div>
-<p></p>
-<div class="text">  
-<pre>
-The project "The Nothing Show" started with the idea to fake generate a topic for an open call group exhibition. For this occasion we were looking for a person to be the actor of a livestream Topic Draw, including a short Video featering a Fake Rapper beeing interviewed by our main guest. After the topic was found, we launched an Open Call with the Theme "Nothing" looking for potencial participants for an exhibition called "The Nothing Show". For some reason the decision was made to design the exhibition not as a classic presentation, but as an unpackaging video
-format, taking place on the deck of a floating island on a river. As the whole concept was strongly driven by a DADA attitude, random decisions were warmly welcomed. For that reason we choose to display the submission on a floating boat island. The energy to do that was somehow coming from making a joke about the common made up Holy Spirit around work presentations or the exclusivity of art spaces. This fleeting exhibition existed only for a short time, was fully documented and now remains as a video shaped Exhibition, titled „The Nothing Show“.
-Through the wish to bring all these works back together and display them within a space, we decided to give the project a last and final leap titled "The Nothing Show FINAL". Beeing overwhelmed by the high amount of works we made the decision to display most of them on a big pile surrounded by their packaging material, refering back to the boat and the unpackaging work presenation video.
-The curatorial decision to present them like relics or traces of an event that has already past, felt like the only Logical Solution and puts the attention back to the video. Which is the main „Show“.
-The Nothing Show is one big project, splitted in three parts.  
 </pre>
-</div>  
-
-<!-- NOTHINGSHOW PART 1-->
-<p></p>
-<div class="text">
-
-<pre>
-<i>The Nothing Show Part I: Live Topic Draw with Bugsfall</i>
-</pre>
-<p></p>  
 </div>
-  
-<div class="images">
-<img src=assets/nothingshow/hate3png.png />
-<img src=assets/nothingshow/hate1.png />
-<img src=assets/nothingshow/hate2.png />
-<p>Video "Bugsfall meets Hate the Rapper"</p> 
-<a href="https://www.youtube.com/watch?v=x2Fc4NrssZU" target="_blank"  style="background-color: white; padding: 5px 10px; color: black; text-decoration: none;">
-  Watch Video
-</a>  
-<p>Live Topic Draw</p>   
-<img src=assets/nothingshow/postermarcusface.jpg />
-</div>  
-<div class="images">
- 
-  <img src=assets/nothingshow/live3.png alt="">
-  <img src=assets/nothingshow/live9.png alt="">
- 
-</div>  
 
-
-
-
-
-<div class="images">
-<img src=assets/nothingshow/opencall_poster.jpg />
-<img src=assets/nothingshow/nothingshow_poster2.jpg />
-</div>
-<p> 
-</p>
-<!-- NOTHINGSHOW PART 2-->
 <div class="text">
 <pre>
-<i>The Nothing Show Part II: Boat Exhibition</i>
-14.9.2025; Boat Island, Danube River, Vienna
-Camerawork: Sophia Egger-Karlegger; Edit: Marcus Wagner; Special Guest: @Bugsfall;     
+The project "The Nothing Show" started with the idea to fake generate a topic for an open call group exhibition. 
+The exhibition became a three-part project:
+
+Part I: Live Topic Draw  
+Part II: Boat Exhibition  
+Part III: The Nothing Show FINAL  
+
+The whole concept was strongly driven by a DADA attitude and welcomed randomness. 
+The fleeting exhibition first existed on a floating boat island and later returned as a physical exhibition format. 
+The curatorial decision to present works like relics of a past event put the attention back to the video — which is the main “Show”.
 </pre>
-<p> 
-</p>  
+</div>
+
 <div class="images">
-<img src=assets/nothingshow/poster_boat_lens.webp />
-<img src=assets/nothingshow/table.png />
-<img src=assets/nothingshow/intro.png />  
-<img src=assets/nothingshow/still2.png />
-<img src=assets/nothingshow/still3.png /> 
-<img src=assets/nothingshow/baxtr1.jpg />  
-<img src=assets/nothingshow/katrina.jpg />
-<img src=assets/nothingshow/katrina_2.jpg /> 
-<img src=assets/nothingshow/jauernig.jpg /> 
-<img src=assets/nothingshow/luna.jpg />
-<img src=assets/nothingshow/maia.jpg />
-<img src=assets/nothingshow/thomas.png />
-<img src=assets/nothingshow/zoe.jpg />
-<img src=assets/nothingshow/finkenstaedt.jpg />    
-<img src=assets/nothingshow/wand_masa2.jpg />  
-<img src=assets/nothingshow/wand_pia.jpg />  
-<img src=assets/nothingshow/wand_lisa.jpg />  
-<img src=assets/nothingshow/angel.jpg />  
-<img src=assets/nothingshow/wand_marcus.jpg />    
-  
-</div>
-<!-- NOTHINGSHOW PART FINAL-->
-<p></p>
-<pre>
-<i>The Nothing Show FINAL</i>
-19.12.2025; Postsparkasse Vienna
-Special Thanks to Masa Sallai   
-</pre>
-<p></p>   
+<img src="assets/nothingshow/hate3png.png" />
+<img src="assets/nothingshow/hate1.png" />
+<img src="assets/nothingshow/hate2.png" />
 
+<p>Video: Bugsfall meets Hate the Rapper</p>
+<a href="https://www.youtube.com/watch?v=x2Fc4NrssZU" target="_blank">WATCH VIDEO</a>
+
+<img src="assets/nothingshow/postermarcusface.jpg" />
+<img src="assets/nothingshow/live3.png" />
+<img src="assets/nothingshow/live9.png" />
+<img src="assets/nothingshow/opencall_poster.jpg" />
+<img src="assets/nothingshow/nothingshow_poster2.jpg" />
 </div>
+
 <div class="images">
-<img src=assets/nothingshow/1.webp />
-<img src=assets/nothingshow/2.webp />
-<img src=assets/nothingshow/3.webp />
-<img src=assets/nothingshow/5_1.webp />
-<img src=assets/nothingshow/5.webp />
-<img src=assets/nothingshow/6.webp />
-<img src=assets/nothingshow/7.webp />
-<img src=assets/nothingshow/8.webp />
-<img src=assets/nothingshow/9.webp />
-<img src=assets/nothingshow/9_1.webp />
-<img src=assets/nothingshow/9_2.webp />
-<img src=assets/nothingshow/9_3.webp />
-<img src=assets/nothingshow/10.webp />
-<img src=assets/nothingshow/11.webp />
-<img src=assets/nothingshow/12.webp />
-<img src=assets/nothingshow/13.webp />
-<img src=assets/nothingshow/14.webp />
-<img src=assets/nothingshow/14_1.webp />
-<img src=assets/nothingshow/14_2.webp />
-<img src=assets/nothingshow/15.webp />
-<img src=assets/nothingshow/16.webp />
-<img src=assets/nothingshow/16_1.webp />
-<img src=assets/nothingshow/17.webp />
-<img src=assets/nothingshow/18.webp />
-<img src=assets/nothingshow/19.webp />
-<img src=assets/nothingshow/20.webp />
-<img src=assets/nothingshow/20_1.webp />
-<img src=assets/nothingshow/21.webp />
-<img src=assets/nothingshow/22.webp />
-<img src=assets/nothingshow/23.webp />
-<img src=assets/nothingshow/24.webp />
-<img src=assets/nothingshow/25.webp />
-<img src=assets/nothingshow/26.webp />
-<img src=assets/nothingshow/27.webp />
-<img src=assets/nothingshow/27_1.webp />
-<img src=assets/nothingshow/28.webp />
-<img src=assets/nothingshow/29.webp />
-<img src=assets/nothingshow/31.webp />
-<img src=assets/nothingshow/32.webp />
-<img src=assets/nothingshow/33.webp />
-<img src=assets/nothingshow/34.webp />
-<img src=assets/nothingshow/35.webp />
-<img src=assets/nothingshow/36.webp />
-<img src=assets/nothingshow/37.webp />
-
-
+<img src="assets/nothingshow/poster_boat_lens.webp" />
+<img src="assets/nothingshow/table.png" />
+<img src="assets/nothingshow/intro.png" />
+<img src="assets/nothingshow/still2.png" />
+<img src="assets/nothingshow/still3.png" />
 </div>
 
-<a href="/" class="back-home">Back to Home</a>
+<div class="images">
+<img src="assets/nothingshow/1.webp" />
+<img src="assets/nothingshow/2.webp" />
+<img src="assets/nothingshow/3.webp" />
+<img src="assets/nothingshow/5.webp" />
+<img src="assets/nothingshow/6.webp" />
+<img src="assets/nothingshow/7.webp" />
+<img src="assets/nothingshow/8.webp" />
+<img src="assets/nothingshow/9.webp" />
+</div>
+
+<a href="/" class="back-home">BACK TO HOME</a>
+
 </body>
 </html>
