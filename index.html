@@ -1,430 +1,189 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<link rel="icon" href="assets/stuff/favicon.png" type="image/png" />  
+<link rel="icon" href="assets/stuff/favicon.png" type="image/png" />
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>H0PE ART SERVICE</title>
 <meta name="description" content="Hope Art Service - Projects">
 
-<!-- VIP Font -->
-<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&display=swap" rel="stylesheet">
-
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
 
 /* ================= BASE ================= */
-* { box-sizing: border-box; margin: 0; padding: 0; }
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
 body {
-  font-family: Arial, sans-serif;
-  position: relative;
+  font-family: 'Inter', sans-serif;
+  font-weight: 300;
+  letter-spacing: 0.3px;
+  background: #f4f4f4;
+  color: #111;
   overflow-x: hidden;
 }
 
-/* ================= FIXED BACKGROUND ================= */
-.fixed-bg {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-  pointer-events: none;
-}
-
-/* ================= INTRO ================= */
-.text-container {
-  max-width: 600px;
-  margin: 80px 20px;
-  padding: 30px;
-  background: linear-gradient(135deg, #067506, #f0d507, #d60909);
-  color: white;
-  border-radius: 10px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-  position: relative;
-  z-index: 1;
-}
-
-h1 {
-  margin-top: 0;
-  letter-spacing: 2px;
-  font-weight: normal;
-  margin-bottom: 20px;
-  text-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
-
-}
-
+/* ================= TITLE ================= */
 .main-title {
   text-align: center;
-  margin-top: 180px;  /* Abstand nach oben */
-  margin-left: 20px;  /* Abstand links */
-  margin-right: 20px;  /* Abstand rechts */
-  padding: 0 20px;  /* Optional: Text etwas vom Rand weg */
+  margin-top: 220px;
+  margin-bottom: 160px;
 }
 
 .main-title h1 {
-  font-size: 42px;
-  letter-spacing: 6px;
+  font-size: 36px;
+  letter-spacing: 8px;
   font-weight: 400;
-  margin-bottom: 18px;
 }
 
 .subtitle {
-  font-family: 'Inter', sans-serif;
-  font-size: 14px;
-  letter-spacing: 4px;
-  text-transform: uppercase;
-  opacity: 0.6;
-  text-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
-}  
-/* ================= LOGO ================= */
-.logo-container {
-  display: flex;
-  flex-direction: column;    /* Logo oben, Text darunter */
-  align-items: center;       /* horizontal zentrieren */
-  justify-content: center;   /* vertikal zentrieren optional */
-  text-align: center;        /* Text darunter zentrieren */
-  margin: 0 auto;            /* Container zentrieren */
-  width: fit-content;  /* Breite passt sich Inhalt an */
-  margin-bottom: 40px;
+  margin-top: 18px;
+  font-size: 12px;
+  letter-spacing: 5px;
+  opacity: 0.5;
 }
-
-.info-button {
-  position: fixed;
-  right: 15px;
-  top: 105px; /* Abstand unter Theme Button */
-  z-index: 1000;
-}
-  
-.logo-container img {
-  width: 150px;             /* responsive Größe optional */
-  max-width: 50vw;
-  height: auto;
-  display: block;
-}
-
-.logo-caption {
-  margin-top: 8px;          /* Abstand zwischen Bild und Text */
-  text-align: center;       /* Text zentrieren */
-  font-family: 'Inter', sans-serif;
-  font-size: 16px;
-  color: #111;
-}  
 
 /* ================= EXHIBITIONS ================= */
 .exhibition-list {
   list-style: none;
-  padding: 0;
-  margin: 120px 20px;
-}
-.exhibition-list {
-  list-style: none;
-  padding: 0;
-  margin: 120px 0;   /* kein seitlicher Abstand mehr */
+  margin: 0 auto 220px auto;
+  padding: 0 80px;
+  max-width: 1100px;
 }
 
 .exhibition-item {
-  display: block;    /* kein flex-zentrieren mehr */
-  margin-bottom: 110px;
-  width: 100%;
-  max-width: 100%;
-}
-
-.exhibition-item a {
-  width: 100%;
-  max-width: 100%;
-  display: block;
+  margin-bottom: 180px;
 }
 
 .exhibition-item img {
   width: 100%;
-  height: auto;
   display: block;
+  transition: opacity 0.4s ease;
 }
 
-.exhibition-item.closer {
-  margin-top: -60px;
-  margin-bottom: 40px;
-  width: 100%;      /* volle Breite, passt sich dem ul an */
-  max-width: 100%;
-  padding: 0;
+.exhibition-item img:hover {
+  opacity: 0.85;
 }
-
-.exhibition-item.closer a {
-  display: block;
-  width: 100%;       /* Link füllt die Breite */
-  max-width: 100%;
-}
-
-.exhibition-item.closer img {
-  width: 100%;       /* Bild füllt den Container */
-  height: auto;
-  border-radius: 0;  /* optional, keine Abrundung */
-  display: block;
-
-}
-  
-
-
-.exhibition-item img:hover { transform: scale(1.02); }
 
 .exhibition-item p {
-  margin-top: 15px;
-  padding: 10px 14px;
-  font-family: "Times New Roman", serif;
-  letter-spacing: 1px;
-  border-radius: 6px;
-  display: inline-block;
+  margin-top: 28px;
+  font-size: 14px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: 400;
 }
 
-/* NO HOVER EFFECT ON TEXT */
-.exhibition-item p:hover {
-  transform: none;
-  box-shadow: none;
+/* ================= LOGO ================= */
+.logo-container {
+  text-align: center;
+  margin-bottom: 160px;
 }
 
-.exhibition-item:nth-child(3n+1) p { background: #067506; color: white; }
-.exhibition-item:nth-child(3n+2) p { background: #f0d507; color: black; }
-.exhibition-item:nth-child(3n+3) p { background: #d60909; color: white; }
-
-/* ================= VIP THEME ================= */
-body.vip-theme {
-  font-family: 'Cinzel Decorative', serif;
-  text-shadow: 0 6px 18px rgba(255, 255, 255, 0.7);
-
+.logo-container img {
+  width: 140px;
+  max-width: 40vw;
 }
 
-body.vip-theme h1,
-body.vip-theme .subtitle,
-body.vip-theme .exhibition-item p {
-  text-shadow:
-    -1px -1px 0 #ffffff,
-     1px -1px 0 #ffffff,
-    -1px  1px 0 #ffffff,
-     1px  1px 0 #ffffff;
-}  
-
-  body.vip-theme .fixed-bg {
-  background-image: url("assets/stuff/goldenpattern.png");
-  
-
-}
-  
-
-body.vip-theme .text-container {
-  background: #d4af37;
-  color: black;
-  border: 16px solid transparent;
-  border-image: url('assets/stuff/goldenpattern.png') 30 round;
-}
-
-body.vip-theme .exhibition-item p {
-  font-family: 'Cinzel Decorative', serif;
-  background: #d4af37;
-  color: black;
-  border: 10px solid transparent;
-  border-image: url('assets/stuff/goldenpattern.png') 30 round;
-}
-
-body.vip-theme .exhibition-item img {
-  border: 14px solid transparent;
-  border-image: url('assets/stuff/goldenpattern.png') 30 round;
-}
-
-/* ================= RAGGAE MODE ================= */
-body.raggae-mode h1,
-body.raggae-mode .exhibition-item p,
-body.raggae-mode .text-container p {
-  font-family: 'Courier New', monospace;
-}
-  
-
-
-body.raggae-mode h1,
-body.raggae-mode .subtitle {
-  text-shadow:
-    0 0 10px rgba(0,0,0,0.9),
-    0 0 25px rgba(0,0,0,0.7);
-  text-shadow: 0 6px 18px rgba(255, 255, 255, 0.7);
-}    
-  
-  
-
-  
-body.raggae-mode .exhibition-item img {
-  border: 3px solid;
-  border-radius: 6px;
-}
-
-body.raggae-mode .fixed-bg {
-  background: #111;
-  display: flex;
-  flex-wrap: wrap;
-  align-content: flex-start;
-  gap: 6vw;
-  padding: 4vw;
-}
-
-/* einzelne Hexagons */
-body.raggae-mode .fixed-bg::before,
-body.raggae-mode .fixed-bg::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-}
-
-/* wir erzeugen Hexagons über ein Pattern mit CSS */
-body.raggae-mode .fixed-bg {
-  background-image:
-    linear-gradient(120deg, #067506 25%, transparent 25%),
-    linear-gradient(240deg, #067506 25%, transparent 25%),
-    linear-gradient(120deg, transparent 75%, #067506 75%),
-    linear-gradient(240deg, transparent 75%, #067506 75%);
-  background-size: 120px 70px;
-  background-position: 0 0, 0 0, 60px 35px, 60px 35px;
-}  
-body.raggae-mode .fixed-bg {
-  background: #111;
-  overflow: hidden;
-}
-
-body.raggae-mode .hex {
-  position: absolute;
-  width: 12vw;
-  aspect-ratio: 1;
-  clip-path: polygon(
-    25% 6%, 75% 6%,
-    100% 50%,
-    75% 94%, 25% 94%,
-    0% 50%
-  );
-  opacity: 0.15;
-}
-
-/* Farben zufällig verteilen */
-body.raggae-mode .hex:nth-child(3n+1) { background: #067506; }
-body.raggae-mode .hex:nth-child(3n+2) { background: #f0d507; }
-body.raggae-mode .hex:nth-child(3n+3) { background: #d60909; }
-
-  
-body.raggae-mode .exhibition-item:nth-child(3n+1) img { border-color: #067506; }
-body.raggae-mode .exhibition-item:nth-child(3n+2) img { border-color: #f0d507; }
-body.raggae-mode .exhibition-item:nth-child(3n+3) img { border-color: #d60909; }
-
-/* ================= MINIMAL THEME ================= */
-body.minimal-theme {
-  background: #f2f2f2;
-  font-family: 'Arial', sans-serif;
-  color: #111;
-}
-
-body.minimal-theme .fixed-bg { display: none; }
-
-body.minimal-theme .text-container {
-  background: #ffffff;
-  color: #111;
-  box-shadow: none;
-  border-radius: 4px;
-}
-
-body.minimal-theme .exhibition-item p {
-  background: transparent !important;
-  color: #111;
-  font-family: 'Inter', sans-serif;
-  padding: 6px 0;
-}
-
-body.minimal-theme .exhibition-item img {
-  border: none;
-  box-shadow: none;
-}
-
-body.minimal-theme .newsletter {
-  background: #ffffff;
-  color: #111;
+.logo-caption {
+  margin-top: 12px;
+  font-size: 13px;
+  letter-spacing: 2px;
 }
 
 /* ================= NEWSLETTER ================= */
 .newsletter {
-  margin: 100px 20px;
-  padding: 20px;
-  background: white;
-  max-width: 600px;
+  margin: 200px auto;
+  max-width: 500px;
+  text-align: center;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.newsletter a {
+  display: inline-block;
+  margin-top: 20px;
+  text-decoration: none;
+  border-bottom: 1px solid #111;
+  color: #111;
 }
 
 /* ================= BUTTONS ================= */
-.language-toggle, .theme-toggle {
+.language-toggle,
+.theme-toggle {
   position: fixed;
-  right: 15px;
+  right: 20px;
   z-index: 1000;
 }
 
-.language-toggle { top: 15px; }
+.language-toggle { top: 20px; }
 .theme-toggle { top: 60px; }
 
 button {
-  padding: 8px 14px;
-  border: none;
-  border-radius: 6px;
-  background: #1f5f2e;
-  color: white;
+  background: transparent;
+  color: #111;
+  border: 1px solid #111;
+  padding: 6px 12px;
+  font-size: 12px;
+  letter-spacing: 1px;
   cursor: pointer;
 }
 
-button:hover { background: #d4af37; }
-
-@media (max-width: 900px) {
-  .logo-container {
-    width: 35vw;
-    max-width: 120px;
-  }
+button:hover {
+  background: #111;
+  color: white;
 }
 
-@media (max-width: 600px) {
-  .logo-container {
-    width: 50vw;
-    max-width: 100px;
+/* ================= RAGGAE MODE ================= */
+body.raggae-mode {
+  background: #111;
+  color: white;
+}
+
+body.raggae-mode button {
+  border-color: white;
+  color: white;
+}
+
+body.raggae-mode button:hover {
+  background: white;
+  color: black;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 768px) {
+  .exhibition-list {
+    padding: 0 30px;
   }
+
+  .main-title {
+    margin-top: 140px;
+    margin-bottom: 100px;
+  }
+}
 
 </style>
 </head>
 
-<body class="raggae-mode">
-
-<div class="fixed-bg">
-  <div class="hex" style="top:5%; left:10%;"></div>
-  <div class="hex" style="top:15%; left:40%;"></div>
-  <div class="hex" style="top:30%; left:70%;"></div>
-  <div class="hex" style="top:55%; left:20%;"></div>
-  <div class="hex" style="top:65%; left:60%;"></div>
-  <div class="hex" style="top:80%; left:35%;"></div>
-</div>  
+<body class="minimal-theme">
 
 <div class="language-toggle">
   <button id="langBtn">DE</button>
 </div>
 
 <div class="theme-toggle">
-  <button id="themeBtn">VIP</button>
+  <button id="themeBtn">RAGGAE</button>
 </div>
 
-  
 <div class="main-title">
   <h1>H0PE ART SERVICE</h1>
   <p class="subtitle">Making Exhibitions since 2024</p>
-</div>  
-<!-- INTRO -->
-
- <div class="info-button">
-  <a href="info.html">
-    <button>INFO</button>
-  </a>
 </div>
 
-<!-- EXHIBITIONS -->
 <ul class="exhibition-list">
-
 
 <li class="exhibition-item">
 <a href="/carshow1.html">
@@ -445,8 +204,8 @@ button:hover { background: #d4af37; }
 <img src="assets/hmarriage/performance1.jpg">
 <p>H-MARRIAGE</p>
 </a>
-</li>  
-  
+</li>
+
 <li class="exhibition-item">
 <a href="/shoeshow 2.html">
 <img src="assets/Shoeshow/emy2.jpg">
@@ -476,86 +235,63 @@ button:hover { background: #d4af37; }
 </li>
 
 <li class="exhibition-item">
-<a href="gardenofeldon .html">
+<a href="gardenofeldon.html">
 <img src="assets/gardenofeldon/garden_titelbild.JPG">
 <p>GARDEN OF ELDON</p>
 </a>
 </li>
-</ul>
 
 <li class="exhibition-item">
 <a href="https://drive.google.com/file/d/1XR_DHhUq7bFecQOnoo6CK8La6-akw4-z/view?usp=share_link">
 <img src="assets/stuff/antonia_city.JPG">
-<p data-en='Pricelist "THE CAR SHOW"' data-de='Preisliste "THE CAR SHOW"'>Pricelist "THE CAR SHOW"</p>
+<p>Pricelist "THE CAR SHOW"</p>
 </a>
 </li>
 
+</ul>
+
 <div class="logo-container">
-   <a href="mailto:hopeartservice@gmx.net?subject=Merch%20Info">
-  <img src="assets/stuff/hope_logo_sticker small.png" alt="H0PE Logo">
-  <p class="logo-caption" data-en=' ↑BUY MERCH↑' data-de=' ↑MERCH KAUFEN↑'> ↑BUY MERCH↑</p>
+<a href="mailto:hopeartservice@gmx.net?subject=Merch%20Info">
+<img src="assets/stuff/hope_logo_sticker small.png" alt="H0PE Logo">
+<p class="logo-caption">↑ BUY MERCH ↑</p>
+</a>
 </div>
-    
-  
+
 <div class="newsletter">
-<p id="newsletterText"
-data-en="Get in touch! Write us an email to join our newsletter and stay updated on upcoming exhibitions and projects."
-data-de="Schreib uns! Sende eine E-Mail, um in unseren Newsletter aufgenommen zu werden und über kommende Ausstellungen und Projekte informiert zu bleiben.">
+<p>
 Get in touch! Write us an email to join our newsletter and stay updated on upcoming exhibitions and projects.
 </p>
-<a href="mailto:hopeartservice@gmx.net?subject=Newsletter%20Pls">hopeartservice@gmx.net</a>
+<a href="mailto:hopeartservice@gmx.net?subject=Newsletter%20Pls">
+hopeartservice@gmx.net
+</a>
 </div>
 
 <script>
-// ===== LANGUAGE SWITCH =====
+
+// ===== THEME SWITCH =====
+const themeBtn = document.getElementById('themeBtn');
+const themes = ['minimal-theme', 'raggae-mode'];
+let currentThemeIndex = 0;
+
+themeBtn.addEventListener('click', () => {
+  document.body.classList.remove(...themes);
+  currentThemeIndex = (currentThemeIndex + 1) % themes.length;
+  document.body.classList.add(themes[currentThemeIndex]);
+  themeBtn.textContent =
+    themes[currentThemeIndex] === 'minimal-theme'
+      ? 'RAGGAE'
+      : 'MINIMAL';
+});
+
+// ===== LANGUAGE SWITCH (basic placeholder) =====
 const langBtn = document.getElementById('langBtn');
 let currentLang = 'en';
 
 langBtn.addEventListener('click', () => {
   currentLang = currentLang === 'en' ? 'de' : 'en';
   langBtn.textContent = currentLang === 'en' ? 'DE' : 'EN';
-
-  document.querySelectorAll('[data-en]').forEach(el => {
-    el.textContent = el.getAttribute(`data-${currentLang}`);
-  });
 });
 
-// ===== THEME SWITCH =====
-const themeBtn = document.getElementById('themeBtn');
-const themes = ['minimal-theme', 'raggae-mode', 'vip-theme'];
-
-// Aktuelle Klasse auf body bestimmen
-let currentThemeIndex = themes.findIndex(theme => document.body.classList.contains(theme));
-if (currentThemeIndex === -1) currentThemeIndex = 0; // fallback
-
-// Initialen Buttontext setzen
-updateThemeButton();
-
-themeBtn.addEventListener('click', () => {
-  // Alte Theme-Klassen entfernen
-  document.body.classList.remove(...themes);
-
-  // Nächste Klasse wählen
-  currentThemeIndex = (currentThemeIndex + 1) % themes.length;
-  document.body.classList.add(themes[currentThemeIndex]);
-
-  // Buttontext anpassen
-  updateThemeButton();
-});
-
-function updateThemeButton() {
-  switch (themes[currentThemeIndex]) {
-    case 'minimal-theme':
-      themeBtn.textContent = 'RAGGAE';
-      break;
-    case 'raggae-mode':
-      themeBtn.textContent = 'VIP';
-      break;
-    case 'vip-theme':
-      themeBtn.textContent = 'MINIMAL';
-      break;
-  }
-}
 </script>
 
 </body>
