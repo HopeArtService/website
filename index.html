@@ -55,10 +55,13 @@ body {
   max-width: 900px;
   margin: 0 auto 180px auto;
   padding: 0 60px;
+
+  counter-reset: exhibition 10; /* 9 Items + 1 */
 }
 
 .exhibition-item {
   margin-bottom: 120px;
+  counter-increment: exhibition -1;
 }
 
 .exhibition-number {
@@ -66,6 +69,10 @@ body {
   letter-spacing: 4px;
   margin-bottom: 12px;
   opacity: 0.5;
+}
+
+.exhibition-number::before {
+  content: counter(exhibition, decimal-leading-zero);
 }
 
 .exhibition-item img {
@@ -232,6 +239,20 @@ body.raggae-mode .exhibition-item:nth-child(3n+3) img {
     right: 20px;
   }
 
+  /* ===== MOBILE RAGGAE BUTTON COLORS ===== */
+
+  body.raggae-mode .language-toggle button {
+    color: #067506;
+  }
+
+  body.raggae-mode .theme-toggle button {
+    color: #f0d507;
+  }
+
+  body.raggae-mode .info-button button {
+    color: #d60909;
+  }
+
 }
 
 </style>
@@ -261,7 +282,7 @@ body.raggae-mode .exhibition-item:nth-child(3n+3) img {
 <ul class="exhibition-list">
 
 <li class="exhibition-item">
-<div class="exhibition-number">01</div>
+<div class="exhibition-number"></div>
 <a href="/carshow1.html">
 <img src="carshow2_intro.jpg">
 <p>THE CAR SHOW</p>
@@ -269,7 +290,7 @@ body.raggae-mode .exhibition-item:nth-child(3n+3) img {
 </li>
 
 <li class="exhibition-item">
-<div class="exhibition-number">02</div>
+<div class="exhibition-number"></div>
 <a href="/nothingshow.html">
 <img src="assets/nothingshow/still3.png">
 <p>THE NOTHING SHOW</p>
@@ -277,7 +298,7 @@ body.raggae-mode .exhibition-item:nth-child(3n+3) img {
 </li>
 
 <li class="exhibition-item">
-<div class="exhibition-number">03</div>
+<div class="exhibition-number"></div>
 <a href="hmarriage.html">
 <img src="assets/hmarriage/performance1.jpg">
 <p>H-MARRIAGE</p>
@@ -285,7 +306,7 @@ body.raggae-mode .exhibition-item:nth-child(3n+3) img {
 </li>
 
 <li class="exhibition-item">
-<div class="exhibition-number">04</div>
+<div class="exhibition-number"></div>
 <a href="/shoeshow 2.html">
 <img src="assets/Shoeshow/emy2.jpg">
 <p>THE SHOE SHOW</p>
@@ -293,7 +314,7 @@ body.raggae-mode .exhibition-item:nth-child(3n+3) img {
 </li>
 
 <li class="exhibition-item">
-<div class="exhibition-number">05</div>
+<div class="exhibition-number"></div>
 <a href="/xmasshow.html">
 <img src="assets/xmasshow/1.jpg">
 <p>HOPE XMAS SHOW</p>
@@ -301,7 +322,7 @@ body.raggae-mode .exhibition-item:nth-child(3n+3) img {
 </li>
 
 <li class="exhibition-item">
-<div class="exhibition-number">06</div>
+<div class="exhibition-number"></div>
 <a href="palmtreeshow.html">
 <img src="assets/palmtree_main/spaceview_4.jpg">
 <p>THE PALMTREESHOW</p>
@@ -309,7 +330,7 @@ body.raggae-mode .exhibition-item:nth-child(3n+3) img {
 </li>
 
 <li class="exhibition-item">
-<div class="exhibition-number">07</div>
+<div class="exhibition-number"></div>
 <a href="soulseller.html">
 <img src="soulseller/queer_27.jpg">
 <p>SOULSELLER — UNHAPPY PAINTER / HAPPY PAINTER WANTS TO EXIST</p>
@@ -317,7 +338,7 @@ body.raggae-mode .exhibition-item:nth-child(3n+3) img {
 </li>
 
 <li class="exhibition-item">
-<div class="exhibition-number">08</div>
+<div class="exhibition-number"></div>
 <a href="gardenofeldon.html">
 <img src="assets/gardenofeldon/garden_titelbild.JPG">
 <p>GARDEN OF ELDON</p>
@@ -325,7 +346,7 @@ body.raggae-mode .exhibition-item:nth-child(3n+3) img {
 </li>
 
 <li class="exhibition-item">
-<div class="exhibition-number">09</div>
+<div class="exhibition-number"></div>
 <a href="https://drive.google.com/file/d/1XR_DHhUq7bFecQOnoo6CK8La6-akw4-z/view?usp=share_link">
 <img src="assets/stuff/antonia_city.JPG">
 <p>PRICELIST "THE CAR SHOW"</p>
