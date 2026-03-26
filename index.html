@@ -8,7 +8,6 @@
 <style>
 
 /* ================= BASE ================= */
-
 * {
   box-sizing: border-box;
   margin: 0;
@@ -22,7 +21,6 @@ body {
 }
 
 /* ================= LIST ================= */
-
 .exhibition-list {
   list-style: none;
   padding: 40px;
@@ -35,10 +33,7 @@ body {
 .exhibition-item img {
   width: 100%;
   display: block;
-  /* transition entfernt */
 }
-
-/* TEXT UNTER DEM BILD */
 
 .exhibition-item p {
   margin-top: 10px;
@@ -48,13 +43,13 @@ body {
 }
 
 /* ================= CONTROLS ================= */
-
 .language-toggle,
 .theme-toggle,
 .info-button {
   position: fixed;
   right: 20px;
   font-size: 11px;
+  z-index: 1000;
 }
 
 .language-toggle { top: 20px; }
@@ -67,8 +62,49 @@ button {
   cursor: pointer;
 }
 
-/* ================= MOBILE ================= */
+/* ================= DARK MODE ================= */
+body.dark-mode {
+  background: #000;
+  color: #fff;
+}
 
+body.dark-mode .exhibition-item p {
+  color: #fff;
+}
+
+body.dark-mode .newsletter a {
+  color: #fff;
+  border-color: #fff;
+}
+
+/* ================= FOOTER ================= */
+.logo-container {
+  padding: 60px 40px;
+}
+
+.logo-container img {
+  width: 100px;
+}
+
+.logo-caption {
+  font-size: 12px;
+  margin-top: 10px;
+}
+
+.newsletter {
+  padding: 40px;
+  max-width: 500px;
+}
+
+.newsletter a {
+  display: inline-block;
+  margin-top: 10px;
+  border-bottom: 1px solid black;
+  text-decoration: none;
+  color: black;
+}
+
+/* ================= MOBILE ================= */
 @media (max-width: 768px) {
   .exhibition-list {
     padding: 20px;
@@ -80,44 +116,119 @@ button {
 
 <body>
 
+<!-- Language / Dark Mode / Info Buttons -->
 <div class="language-toggle">
   <button id="langBtn">DE</button>
 </div>
 
 <div class="theme-toggle">
-  <button id="themeBtn">RAGGAE</button>
+  <button id="themeBtn">DARK MODE</button>
 </div>
 
 <div class="info-button">
   <a href="info.html"><button>INFO</button></a>
 </div>
 
+<!-- Exhibition List -->
 <ul class="exhibition-list">
 
 <li class="exhibition-item">
 <a href="/carshow1.html">
-<img src="carshow2_intro.jpg">
+<img src="carshow2_intro.jpg" alt="THE CAR SHOW">
 <p>THE CAR SHOW</p>
 </a>
 </li>
 
 <li class="exhibition-item">
 <a href="/nothingshow.html">
-<img src="assets/nothingshow/still3.png">
+<img src="assets/nothingshow/still3.png" alt="THE NOTHING SHOW">
 <p>THE NOTHING SHOW</p>
 </a>
 </li>
 
 <li class="exhibition-item">
 <a href="hmarriage.html">
-<img src="assets/hmarriage/performance1.jpg">
+<img src="assets/hmarriage/performance1.jpg" alt="H-MARRIAGE">
 <p>H-MARRIAGE</p>
 </a>
 </li>
 
-<!-- weitere Items wie vorher -->
+<li class="exhibition-item">
+<a href="/shoeshow 2.html">
+<img src="assets/Shoeshow/emy2.jpg" alt="THE SHOE SHOW">
+<p>THE SHOE SHOW</p>
+</a>
+</li>
+
+<li class="exhibition-item">
+<a href="/xmasshow.html">
+<img src="assets/xmasshow/1.jpg" alt="HOPE XMAS SHOW">
+<p>HOPE XMAS SHOW</p>
+</a>
+</li>
+
+<li class="exhibition-item">
+<a href="palmtreeshow.html">
+<img src="assets/palmtree_main/spaceview_4.jpg" alt="THE PALMTREESHOW">
+<p>THE PALMTREESHOW</p>
+</a>
+</li>
+
+<li class="exhibition-item">
+<a href="soulseller.html">
+<img src="soulseller/queer_27.jpg" alt="SOULSELLER — UNHAPPY PAINTER / HAPPY PAINTER WANTS TO EXIST">
+<p>SOULSELLER — UNHAPPY PAINTER / HAPPY PAINTER WANTS TO EXIST</p>
+</a>
+</li>
+
+<li class="exhibition-item">
+<a href="gardenofeldon .html">
+<img src="assets/gardenofeldon/garden_titelbild.JPG" alt="GARDEN OF ELDON">
+<p>GARDEN OF ELDON</p>
+</a>
+</li>
+
+<li class="exhibition-item">
+<a href="https://drive.google.com/file/d/1XR_DHhUq7bFecQOnoo6CK8La6-akw4-z/view?usp=share_link">
+<img src="assets/stuff/antonia_city.JPG" alt='PRICELIST "THE CAR SHOW"'>
+<p>PRICELIST "THE CAR SHOW"</p>
+</a>
+</li>
 
 </ul>
+
+
+
+<!-- Newsletter -->
+<div class="newsletter">
+<p>
+Get in touch. Write us an email to join our newsletter and stay updated on upcoming exhibitions and projects.
+</p>
+<a href="mailto:hopeartservice@gmx.net?subject=Newsletter%20Pls">
+hopeartservice@gmx.net
+</a>
+</div>
+
+<script>
+/* ================= DARK MODE TOGGLE ================= */
+const themeBtn = document.getElementById('themeBtn');
+let isDark = false;
+
+themeBtn.addEventListener('click', () => {
+  document.body.classList.toggle('dark-mode');
+  isDark = !isDark;
+  themeBtn.textContent = isDark ? "LIGHT MODE" : "DARK MODE";
+});
+
+/* ================= LANGUAGE TOGGLE ================= */
+const langBtn = document.getElementById('langBtn');
+let currentLang = "en";
+
+langBtn.addEventListener("click", () => {
+  currentLang = currentLang === "en" ? "de" : "en";
+  langBtn.textContent = currentLang === "en" ? "DE" : "EN";
+});
+</script>
 
 </body>
 </html>
