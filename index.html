@@ -7,7 +7,7 @@
 <title>H0PE ART SERVICE</title>
 <meta name="description" content="Hope Art Service - Projects">
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;500&display=swap" rel="stylesheet">
 
 <style>
 
@@ -20,71 +20,81 @@
 }
 
 body {
-  font-family: 'Inter', sans-serif;
-  font-weight: 300;
+  font-family: 'Oswald', sans-serif;
   background: #ffffff;
   color: #000;
-  line-height: 1.6;
+  line-height: 1.4;
 }
 
 /* ================= HEADER ================= */
 
 .main-title {
-  text-align: center;
-  margin-top: 220px;
-  margin-bottom: 140px;
+  padding: 40px;
 }
 
 .main-title h1 {
-  font-size: 28px;
-  letter-spacing: 10px;
-  font-weight: 400;
+  font-size: clamp(42px, 9vw, 120px);
+  font-weight: 500;
+  letter-spacing: -2px;
 }
 
 .subtitle {
-  margin-top: 20px;
-  font-size: 11px;
-  letter-spacing: 6px;
+  margin-top: 10px;
+  font-size: 12px;
+  letter-spacing: 2px;
   opacity: 0.6;
 }
 
-/* ================= EXHIBITIONS ================= */
+/* ================= GRID ================= */
 
 .exhibition-list {
   list-style: none;
-  max-width: 900px;
-  margin: 0 auto 180px auto;
-  padding: 0 60px;
-  counter-reset: exhibition 10;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  padding: 40px;
+  counter-reset: exhibition;
 }
 
 .exhibition-item {
-  margin-bottom: 120px;
-  counter-increment: exhibition -1;
-}
-
-.exhibition-number {
-  font-size: 11px;
-  letter-spacing: 4px;
-  margin-bottom: 12px;
-  opacity: 0.5;
-}
-
-.exhibition-number::before {
-  content: counter(exhibition, decimal-leading-zero);
+  position: relative;
+  overflow: hidden;
 }
 
 .exhibition-item img {
   width: 100%;
   display: block;
+  transition: transform 0.4s ease;
 }
 
+.exhibition-item:hover img {
+  transform: scale(1.05);
+}
+
+/* overlay title */
+
 .exhibition-item p {
-  margin-top: 20px;
-  font-size: 13px;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  font-weight: 400;
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  font-size: 12px;
+  letter-spacing: 2px;
+  background: rgba(255,255,255,0.85);
+  padding: 5px 8px;
+}
+
+/* counter */
+
+.exhibition-item::before {
+  counter-increment: exhibition;
+  content: counter(exhibition, decimal-leading-zero);
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  font-size: 10px;
+  letter-spacing: 2px;
+  background: rgba(255,255,255,0.85);
+  padding: 4px 6px;
 }
 
 /* ================= CONTROLS ================= */
@@ -93,62 +103,61 @@ body {
 .theme-toggle,
 .info-button {
   position: fixed;
-  right: 30px;
+  right: 20px;
   font-size: 11px;
-  letter-spacing: 2px;
   z-index: 1000;
 }
 
-.language-toggle { top: 30px; }
-.theme-toggle { top: 60px; }
-.info-button { top: 90px; }
+.language-toggle { top: 20px; }
+.theme-toggle { top: 45px; }
+.info-button { top: 70px; }
 
 button {
   background: none;
   border: none;
   cursor: pointer;
-  font-size: 11px;
-  letter-spacing: 2px;
+  font-family: inherit;
 }
 
 /* ================= FOOTER ================= */
 
 .logo-container {
-  text-align: center;
-  margin-bottom: 160px;
+  padding: 60px 40px;
 }
 
 .logo-container img {
-  width: 120px;
+  width: 100px;
 }
 
 .logo-caption {
-  margin-top: 14px;
   font-size: 12px;
-  letter-spacing: 3px;
+  margin-top: 10px;
 }
 
 .newsletter {
-  text-align: center;
-  max-width: 480px;
-  margin: 180px auto;
-  font-size: 13px;
+  padding: 40px;
+  max-width: 500px;
 }
 
 .newsletter a {
   display: inline-block;
-  margin-top: 20px;
-  text-decoration: none;
+  margin-top: 10px;
   border-bottom: 1px solid black;
+  text-decoration: none;
   color: black;
 }
 
 /* ================= RAGGAE MODE ================= */
 
 body.raggae-mode {
-  background: #111;
-  color: white;
+  background: #000;
+  color: #fff;
   font-family: "Courier New", monospace;
+}
+
+body.raggae-mode .exhibition-item p,
+body.raggae-mode .exhibition-item::before {
+  background: rgba(0,0,0,0.7);
 }
 
 body.raggae-mode .newsletter a {
@@ -157,73 +166,33 @@ body.raggae-mode .newsletter a {
 }
 
 body.raggae-mode .exhibition-item:nth-child(3n+1) img {
-  border: 6px solid #067506;
+  outline: 5px solid #067506;
 }
 
 body.raggae-mode .exhibition-item:nth-child(3n+2) img {
-  border: 6px solid #f0d507;
+  outline: 5px solid #f0d507;
 }
 
 body.raggae-mode .exhibition-item:nth-child(3n+3) img {
-  border: 6px solid #d60909;
+  outline: 5px solid #d60909;
 }
 
 /* ================= MOBILE ================= */
 
 @media (max-width: 768px) {
 
+  .exhibition-list {
+    grid-template-columns: 1fr;
+    padding: 20px;
+  }
+
   .main-title {
-    position: fixed;
-    top: 30px;
-    left: 20px;
-    margin: 0;
-    text-align: left;
-    z-index: 1000;
+    padding: 20px;
   }
 
   .main-title h1 {
-    font-size: 18px;
-    letter-spacing: 4px;
+    font-size: 44px;
   }
-
-  .subtitle {
-    font-size: 8px;
-    letter-spacing: 3px;
-    margin-top: 6px;
-  }
-
-  .exhibition-list {
-    margin-top: 160px;
-    padding: 0 20px;
-  }
-
-  .exhibition-item {
-    margin-bottom: 80px;
-  }
-
-  .exhibition-item p {
-    font-size: 10px;
-    letter-spacing: 2px;
-    margin-top: 12px;
-  }
-
-  .exhibition-number {
-    font-size: 9px;
-    letter-spacing: 2px;
-    margin-bottom: 8px;
-  }
-
-  /* Buttons sauber untereinander */
-
-  .language-toggle { top: 30px; right: 20px; }
-  .theme-toggle { top: 55px; right: 20px; }
-  .info-button { top: 80px; right: 20px; }
-
-  /* Raggae Button Farben */
-
-  body.raggae-mode .language-toggle button { color: #067506; }
-  body.raggae-mode .theme-toggle button { color: #f0d507; }
-  body.raggae-mode .info-button button { color: #d60909; }
 
 }
 
@@ -231,6 +200,8 @@ body.raggae-mode .exhibition-item:nth-child(3n+3) img {
 </head>
 
 <body>
+
+<!-- CONTROLS -->
 
 <div class="language-toggle">
   <button id="langBtn">DE</button>
@@ -246,24 +217,82 @@ body.raggae-mode .exhibition-item:nth-child(3n+3) img {
   </a>
 </div>
 
+<!-- HEADER -->
+
 <div class="main-title">
   <h1>H0PE ART SERVICE</h1>
-  <p class="subtitle">MAKING EXHIBITIONS SINCE 2024</p>
 </div>
+
+<!-- PROJECTS -->
 
 <ul class="exhibition-list">
 
-<li class="exhibition-item"><div class="exhibition-number"></div><a href="/carshow1.html"><img src="carshow2_intro.jpg"><p>THE CAR SHOW</p></a></li>
-<li class="exhibition-item"><div class="exhibition-number"></div><a href="/nothingshow.html"><img src="assets/nothingshow/still3.png"><p>THE NOTHING SHOW</p></a></li>
-<li class="exhibition-item"><div class="exhibition-number"></div><a href="hmarriage.html"><img src="assets/hmarriage/performance1.jpg"><p>H-MARRIAGE</p></a></li>
-<li class="exhibition-item"><div class="exhibition-number"></div><a href="/shoeshow 2.html"><img src="assets/Shoeshow/emy2.jpg"><p>THE SHOE SHOW</p></a></li>
-<li class="exhibition-item"><div class="exhibition-number"></div><a href="/xmasshow.html"><img src="assets/xmasshow/1.jpg"><p>HOPE XMAS SHOW</p></a></li>
-<li class="exhibition-item"><div class="exhibition-number"></div><a href="palmtreeshow.html"><img src="assets/palmtree_main/spaceview_4.jpg"><p>THE PALMTREESHOW</p></a></li>
-<li class="exhibition-item"><div class="exhibition-number"></div><a href="soulseller.html"><img src="soulseller/queer_27.jpg"><p>SOULSELLER — UNHAPPY PAINTER / HAPPY PAINTER WANTS TO EXIST</p></a></li>
-<li class="exhibition-item"><div class="exhibition-number"></div><a href="gardenofeldon .html"><img src="assets/gardenofeldon/garden_titelbild.JPG"><p>GARDEN OF ELDON</p></a></li>
-<li class="exhibition-item"><div class="exhibition-number"></div><a href="https://drive.google.com/file/d/1XR_DHhUq7bFecQOnoo6CK8La6-akw4-z/view?usp=share_link"><img src="assets/stuff/antonia_city.JPG"><p>PRICELIST "THE CAR SHOW"</p></a></li>
+<li class="exhibition-item">
+<a href="/carshow1.html">
+<img src="carshow2_intro.jpg">
+<p>THE CAR SHOW</p>
+</a>
+</li>
+
+<li class="exhibition-item">
+<a href="/nothingshow.html">
+<img src="assets/nothingshow/still3.png">
+<p>THE NOTHING SHOW</p>
+</a>
+</li>
+
+<li class="exhibition-item">
+<a href="hmarriage.html">
+<img src="assets/hmarriage/performance1.jpg">
+<p>H-MARRIAGE</p>
+</a>
+</li>
+
+<li class="exhibition-item">
+<a href="/shoeshow 2.html">
+<img src="assets/Shoeshow/emy2.jpg">
+<p>THE SHOE SHOW</p>
+</a>
+</li>
+
+<li class="exhibition-item">
+<a href="/xmasshow.html">
+<img src="assets/xmasshow/1.jpg">
+<p>HOPE XMAS SHOW</p>
+</a>
+</li>
+
+<li class="exhibition-item">
+<a href="palmtreeshow.html">
+<img src="assets/palmtree_main/spaceview_4.jpg">
+<p>THE PALMTREESHOW</p>
+</a>
+</li>
+
+<li class="exhibition-item">
+<a href="soulseller.html">
+<img src="soulseller/queer_27.jpg">
+<p>SOULSELLER — UNHAPPY PAINTER / HAPPY PAINTER WANTS TO EXIST</p>
+</a>
+</li>
+
+<li class="exhibition-item">
+<a href="gardenofeldon .html">
+<img src="assets/gardenofeldon/garden_titelbild.JPG">
+<p>GARDEN OF ELDON</p>
+</a>
+</li>
+
+<li class="exhibition-item">
+<a href="https://drive.google.com/file/d/1XR_DHhUq7bFecQOnoo6CK8La6-akw4-z/view?usp=share_link">
+<img src="assets/stuff/antonia_city.JPG">
+<p>PRICELIST "THE CAR SHOW"</p>
+</a>
+</li>
 
 </ul>
+
+<!-- MERCH -->
 
 <div class="logo-container">
 <a href="mailto:hopeartservice@gmx.net?subject=Merch%20Info">
@@ -271,6 +300,8 @@ body.raggae-mode .exhibition-item:nth-child(3n+3) img {
 <p class="logo-caption">BUY MERCH</p>
 </a>
 </div>
+
+<!-- NEWSLETTER -->
 
 <div class="newsletter">
 <p>
@@ -280,6 +311,8 @@ Get in touch. Write us an email to join our newsletter and stay updated on upcom
 hopeartservice@gmx.net
 </a>
 </div>
+
+<!-- SCRIPT -->
 
 <script>
 
