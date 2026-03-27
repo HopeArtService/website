@@ -27,23 +27,13 @@ body {
 /* ================= LOGO ================= */
 .top-logo {
   position: fixed;
-  top: 0px;
+  top: 5px;
   left: 20px;
   z-index: 1000;
 }
 .top-logo img {
   height: 280px; /* 6x größer */
   width: auto;
-}
-
-/* ================= HEADER ================= */
-.main-title {
-  padding: 40px;
-}
-.main-title h1 {
-  font-size: clamp(42px, 9vw, 120px);
-  font-weight: 500;
-  letter-spacing: -2px;
 }
 
 /* ================= CONTROLS ================= */
@@ -66,8 +56,8 @@ button {
 /* ================= GRID ================= */
 .exhibition-list {
   list-style: none;
-  display: flex;
-  flex-direction: column-reverse; /* Nummerierung von unten nach oben */
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* zwei nebeneinander */
   gap: 20px;
   padding: 40px;
   counter-reset: exhibition;
@@ -94,10 +84,8 @@ button {
   background: rgba(255,255,255,0.85);
   padding: 5px 8px;
 }
-/* Nummerierung */
+/* Nummerierung: von unten nach oben, letzte Item keine Nummer */
 .exhibition-item::before {
-  counter-increment: exhibition;
-  content: counter(exhibition, decimal-leading-zero);
   position: absolute;
   top: 12px;
   left: 12px;
@@ -106,10 +94,16 @@ button {
   background: rgba(255,255,255,0.85);
   padding: 4px 6px;
 }
-/* Letztes Item keine Nummer */
-.exhibition-item:last-child::before {
-  content: "";
-}
+.exhibition-list .exhibition-item:nth-last-child(2)::before { content: "1"; }
+.exhibition-list .exhibition-item:nth-last-child(3)::before { content: "2"; }
+.exhibition-list .exhibition-item:nth-last-child(4)::before { content: "3"; }
+.exhibition-list .exhibition-item:nth-last-child(5)::before { content: "4"; }
+.exhibition-list .exhibition-item:nth-last-child(6)::before { content: "5"; }
+.exhibition-list .exhibition-item:nth-last-child(7)::before { content: "6"; }
+.exhibition-list .exhibition-item:nth-last-child(8)::before { content: "7"; }
+.exhibition-list .exhibition-item:nth-last-child(9)::before { content: "8"; }
+/* letzte Item keine Nummer */
+.exhibition-item:last-child::before { content: ""; }
 
 /* ================= FOOTER ================= */
 .logo-container {
@@ -168,12 +162,6 @@ body.raggae-mode .exhibition-item:nth-child(3n+3) img {
   .exhibition-list {
     grid-template-columns: 1fr;
     padding: 20px;
-  }
-  .main-title {
-    padding: 20px;
-  }
-  .main-title h1 {
-    font-size: 44px;
   }
 }
 
