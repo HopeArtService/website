@@ -99,7 +99,7 @@ body {
 
 /* ================= CONTROLS ================= */
 
-.language-toggle,
+
 .theme-toggle,
 .info-button {
   position: fixed;
@@ -108,7 +108,7 @@ body {
   z-index: 1000;
 }
 
-.language-toggle { top: 20px; }
+
 .theme-toggle { top: 45px; }
 .info-button { top: 70px; }
 
@@ -203,12 +203,9 @@ body.raggae-mode .exhibition-item:nth-child(3n+3) img {
 
 <!-- CONTROLS -->
 
-<div class="language-toggle">
-  <button id="langBtn">DE</button>
-</div>
 
 <div class="theme-toggle">
-  <button id="themeBtn">RAGGAE</button>
+  <button id="themeBtn">dark</button>
 </div>
 
 <div class="info-button">
@@ -326,13 +323,7 @@ themeBtn.addEventListener('click', () => {
   themeBtn.textContent = isRaggae ? "MINIMAL" : "RAGGAE";
 });
 
-const langBtn = document.getElementById('langBtn');
-let currentLang = "en";
 
-langBtn.addEventListener("click", () => {
-  currentLang = currentLang === "en" ? "de" : "en";
-  langBtn.textContent = currentLang === "en" ? "DE" : "EN";
-});
 
 </script>
 
