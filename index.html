@@ -1,13 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<link rel="icon" href="assets/stuff/favicon.png" type="image/png" />
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>H0PE ART SERVICE</title>
-<meta name="description" content="Hope Art Service - Projects">
-
-<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;500&display=swap" rel="stylesheet">
 
 <style>
 
@@ -20,92 +16,35 @@
 }
 
 body {
-  font-family: 'Oswald', sans-serif;
+  font-family: Arial, sans-serif;
   background: #ffffff;
   color: #000;
-  line-height: 1.4;
 }
 
-/* ================= HEADER ================= */
-
-.main-title {
-  padding: 40px;
-}
-
-.main-title h1 {
-  font-size: clamp(42px, 9vw, 120px);
-  font-weight: 500;
-  letter-spacing: -2px;
-}
-
-.subtitle {
-  margin-top: 10px;
-  font-size: 12px;
-  letter-spacing: 2px;
-  opacity: 0.6;
-}
-
-/* ================= GRID ================= */
+/* ================= LIST ================= */
 
 .exhibition-list {
   list-style: none;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
   padding: 40px;
 }
 
 .exhibition-item {
-  position: relative;
-  overflow: hidden;
+  margin-bottom: 40px;
 }
-
-/* FULL WIDTH ITEMS */
-
-.exhibition-item:nth-child(3n) {
-  grid-column: span 2;
-}
-
-/* IMAGE STYLING */
 
 .exhibition-item img {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
   display: block;
-  transition: transform 0.4s ease;
+  /* transition entfernt */
 }
 
-/* different heights = editorial feel */
-
-.exhibition-item:nth-child(odd) img {
-  aspect-ratio: 4/5;
-}
-
-.exhibition-item:nth-child(even) img {
-  aspect-ratio: 1/1;
-}
-
-.exhibition-item:nth-child(3n) img {
-  aspect-ratio: 16/9;
-}
-
-/* hover */
-
-.exhibition-item:hover img {
-  transform: scale(1.05);
-}
-
-/* overlay title */
+/* TEXT UNTER DEM BILD */
 
 .exhibition-item p {
-  position: absolute;
-  bottom: 12px;
-  left: 12px;
-  font-size: 12px;
-  letter-spacing: 2px;
-  background: rgba(255,255,255,0.85);
-  padding: 5px 8px;
+  margin-top: 10px;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  text-align: left;
 }
 
 /* ================= CONTROLS ================= */
@@ -116,7 +55,6 @@ body {
   position: fixed;
   right: 20px;
   font-size: 11px;
-  z-index: 1000;
 }
 
 .language-toggle { top: 20px; }
@@ -127,87 +65,14 @@ button {
   background: none;
   border: none;
   cursor: pointer;
-  font-family: inherit;
-}
-
-/* ================= FOOTER ================= */
-
-.logo-container {
-  padding: 60px 40px;
-}
-
-.logo-container img {
-  width: 100px;
-}
-
-.logo-caption {
-  font-size: 12px;
-  margin-top: 10px;
-}
-
-.newsletter {
-  padding: 40px;
-  max-width: 500px;
-}
-
-.newsletter a {
-  display: inline-block;
-  margin-top: 10px;
-  border-bottom: 1px solid black;
-  text-decoration: none;
-  color: black;
-}
-
-/* ================= RAGGAE MODE ================= */
-
-body.raggae-mode {
-  background: #000;
-  color: #fff;
-  font-family: "Courier New", monospace;
-}
-
-body.raggae-mode .exhibition-item p {
-  background: rgba(0,0,0,0.7);
-}
-
-body.raggae-mode .newsletter a {
-  border-color: white;
-  color: white;
-}
-
-body.raggae-mode .exhibition-item:nth-child(3n+1) img {
-  outline: 5px solid #067506;
-}
-
-body.raggae-mode .exhibition-item:nth-child(3n+2) img {
-  outline: 5px solid #f0d507;
-}
-
-body.raggae-mode .exhibition-item:nth-child(3n+3) img {
-  outline: 5px solid #d60909;
 }
 
 /* ================= MOBILE ================= */
 
 @media (max-width: 768px) {
-
   .exhibition-list {
-    grid-template-columns: 1fr;
     padding: 20px;
   }
-
-  .exhibition-item:nth-child(3n) {
-    grid-column: span 1;
-  }
-
-  .main-title {
-    padding: 20px;
-  }
-
-  .main-title h1 {
-    font-size: 44px;
-  }
-
 }
 
 </style>
@@ -224,65 +89,35 @@ body.raggae-mode .exhibition-item:nth-child(3n+3) img {
 </div>
 
 <div class="info-button">
-  <a href="info.html">
-    <button>INFO</button>
-  </a>
-</div>
-
-<div class="main-title">
-  <h1>H0PE ART SERVICE</h1>
+  <a href="info.html"><button>INFO</button></a>
 </div>
 
 <ul class="exhibition-list">
 
-<li class="exhibition-item"><a href="/carshow1.html"><img src="carshow2_intro.jpg"><p>THE CAR SHOW</p></a></li>
-<li class="exhibition-item"><a href="/nothingshow.html"><img src="assets/nothingshow/still3.png"><p>THE NOTHING SHOW</p></a></li>
-<li class="exhibition-item"><a href="hmarriage.html"><img src="assets/hmarriage/performance1.jpg"><p>H-MARRIAGE</p></a></li>
-<li class="exhibition-item"><a href="/shoeshow 2.html"><img src="assets/Shoeshow/emy2.jpg"><p>THE SHOE SHOW</p></a></li>
-<li class="exhibition-item"><a href="/xmasshow.html"><img src="assets/xmasshow/1.jpg"><p>HOPE XMAS SHOW</p></a></li>
-<li class="exhibition-item"><a href="palmtreeshow.html"><img src="assets/palmtree_main/spaceview_4.jpg"><p>THE PALMTREESHOW</p></a></li>
-<li class="exhibition-item"><a href="soulseller.html"><img src="soulseller/queer_27.jpg"><p>SOULSELLER — UNHAPPY PAINTER / HAPPY PAINTER WANTS TO EXIST</p></a></li>
-<li class="exhibition-item"><a href="gardenofeldon .html"><img src="assets/gardenofeldon/garden_titelbild.JPG"><p>GARDEN OF ELDON</p></a></li>
-<li class="exhibition-item"><a href="https://drive.google.com/file/d/1XR_DHhUq7bFecQOnoo6CK8La6-akw4-z/view?usp=share_link"><img src="assets/stuff/antonia_city.JPG"><p>PRICELIST "THE CAR SHOW"</p></a></li>
+<li class="exhibition-item">
+<a href="/carshow1.html">
+<img src="carshow2_intro.jpg">
+<p>THE CAR SHOW</p>
+</a>
+</li>
+
+<li class="exhibition-item">
+<a href="/nothingshow.html">
+<img src="assets/nothingshow/still3.png">
+<p>THE NOTHING SHOW</p>
+</a>
+</li>
+
+<li class="exhibition-item">
+<a href="hmarriage.html">
+<img src="assets/hmarriage/performance1.jpg">
+<p>H-MARRIAGE</p>
+</a>
+</li>
+
+<!-- weitere Items wie vorher -->
 
 </ul>
-
-<div class="logo-container">
-<a href="mailto:hopeartservice@gmx.net?subject=Merch%20Info">
-<img src="assets/stuff/hope_logo_sticker small.png" alt="H0PE Logo">
-<p class="logo-caption">BUY MERCH</p>
-</a>
-</div>
-
-<div class="newsletter">
-<p>
-Get in touch. Write us an email to join our newsletter and stay updated on upcoming exhibitions and projects.
-</p>
-<a href="mailto:hopeartservice@gmx.net?subject=Newsletter%20Pls">
-hopeartservice@gmx.net
-</a>
-</div>
-
-<script>
-
-const themeBtn = document.getElementById('themeBtn');
-let isRaggae = false;
-
-themeBtn.addEventListener('click', () => {
-  document.body.classList.toggle('raggae-mode');
-  isRaggae = !isRaggae;
-  themeBtn.textContent = isRaggae ? "MINIMAL" : "RAGGAE";
-});
-
-const langBtn = document.getElementById('langBtn');
-let currentLang = "en";
-
-langBtn.addEventListener("click", () => {
-  currentLang = currentLang === "en" ? "de" : "en";
-  langBtn.textContent = currentLang === "en" ? "DE" : "EN";
-});
-
-</script>
 
 </body>
 </html>
