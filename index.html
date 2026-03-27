@@ -333,7 +333,13 @@ themeBtn.addEventListener('click', () => {
   isRaggae = !isRaggae;
   themeBtn.textContent = isRaggae ? "MINIMAL" : "RAGGAE";
 });
-
+body.raggae-mode .theme-toggle button,
+body.raggae-mode .info-button button {
+  background-color: #8a2be2;  /* Violett */
+  color: white;               /* Text weiß */
+  border-radius: 4px;         /* optional: leicht abgerundet */
+  padding: 4px 8px;           /* optional: etwas Polsterung */
+}
 
 
 </script>
