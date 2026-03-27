@@ -27,7 +27,17 @@ body {
 }
 
 /* ================= HEADER ================= */
+.top-logo {
+  position: fixed;      /* bleibt beim Scrollen oben */
+  top: 20px;            /* Abstand vom oberen Rand */
+  left: 20px;           /* Abstand vom linken Rand */
+  z-index: 1000;        /* bleibt über anderen Elementen */
+}
 
+.top-logo img {
+  height: 50px;         /* gewünschte Höhe, kann angepasst werden */
+  width: auto;           /* proportional skalieren */
+}
 .main-title {
   padding: 40px;
 }
@@ -216,9 +226,10 @@ body.raggae-mode .exhibition-item:nth-child(3n+3) img {
 
 <!-- HEADER -->
 
-<div class="main-title">
-  <img src="assets/stuff/hopep_logo_test.pngg">
-
+<div class="top-logo">
+  <a href="index.html">
+    <img src="assets/stuff/hopep_logo_test.png" alt="H0PE Logo">
+  </a>
 </div>
 
 <!-- PROJECTS -->
