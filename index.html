@@ -23,12 +23,12 @@ body {
 /* ================= LIST ================= */
 .exhibition-list {
   list-style: none;
-  padding: 80px;
+  padding: 10px;
 }
 
 .exhibition-item {
   margin-bottom: 10px;
-  width: 70%;  
+  width: 100%;  
 }
 
 .exhibition-item img {
@@ -112,9 +112,9 @@ body.dark-mode .newsletter a {
 }
 
 /* ================= MOBILE ================= */
-@media (max-width: 768px) {
-  .exhibition-list {
-    padding: 20px;
+@media (min-width: 768px) {
+  .exhibition-item {
+    width: 70%;   /* or 50% / 40% depending on taste */
   }
 }
 
