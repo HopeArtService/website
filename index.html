@@ -21,29 +21,41 @@
 
 body {
   font-family: 'Oswald', sans-serif;
-  background: #ffffff;
+  background: #fff;
   color: #000;
   line-height: 1.4;
+  -webkit-font-smoothing: antialiased;
 }
 
 /* ================= LOGO ================= */
+.top-logo {
+  position: fixed;
+  top: 18px;
+  left: 24px;
+  z-index: 1000;
+}
 
+.top-logo img {
+  height: 72px;
+  width: auto;
+}
 
 /* ================= CONTROLS ================= */
 .theme-toggle,
 .info-button {
   position: fixed;
-  right: 20px;
-  font-size: 11px;
+  right: 24px;
+  font-size: 10px;
+  letter-spacing: 1px;
   z-index: 1000;
 }
 
 .theme-toggle {
-  top: 45px;
+  top: 28px;
 }
 
 .info-button {
-  top: 70px;
+  top: 48px;
 }
 
 button {
@@ -51,76 +63,89 @@ button {
   border: none;
   cursor: pointer;
   font-family: inherit;
+  font-size: inherit;
+  letter-spacing: inherit;
 }
 
 /* ================= GRID ================= */
 .exhibition-list {
   list-style: none;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
-  padding: 140px 40px 40px;
-}
-
-.exhibition-item {
-  overflow: hidden;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  padding: 120px 24px 60px;
 }
 
 .exhibition-item a {
+  display: block;
   text-decoration: none;
   color: inherit;
-  display: block;
 }
 
 .exhibition-item img {
   width: 100%;
+  aspect-ratio: 1 / 1.2;
+  object-fit: cover;
   display: block;
 }
 
-/* TITLES UNDER IMAGES */
 .exhibition-item p {
-  margin-top: 10px;
-  font-size: 12px;
-  letter-spacing: 2px;
+  margin-top: 8px;
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  line-height: 1.3;
+  text-transform: uppercase;
   color: #000;
 }
 
 /* ================= VIDEO ================= */
 .video-item {
-  grid-column: span 2;
+  grid-column: span 3;
 }
 
 .video-item iframe {
   width: 100%;
-  height: 400px;
+  height: 650px;
   border: none;
 }
 
 /* ================= FOOTER ================= */
 .logo-container {
-  padding: 60px 40px;
+  padding: 80px 24px 30px;
+}
+
+.logo-container a {
+  text-decoration: none;
+  color: inherit;
 }
 
 .logo-container img {
-  width: 100px;
+  width: 90px;
 }
 
 .logo-caption {
-  font-size: 12px;
   margin-top: 10px;
+  font-size: 10px;
+  letter-spacing: 1px;
 }
 
 .newsletter {
-  padding: 40px;
-  max-width: 500px;
+  padding: 0 24px 60px;
+  max-width: 420px;
+}
+
+.newsletter p {
+  font-size: 12px;
+  line-height: 1.5;
 }
 
 .newsletter a {
   display: inline-block;
-  margin-top: 10px;
-  border-bottom: 1px solid black;
+  margin-top: 12px;
   text-decoration: none;
-  color: black;
+  border-bottom: 1px solid #000;
+  color: #000;
+  font-size: 12px;
 }
 
 /* ================= DARK MODE ================= */
@@ -132,37 +157,46 @@ body.raggae-mode {
 
 body.raggae-mode .theme-toggle button,
 body.raggae-mode .info-button button {
-  color: #8a2be2;
+  color: #fff;
 }
 
-/* WHITE TITLES IN DARK MODE */
 body.raggae-mode .exhibition-item p {
   color: #fff;
 }
 
 body.raggae-mode .newsletter a {
-  border-color: white;
-  color: white;
+  color: #fff;
+  border-color: #fff;
 }
 
-body.raggae-mode .exhibition-item:nth-child(3n+1) img {
-  outline: 5px solid #067506;
-}
-
-body.raggae-mode .exhibition-item:nth-child(3n+2) img {
-  outline: 5px solid #f0d507;
-}
-
-body.raggae-mode .exhibition-item:nth-child(3n+3) img {
-  outline: 5px solid #d60909;
+body.raggae-mode .exhibition-item img {
+  filter: brightness(0.95);
 }
 
 /* ================= MOBILE ================= */
+@media (max-width: 900px) {
+
+  .exhibition-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+}
+
 @media (max-width: 768px) {
 
   .exhibition-list {
     grid-template-columns: 1fr;
-    padding: 120px 20px 20px;
+    gap: 28px;
+    padding: 110px 18px 40px;
+  }
+
+  .top-logo {
+    left: 18px;
+  }
+
+  .theme-toggle,
+  .info-button {
+    right: 18px;
   }
 
   .video-item {
@@ -170,7 +204,13 @@ body.raggae-mode .exhibition-item:nth-child(3n+3) img {
   }
 
   .video-item iframe {
-    height: 220px;
+    height: 240px;
+  }
+
+  .logo-container,
+  .newsletter {
+    padding-left: 18px;
+    padding-right: 18px;
   }
 
 }
@@ -181,6 +221,10 @@ body.raggae-mode .exhibition-item:nth-child(3n+3) img {
 <body>
 
 <!-- CONTROLS -->
+<div class="theme-toggle">
+  <button id="themeBtn">DARKMODE</button>
+</div>
+
 <div class="info-button">
   <a href="info.html"><button>INFO</button></a>
 </div>
