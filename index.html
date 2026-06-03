@@ -34,8 +34,6 @@ body {
     background-size: 65% auto;
     background-position: top center;
     background-repeat: repeat;
-
-
 }
 
 /* ================= TITLE ================= */
@@ -45,6 +43,17 @@ h1 {
     font-size: 28px;
     font-weight: bold;
     line-height: 1.1;
+}
+
+/* ================= HERO IMAGE (NOW MATCHES EXHIBITIONS) ================= */
+
+.hero-image {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    margin-bottom: 28px;
 }
 
 /* ================= EXHIBITIONS ================= */
@@ -125,11 +134,9 @@ h1 {
 
 body.dark-mode {
     background-image: url("hopeartbakdrop.jpg");
-   background-size: 65% auto;
+    background-size: 65% auto;
     background-position: center;
     background-repeat: repeat;
-    
-  
 }
 
 body.dark-mode .theme-toggle button,
@@ -184,12 +191,13 @@ body.dark-mode .exhibition-item img {
         font-size: 13px;
     }
 
- .hero-image {
-    width: 100vw;
-    height: auto;
-    display: block;
-    margin: 0;
-}
+    .hero-image {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        display: block;
+        margin-bottom: 22px;
+    }
 }
 
 </style>
@@ -199,10 +207,10 @@ body.dark-mode .exhibition-item img {
 <body>
 
 <!-- TITLE -->
-
 <h1>Hope Art Service</h1>
 
-<img class="hero-image" src="hopeartbakdrop.jpg" alt="screensaver">   
+<!-- TOP IMAGE -->
+<img class="hero-image" src="hopeartbakdrop.jpg" alt="screensaver">
 
 <!-- EXHIBITIONS -->
 
@@ -301,8 +309,6 @@ hopeartservice@gmx.net
 <button id="themeBtn">DARKMODE</button>
 </div>
 
-<!-- SCRIPT -->
-
 <script>
 
 const themeBtn = document.getElementById('themeBtn');
@@ -310,20 +316,12 @@ const themeBtn = document.getElementById('themeBtn');
 let isDark = false;
 
 themeBtn.addEventListener('click', () => {
-
     document.body.classList.toggle('dark-mode');
-
     isDark = !isDark;
-
-    themeBtn.textContent = isDark
-        ? 'LIGHTMODE'
-        : 'DARKMODE';
-
+    themeBtn.textContent = isDark ? 'LIGHTMODE' : 'DARKMODE';
 });
 
 </script>
 
 </body>
-       
-
 </html>
