@@ -49,12 +49,18 @@ h1 {
 
 .newmerch {
     position: absolute;
-    top: 65px;      /* Höhe anpassen */
-    right: 65px;    /* Abstand zum rechten Rand */
-    width: 500px;   /* Größe anpassen */
-    height: auto;
+    top: 65px;
+    right: 65px;
+    width: 500px;
+    display: block;
     z-index: 10;
-}    
+}
+
+.newmerch img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
     
 .hero-image {
     width: 100%;
@@ -226,8 +232,8 @@ body.dark-mode .exhibition-item img {
 
 <!-- TOP IMAGE -->
 <img class="hero-image" src="hopeartbakdrop.jpg" alt="screensaver">
-<a href="mailto:hopeartservice@gmx.net?subject=Merch%20Inquiry&body=Hello%20Hope%20Art%20Service,%0A%0AI%20am%20interested%20in%20your%20merch.">
-    <img class="newmerch" src="assets/stuff/NEWMERCH.gif" alt="New Merch">
+<a class="newmerch" href="mailto:hopeartservice@gmx.net?subject=Merch%20Inquiry&body=Hello%20Hope%20Art%20Service,%0A%0AI%20am%20interested%20in%20your%20merch.">
+    <img src="assets/stuff/NEWMERCH.gif" alt="New Merch">
 </a>
 <!-- EXHIBITIONS -->
 
