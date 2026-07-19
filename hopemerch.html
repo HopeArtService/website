@@ -33,6 +33,31 @@ width: 90%; /* Scale down text block */
 width: 90%; /* Scale down images */
 }
 }
+
+.image-container {
+    position: relative;
+    display: inline-block;
+    width: 1000px;
+    max-width: 95%;
+    margin-bottom: 5px;
+}
+
+.image-container img {
+    width: 100%;
+    display: block;
+}
+
+.sold {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    color: red;
+    font-size: 48px;
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 4px white;
+}  
 </style>
 </head>
 <body>
@@ -65,7 +90,11 @@ Pick up in Vienna or international shipping
 <div class="images">
 <img src=assets/hopemerch/hope_merch_red_back.jpg />  
 <img src=assets/hopemerch/hope_merch_red_front.jpg /> 
-<img src=assets/hopemerch/hope_merch_blue_front.jpg />
+<div class="image-container">
+    <img src=assets/hopemerch/hope_merch_blue_front.jpg />
+    <div class="sold">SOLD</div>
+</div>
+
 <img src=assets/hopemerch/hope_merch_blue2_back.jpg />  
 <img src=assets/hopemerch/hope_merch_blue1_back.jpg />
 <img src=assets/hopemerch/hope_merch_blue1_front.jpg />
