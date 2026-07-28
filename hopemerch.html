@@ -60,10 +60,28 @@ width: 90%; /* Scale down images */
     text-transform: uppercase;
     text-shadow: 2px 2px 4px white;
 }  
+html {
+    scroll-behavior: smooth;
+}    
+button {
+    background: none;
+    border: 1px solid black;
+    padding: 8px 16px;
+    font-family: Arial, sans-serif;
+    cursor: pointer;
+}
+
+button:hover {
+    background: black;
+    color: white;
+}    
 </style>
 </head>
 <body>
 <h1>HOPE SUMMER MERCH 2026</h1>
+<button onclick="document.getElementById('bags').scrollIntoView();">
+    Go to Bags
+</button>    
 <div class="text">
 <pre>
 
@@ -112,12 +130,13 @@ Pick up in Vienna or international shipping
 <img src=assets/hopemerch/hope_merch_turkies_front.jpg />
 <img src=assets/hopemerch/hope_merch_blue4_front2.jpg />  
 <img src=assets/hopemerch/hope_merch_blue4_back.jpg />  
-<pre>
+
+<pre id="bags">
 All Bags were handprinted, some handbleached in Vienna. 
 100% Cotton  
 25,- EUR each
 Pick up in Vienna or international shipping  
-</pre>
+</pre >
 <img src=assets/hopemerch/hope_bag_1_front.jpg />
 <img src=assets/hopemerch/hope_bag_1_back.jpg />
 <img src=assets/hopemerch/hope_bag_2_front.jpg />  
