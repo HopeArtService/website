@@ -64,11 +64,13 @@ html {
     scroll-behavior: smooth;
 }    
 button {
-    background: none;
-    border: 1px solid black;
-    padding: 8px 16px;
-    font-family: Arial, sans-serif;
+   background: none;
+    border: none;
+    padding: 0;
+    color: blue;
+    text-decoration: underline;
     cursor: pointer;
+    font: inherit;
 }
 
 button:hover {
@@ -79,9 +81,7 @@ button:hover {
 </head>
 <body>
 <h1>HOPE SUMMER MERCH 2026</h1>
-<button onclick="document.getElementById('bags').scrollIntoView();">
-    Go to Bags
-</button>    
+<a href="#" onclick="slowScroll(event)">Go to Bags</a> 
 <div class="text">
 <pre>
 
@@ -167,6 +167,20 @@ Pick up in Vienna or international shipping
 
 </div>
 <a href="/">Back to Home</a>
+<script>
+function slowScroll(event) {
+    event.preventDefault();
+
+    document.getElementById("bags").scrollIntoView({
+        behavior: "smooth"
+    });
+
+    // Extra delay by temporarily slowing the browser's smooth scroll
+    document.documentElement.style.scrollBehavior = "smooth";
+}
+</script>
+
+  
 </body>
 </html>
 
